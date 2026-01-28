@@ -21,6 +21,9 @@ path_char=\
 path=Application.cpp
 cursor=-1:35
 [source]
+path=WinExample.cpp
+cursor=-1:189
+[source]
 path=wxfb_project.cpp
 readonly=1
 hide_symbols=1
@@ -28,6 +31,9 @@ cursor=-1:0
 [header]
 path=Application.h
 cursor=-1:52
+[header]
+path=WinExample.h
+cursor=-1:211
 [header]
 path=wxfb_project.h
 readonly=1
