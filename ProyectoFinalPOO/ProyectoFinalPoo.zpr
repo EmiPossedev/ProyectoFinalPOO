@@ -15,14 +15,15 @@ tab_use_spaces=0
 explorer_path=.
 inspection_improving_template=wxString|>printf "%ls",${EXP}.m_impl._M_data()
 inherits_from=
-current_source=Readme.txt
+current_source=WinExample.cpp
 path_char=\
 [source]
 path=Application.cpp
 cursor=-1:35
 [source]
 path=WinExample.cpp
-cursor=-1:189
+cursor=9:0
+open=true
 [source]
 path=wxfb_project.cpp
 readonly=1
