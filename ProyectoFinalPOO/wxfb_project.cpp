@@ -9,7 +9,7 @@
 
 ///////////////////////////////////////////////////////////////////////////
 
-wxfbExample::wxfbExample( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
+VentanaPrincipal::VentanaPrincipal( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 	this->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNFACE ) );
@@ -17,26 +17,52 @@ wxfbExample::wxfbExample( wxWindow* parent, wxWindowID id, const wxString& title
 	wxBoxSizer* bSizer1;
 	bSizer1 = new wxBoxSizer( wxVERTICAL );
 
-	m_staticText1 = new wxStaticText( this, wxID_ANY, wxT("This is an example window integrating wxFormBuilder and ZinjaI"), wxDefaultPosition, wxSize( -1,-1 ), wxST_NO_AUTORESIZE|wxALIGN_CENTER_HORIZONTAL );
-	m_staticText1->Wrap( 300 );
-	bSizer1->Add( m_staticText1, 1, wxALIGN_CENTER|wxALL, 5 );
+	wxBoxSizer* bSizer2;
+	bSizer2 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_button1 = new wxButton( this, wxID_ANY, wxT("Close"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer1->Add( m_button1, 0, wxALIGN_RIGHT|wxALL, 5 );
+	m_button3 = new wxButton( this, wxID_ANY, wxT("Pacientes"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer2->Add( m_button3, 1, wxALL|wxEXPAND, 5 );
+
+
+	bSizer1->Add( bSizer2, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer4;
+	bSizer4 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_button4 = new wxButton( this, wxID_ANY, wxT("Kinesiologos"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer4->Add( m_button4, 1, wxALL|wxEXPAND, 5 );
+
+
+	bSizer1->Add( bSizer4, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer5;
+	bSizer5 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_button5 = new wxButton( this, wxID_ANY, wxT("Turnos"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer5->Add( m_button5, 1, wxALL|wxEXPAND, 5 );
+
+
+	bSizer1->Add( bSizer5, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer6;
+	bSizer6 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_button6 = new wxButton( this, wxID_ANY, wxT("Guardar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer6->Add( m_button6, 0, wxALL, 5 );
+
+	m_button7 = new wxButton( this, wxID_ANY, wxT("Salir"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer6->Add( m_button7, 0, wxALL, 5 );
+
+
+	bSizer1->Add( bSizer6, 0, wxALIGN_RIGHT, 5 );
 
 
 	this->SetSizer( bSizer1 );
 	this->Layout();
 
 	this->Centre( wxBOTH );
-
-	// Connect Events
-	m_button1->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( wxfbExample::OnButtonClose ), NULL, this );
 }
 
-wxfbExample::~wxfbExample()
+VentanaPrincipal::~VentanaPrincipal()
 {
-	// Disconnect Events
-	m_button1->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( wxfbExample::OnButtonClose ), NULL, this );
-
 }
