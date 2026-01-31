@@ -6,7 +6,7 @@ IMPLEMENT_APP(Application)
 
 bool Application::OnInit() {
 	wxInitAllImageHandlers();
-	VentanaPrincipal *win = new VentanaPrincipal(NULL);
+	HijaPrincipal*win = new HijaPrincipal(NULL);
 	win->Show();
 	return true;
 }
