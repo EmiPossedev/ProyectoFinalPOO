@@ -35,7 +35,11 @@ class VentanaPrincipal : public wxFrame
 		wxButton* m_button4;
 		wxButton* m_button5;
 		wxButton* m_button6;
-		wxButton* m_button7;
+		wxButton* m_botonSalirPrincipal;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void ClickBotonSalir( wxCommandEvent& event ) { event.Skip(); }
+
 
 	public:
 

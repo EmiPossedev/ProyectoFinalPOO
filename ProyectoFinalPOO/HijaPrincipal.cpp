@@ -9,3 +9,6 @@ HijaPrincipal::~HijaPrincipal() {
 }
 
 
+void HijaPrincipal::ClickBotonSalir( wxCommandEvent& event )  {
+	Close();
+}

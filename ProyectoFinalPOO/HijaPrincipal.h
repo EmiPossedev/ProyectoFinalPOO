@@ -7,6 +7,7 @@ class HijaPrincipal : public VentanaPrincipal {
 private:
 	
 protected:
+	void ClickBotonSalir( wxCommandEvent& event )  override;
 	
 public:
 	HijaPrincipal(wxWindow *parent=NULL);

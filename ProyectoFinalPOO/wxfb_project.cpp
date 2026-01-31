@@ -50,8 +50,8 @@ VentanaPrincipal::VentanaPrincipal( wxWindow* parent, wxWindowID id, const wxStr
 	m_button6 = new wxButton( this, wxID_ANY, wxT("Guardar"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer6->Add( m_button6, 0, wxALL, 5 );
 
-	m_button7 = new wxButton( this, wxID_ANY, wxT("Salir"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer6->Add( m_button7, 0, wxALL, 5 );
+	m_botonSalirPrincipal = new wxButton( this, wxID_ANY, wxT("Salir"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer6->Add( m_botonSalirPrincipal, 0, wxALL, 5 );
 
 
 	bSizer1->Add( bSizer6, 0, wxALIGN_RIGHT, 5 );
@@ -61,8 +61,14 @@ VentanaPrincipal::VentanaPrincipal( wxWindow* parent, wxWindowID id, const wxStr
 	this->Layout();
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_botonSalirPrincipal->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaPrincipal::ClickBotonSalir ), NULL, this );
 }
 
 VentanaPrincipal::~VentanaPrincipal()
 {
+	// Disconnect Events
+	m_botonSalirPrincipal->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaPrincipal::ClickBotonSalir ), NULL, this );
+
 }
