@@ -16,7 +16,7 @@ tab_use_spaces=0
 explorer_path=.
 inspection_improving_template=wxString|>printf "%ls",${EXP}.m_impl._M_data()
 inherits_from=
-current_source=Application.cpp
+current_source=HijaPrincipal.h
 path_char=\
 [source]
 path=Application.cpp
@@ -44,7 +44,7 @@ open=true
 path=wxfb_project.h
 readonly=1
 hide_symbols=1
-cursor=45:110
+cursor=48:99
 open=true
 [other]
 path=Readme.txt

@@ -20,6 +20,9 @@
 #include <wx/settings.h>
 #include <wx/sizer.h>
 #include <wx/frame.h>
+#include <wx/dialog.h>
+#include <wx/stattext.h>
+#include <wx/textctrl.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -46,6 +49,59 @@ class VentanaPrincipal : public wxFrame
 		VentanaPrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~VentanaPrincipal();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class MyDialog2
+///////////////////////////////////////////////////////////////////////////////
+class MyDialog2 : public wxDialog
+{
+	private:
+
+	protected:
+		wxButton* m_button9;
+		wxButton* m_button10;
+		wxButton* m_button11;
+		wxButton* m_button12;
+
+	public:
+
+		MyDialog2( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 482,245 ), long style = wxDEFAULT_DIALOG_STYLE );
+
+		~MyDialog2();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class MyDialog1
+///////////////////////////////////////////////////////////////////////////////
+class MyDialog1 : public wxDialog
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText3;
+		wxTextCtrl* m_textCtrl2;
+		wxStaticText* m_staticText4;
+		wxTextCtrl* m_textCtrl3;
+		wxStaticText* m_staticText7;
+		wxTextCtrl* m_textCtrl6;
+		wxStaticText* m_staticText5;
+		wxTextCtrl* m_textCtrl4;
+		wxStaticText* m_staticText8;
+		wxStaticText* m_staticText9;
+		wxTextCtrl* m_textCtrl7;
+		wxStaticText* m_staticText10;
+		wxTextCtrl* m_textCtrl8;
+		wxStaticText* m_staticText11;
+		wxTextCtrl* m_textCtrl9;
+
+	public:
+
+		MyDialog1( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 520,288 ), long style = wxDEFAULT_DIALOG_STYLE );
+
+		~MyDialog1();
 
 };
 
