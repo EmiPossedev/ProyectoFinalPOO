@@ -1,0 +1,37 @@
+# Carpetas de compilación de ZinjaI
+debug.w32/
+release.w32/
+debug.lnx/
+release.lnx/
+debug.mac/
+release.mac/
+
+# Binarios y ejecutables
+*.exe
+*.dll
+*.so
+*.dylib
+*.bin
+
+# Archivos de objeto y compilación
+*.o
+*.obj
+*.log
+
+# Archivos temporales
+*.tmp
+*.flg
+
+# Archivos generados por wxFormBuilder
+*.bak
+
+# Archivos de sistema
+Thumbs.db
+.DS_Store
+
+# Archivos de usuario/IDE
+*.user
+*.suo
+*.ncb
+*.sdf
+*.vcxproj.*
