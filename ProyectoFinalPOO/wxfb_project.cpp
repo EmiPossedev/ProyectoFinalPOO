@@ -73,7 +73,7 @@ VentanaPrincipal::~VentanaPrincipal()
 
 }
 
-MyDialog2::MyDialog2( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+VentanaPacientesPrincipal::VentanaPacientesPrincipal( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 
@@ -83,8 +83,8 @@ MyDialog2::MyDialog2( wxWindow* parent, wxWindowID id, const wxString& title, co
 	wxBoxSizer* bSizer14;
 	bSizer14 = new wxBoxSizer( wxVERTICAL );
 
-	m_button9 = new wxButton( this, wxID_ANY, wxT("MyButton"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer14->Add( m_button9, 0, wxALL|wxEXPAND, 5 );
+	m_button9 = new wxButton( this, wxID_ANY, wxT("Registrar paciente"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer14->Add( m_button9, 1, wxALL|wxEXPAND, 5 );
 
 
 	bSizer13->Add( bSizer14, 1, wxEXPAND, 5 );
@@ -92,8 +92,8 @@ MyDialog2::MyDialog2( wxWindow* parent, wxWindowID id, const wxString& title, co
 	wxBoxSizer* bSizer15;
 	bSizer15 = new wxBoxSizer( wxVERTICAL );
 
-	m_button10 = new wxButton( this, wxID_ANY, wxT("MyButton"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer15->Add( m_button10, 0, wxALL|wxEXPAND, 5 );
+	m_button10 = new wxButton( this, wxID_ANY, wxT("Ver pacientes"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer15->Add( m_button10, 1, wxALL|wxEXPAND, 5 );
 
 
 	bSizer13->Add( bSizer15, 1, wxEXPAND, 5 );
@@ -101,8 +101,8 @@ MyDialog2::MyDialog2( wxWindow* parent, wxWindowID id, const wxString& title, co
 	wxBoxSizer* bSizer16;
 	bSizer16 = new wxBoxSizer( wxVERTICAL );
 
-	m_button11 = new wxButton( this, wxID_ANY, wxT("MyButton"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer16->Add( m_button11, 0, wxALL|wxEXPAND, 5 );
+	m_button11 = new wxButton( this, wxID_ANY, wxT("Buscar paciente por DNI"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer16->Add( m_button11, 1, wxALL|wxEXPAND, 5 );
 
 
 	bSizer13->Add( bSizer16, 1, wxEXPAND, 5 );
@@ -110,11 +110,11 @@ MyDialog2::MyDialog2( wxWindow* parent, wxWindowID id, const wxString& title, co
 	wxBoxSizer* bSizer17;
 	bSizer17 = new wxBoxSizer( wxVERTICAL );
 
-	m_button12 = new wxButton( this, wxID_ANY, wxT("MyButton"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_button12 = new wxButton( this, wxID_ANY, wxT("⬅️ Volver"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer17->Add( m_button12, 0, wxALL|wxEXPAND, 5 );
 
 
-	bSizer13->Add( bSizer17, 1, wxEXPAND, 5 );
+	bSizer13->Add( bSizer17, 0, 0, 5 );
 
 
 	this->SetSizer( bSizer13 );
@@ -123,11 +123,11 @@ MyDialog2::MyDialog2( wxWindow* parent, wxWindowID id, const wxString& title, co
 	this->Centre( wxBOTH );
 }
 
-MyDialog2::~MyDialog2()
+VentanaPacientesPrincipal::~VentanaPacientesPrincipal()
 {
 }
 
-MyDialog1::MyDialog1( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+RegistrarPacientesPrincipal::RegistrarPacientesPrincipal( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 
@@ -217,6 +217,18 @@ MyDialog1::MyDialog1( wxWindow* parent, wxWindowID id, const wxString& title, co
 
 	bSizer6->Add( bSizer12, 1, wxEXPAND, 5 );
 
+	wxBoxSizer* bSizer17;
+	bSizer17 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_button10 = new wxButton( this, wxID_ANY, wxT("Cancelar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer17->Add( m_button10, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_button11 = new wxButton( this, wxID_ANY, wxT("Aceptar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer17->Add( m_button11, 0, wxALL, 5 );
+
+
+	bSizer6->Add( bSizer17, 0, wxALIGN_RIGHT, 5 );
+
 
 	this->SetSizer( bSizer6 );
 	this->Layout();
@@ -224,6 +236,6 @@ MyDialog1::MyDialog1( wxWindow* parent, wxWindowID id, const wxString& title, co
 	this->Centre( wxBOTH );
 }
 
-MyDialog1::~MyDialog1()
+RegistrarPacientesPrincipal::~RegistrarPacientesPrincipal()
 {
 }

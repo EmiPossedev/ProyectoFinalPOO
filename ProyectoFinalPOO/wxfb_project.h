@@ -53,9 +53,9 @@ class VentanaPrincipal : public wxFrame
 };
 
 ///////////////////////////////////////////////////////////////////////////////
-/// Class MyDialog2
+/// Class VentanaPacientesPrincipal
 ///////////////////////////////////////////////////////////////////////////////
-class MyDialog2 : public wxDialog
+class VentanaPacientesPrincipal : public wxDialog
 {
 	private:
 
@@ -67,16 +67,16 @@ class MyDialog2 : public wxDialog
 
 	public:
 
-		MyDialog2( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 482,245 ), long style = wxDEFAULT_DIALOG_STYLE );
+		VentanaPacientesPrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 482,245 ), long style = wxDEFAULT_DIALOG_STYLE );
 
-		~MyDialog2();
+		~VentanaPacientesPrincipal();
 
 };
 
 ///////////////////////////////////////////////////////////////////////////////
-/// Class MyDialog1
+/// Class RegistrarPacientesPrincipal
 ///////////////////////////////////////////////////////////////////////////////
-class MyDialog1 : public wxDialog
+class RegistrarPacientesPrincipal : public wxDialog
 {
 	private:
 
@@ -96,12 +96,14 @@ class MyDialog1 : public wxDialog
 		wxTextCtrl* m_textCtrl8;
 		wxStaticText* m_staticText11;
 		wxTextCtrl* m_textCtrl9;
+		wxButton* m_button10;
+		wxButton* m_button11;
 
 	public:
 
-		MyDialog1( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 520,288 ), long style = wxDEFAULT_DIALOG_STYLE );
+		RegistrarPacientesPrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 520,288 ), long style = wxDEFAULT_DIALOG_STYLE );
 
-		~MyDialog1();
+		~RegistrarPacientesPrincipal();
 
 };
 
