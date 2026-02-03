@@ -8,3 +8,4 @@ VentanaPacientesHija::~VentanaPacientesHija() {
 	
 }
 
+

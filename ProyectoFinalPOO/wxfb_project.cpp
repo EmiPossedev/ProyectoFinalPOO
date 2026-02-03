@@ -234,8 +234,14 @@ RegistrarPacientesPrincipal::RegistrarPacientesPrincipal( wxWindow* parent, wxWi
 	this->Layout();
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_button10->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( RegistrarPacientesPrincipal::ClickBotonCancelarHija ), NULL, this );
 }
 
 RegistrarPacientesPrincipal::~RegistrarPacientesPrincipal()
 {
+	// Disconnect Events
+	m_button10->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( RegistrarPacientesPrincipal::ClickBotonCancelarHija ), NULL, this );
+
 }

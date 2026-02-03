@@ -7,6 +7,7 @@ class RegistrarPacientesHija : public RegistrarPacientesPrincipal {
 private:
 	
 protected:
+	void ClickBotonCancelarHija( wxCommandEvent& event )  override;
 	
 public:
 	RegistrarPacientesHija(wxWindow *parent=NULL);

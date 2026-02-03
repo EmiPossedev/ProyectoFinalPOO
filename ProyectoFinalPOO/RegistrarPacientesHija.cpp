@@ -8,3 +8,7 @@ RegistrarPacientesHija::~RegistrarPacientesHija() {
 	
 }
 
+void RegistrarPacientesHija::ClickBotonCancelarHija( wxCommandEvent& event )  {
+	Close();
+}
+

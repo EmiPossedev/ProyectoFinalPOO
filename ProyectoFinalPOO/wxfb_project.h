@@ -99,6 +99,10 @@ class RegistrarPacientesPrincipal : public wxDialog
 		wxButton* m_button10;
 		wxButton* m_button11;
 
+		// Virtual event handlers, override them in your derived class
+		virtual void ClickBotonCancelarHija( wxCommandEvent& event ) { event.Skip(); }
+
+
 	public:
 
 		RegistrarPacientesPrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 520,288 ), long style = wxDEFAULT_DIALOG_STYLE );
