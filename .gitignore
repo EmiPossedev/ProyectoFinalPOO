@@ -35,3 +35,10 @@ Thumbs.db
 *.ncb
 *.sdf
 *.vcxproj.*
+
+# Ignorar configuraciones de ventanas de ZinjaI
+*.layout
+*.zpr.layout
+*.exe
+*.exe
+*.o
