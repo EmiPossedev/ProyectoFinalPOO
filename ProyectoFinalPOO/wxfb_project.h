@@ -23,6 +23,7 @@
 #include <wx/dialog.h>
 #include <wx/stattext.h>
 #include <wx/textctrl.h>
+#include <wx/statline.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -41,6 +42,7 @@ class VentanaPrincipal : public wxFrame
 		wxButton* m_botonSalirPrincipal;
 
 		// Virtual event handlers, override them in your derived class
+		virtual void OnPacientesClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickBotonSalir( wxCommandEvent& event ) { event.Skip(); }
 
 
@@ -65,11 +67,41 @@ class VentanaPacientesPrincipal : public wxDialog
 		wxButton* m_button11;
 		wxButton* m_button12;
 
+		// Virtual event handlers, override them in your derived class
+		virtual void OnAbrirBusquedaClick( wxCommandEvent& event ) { event.Skip(); }
+
+
 	public:
 
 		VentanaPacientesPrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 482,245 ), long style = wxDEFAULT_DIALOG_STYLE );
 
 		~VentanaPacientesPrincipal();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class BuscarPacienteHija
+///////////////////////////////////////////////////////////////////////////////
+class BuscarPacienteHija : public wxDialog
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText9;
+		wxTextCtrl* m_txtDniBuscar;
+		wxButton* m_buttonBuscarAccion;
+		wxStaticLine* m_staticline1;
+		wxStaticText* m_lblResultado;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void OnBuscarClick( wxCommandEvent& event ) { event.Skip(); }
+
+
+	public:
+
+		BuscarPacienteHija( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("BuscarPaciente"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
+
+		~BuscarPacienteHija();
 
 };
 

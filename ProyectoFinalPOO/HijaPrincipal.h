@@ -7,6 +7,7 @@ class HijaPrincipal : public VentanaPrincipal {
 private:
 	
 protected:
+	void OnPacientesClick( wxCommandEvent& event )  override;
 	void ClickBotonSalir( wxCommandEvent& event )  override;
 	
 public:

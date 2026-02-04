@@ -63,12 +63,14 @@ VentanaPrincipal::VentanaPrincipal( wxWindow* parent, wxWindowID id, const wxStr
 	this->Centre( wxBOTH );
 
 	// Connect Events
+	m_button3->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaPrincipal::OnPacientesClick ), NULL, this );
 	m_botonSalirPrincipal->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaPrincipal::ClickBotonSalir ), NULL, this );
 }
 
 VentanaPrincipal::~VentanaPrincipal()
 {
 	// Disconnect Events
+	m_button3->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaPrincipal::OnPacientesClick ), NULL, this );
 	m_botonSalirPrincipal->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaPrincipal::ClickBotonSalir ), NULL, this );
 
 }
@@ -121,10 +123,60 @@ VentanaPacientesPrincipal::VentanaPacientesPrincipal( wxWindow* parent, wxWindow
 	this->Layout();
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_button11->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaPacientesPrincipal::OnAbrirBusquedaClick ), NULL, this );
 }
 
 VentanaPacientesPrincipal::~VentanaPacientesPrincipal()
 {
+	// Disconnect Events
+	m_button11->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaPacientesPrincipal::OnAbrirBusquedaClick ), NULL, this );
+
+}
+
+BuscarPacienteHija::BuscarPacienteHija( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+
+	wxBoxSizer* bSizer18;
+	bSizer18 = new wxBoxSizer( wxVERTICAL );
+
+	m_staticText9 = new wxStaticText( this, wxID_ANY, wxT("Ingrese DNI:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText9->Wrap( -1 );
+	bSizer18->Add( m_staticText9, 0, wxALL, 5 );
+
+	m_txtDniBuscar = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer18->Add( m_txtDniBuscar, 0, wxALL, 5 );
+
+	m_buttonBuscarAccion = new wxButton( this, wxID_ANY, wxT("Buscar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer18->Add( m_buttonBuscarAccion, 0, wxALL, 5 );
+
+	m_staticline1 = new wxStaticLine( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
+	bSizer18->Add( m_staticline1, 0, wxEXPAND | wxALL, 5 );
+
+	m_lblResultado = new wxStaticText( this, wxID_ANY, wxT("Esperando búsqueda..."), wxDefaultPosition, wxDefaultSize, 0 );
+	m_lblResultado->Wrap( -1 );
+	m_lblResultado->SetFont( wxFont( 9, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial") ) );
+
+	bSizer18->Add( m_lblResultado, 0, wxALL, 5 );
+
+
+	this->SetSizer( bSizer18 );
+	this->Layout();
+	bSizer18->Fit( this );
+
+	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_buttonBuscarAccion->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BuscarPacienteHija::OnBuscarClick ), NULL, this );
+}
+
+BuscarPacienteHija::~BuscarPacienteHija()
+{
+	// Disconnect Events
+	m_buttonBuscarAccion->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BuscarPacienteHija::OnBuscarClick ), NULL, this );
+
 }
 
 RegistrarPacientesPrincipal::RegistrarPacientesPrincipal( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
