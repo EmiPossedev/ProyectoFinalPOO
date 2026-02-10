@@ -7,7 +7,9 @@ class VentanaPacientesHija : public VentanaPacientesPrincipal {
 private:
 	
 protected:
+	void OnRegistrarClick( wxCommandEvent& event )  override;
 	void OnAbrirBusquedaClick( wxCommandEvent& event )  override;
+	void OnVerListaClick( wxCommandEvent& event ) override;
 	
 public:
 	VentanaPacientesHija(wxWindow *parent=NULL);

@@ -21,6 +21,7 @@
 #include <wx/sizer.h>
 #include <wx/frame.h>
 #include <wx/dialog.h>
+#include <wx/listctrl.h>
 #include <wx/stattext.h>
 #include <wx/textctrl.h>
 #include <wx/statline.h>
@@ -68,6 +69,8 @@ class VentanaPacientesPrincipal : public wxDialog
 		wxButton* m_button12;
 
 		// Virtual event handlers, override them in your derived class
+		virtual void OnRegistrarClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnVerListaClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnAbrirBusquedaClick( wxCommandEvent& event ) { event.Skip(); }
 
 
@@ -76,6 +79,29 @@ class VentanaPacientesPrincipal : public wxDialog
 		VentanaPacientesPrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 482,245 ), long style = wxDEFAULT_DIALOG_STYLE );
 
 		~VentanaPacientesPrincipal();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class VerPacienteHija
+///////////////////////////////////////////////////////////////////////////////
+class VerPacienteHija : public wxDialog
+{
+	private:
+
+	protected:
+		wxListCtrl* m_listaPacientes;
+		wxButton* m_buttonVolver;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void OnVolverClick( wxCommandEvent& event ) { event.Skip(); }
+
+
+	public:
+
+		VerPacienteHija( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Listado de Pacientes"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
+
+		~VerPacienteHija();
 
 };
 
