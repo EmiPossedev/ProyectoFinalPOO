@@ -66,12 +66,13 @@ class VentanaPacientesPrincipal : public wxDialog
 		wxButton* m_button9;
 		wxButton* m_button10;
 		wxButton* m_button11;
-		wxButton* m_button12;
+		wxButton* m_botonVolverPacientesPrincipal;
 
 		// Virtual event handlers, override them in your derived class
 		virtual void OnRegistrarClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnVerListaClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnAbrirBusquedaClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void botonVolverPacientesPrincipal( wxCommandEvent& event ) { event.Skip(); }
 
 
 	public:
@@ -99,7 +100,7 @@ class VerPacienteHija : public wxDialog
 
 	public:
 
-		VerPacienteHija( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Listado de Pacientes"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
+		VerPacienteHija( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Listado de Pacientes"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 491,290 ), long style = wxDEFAULT_DIALOG_STYLE );
 
 		~VerPacienteHija();
 

@@ -39,3 +39,8 @@ void VentanaPacientesHija::OnVerListaClick( wxCommandEvent& event ) {
 	
 	event.Skip();
 }
+
+void VentanaPacientesHija::botonVolverPacientesPrincipal( wxCommandEvent& event )  {
+	Close();
+}
+

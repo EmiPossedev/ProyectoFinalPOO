@@ -112,8 +112,8 @@ VentanaPacientesPrincipal::VentanaPacientesPrincipal( wxWindow* parent, wxWindow
 	wxBoxSizer* bSizer17;
 	bSizer17 = new wxBoxSizer( wxVERTICAL );
 
-	m_button12 = new wxButton( this, wxID_ANY, wxT("⬅️ Volver"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer17->Add( m_button12, 0, wxALL|wxEXPAND, 5 );
+	m_botonVolverPacientesPrincipal = new wxButton( this, wxID_ANY, wxT("⬅️ Volver"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer17->Add( m_botonVolverPacientesPrincipal, 0, wxALL|wxEXPAND, 5 );
 
 
 	bSizer13->Add( bSizer17, 0, 0, 5 );
@@ -128,6 +128,7 @@ VentanaPacientesPrincipal::VentanaPacientesPrincipal( wxWindow* parent, wxWindow
 	m_button9->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaPacientesPrincipal::OnRegistrarClick ), NULL, this );
 	m_button10->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaPacientesPrincipal::OnVerListaClick ), NULL, this );
 	m_button11->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaPacientesPrincipal::OnAbrirBusquedaClick ), NULL, this );
+	m_botonVolverPacientesPrincipal->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaPacientesPrincipal::botonVolverPacientesPrincipal ), NULL, this );
 }
 
 VentanaPacientesPrincipal::~VentanaPacientesPrincipal()
@@ -136,6 +137,7 @@ VentanaPacientesPrincipal::~VentanaPacientesPrincipal()
 	m_button9->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaPacientesPrincipal::OnRegistrarClick ), NULL, this );
 	m_button10->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaPacientesPrincipal::OnVerListaClick ), NULL, this );
 	m_button11->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaPacientesPrincipal::OnAbrirBusquedaClick ), NULL, this );
+	m_botonVolverPacientesPrincipal->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaPacientesPrincipal::botonVolverPacientesPrincipal ), NULL, this );
 
 }
 
@@ -147,15 +149,20 @@ VerPacienteHija::VerPacienteHija( wxWindow* parent, wxWindowID id, const wxStrin
 	bSizer19 = new wxBoxSizer( wxVERTICAL );
 
 	m_listaPacientes = new wxListCtrl( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLC_REPORT );
-	bSizer19->Add( m_listaPacientes, 0, wxALL, 5 );
+	bSizer19->Add( m_listaPacientes, 1, wxALL|wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer20;
+	bSizer20 = new wxBoxSizer( wxVERTICAL );
 
 	m_buttonVolver = new wxButton( this, wxID_ANY, wxT("Volver"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer19->Add( m_buttonVolver, 0, wxALL, 5 );
+	bSizer20->Add( m_buttonVolver, 0, wxALL, 5 );
+
+
+	bSizer19->Add( bSizer20, 0, wxALIGN_RIGHT, 5 );
 
 
 	this->SetSizer( bSizer19 );
 	this->Layout();
-	bSizer19->Fit( this );
 
 	this->Centre( wxBOTH );
 
