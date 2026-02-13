@@ -1,5 +1,7 @@
 #include "VentanaKinesiologosHija.h"
 #include "RegistrarKinesiologoHija.h"
+#include "VerKinesiologosHija.h"
+#include "BuscarkinesiologoHija.h"
 VentanaKinesiologosHija::VentanaKinesiologosHija(wxWindow *parent) : VentanaKinesiologosPrincipal1(parent) {
 	
 }
@@ -10,11 +12,13 @@ void VentanaKinesiologosHija::OnRegistrarKineClick( wxCommandEvent& event )  {
 }
 
 void VentanaKinesiologosHija::OnVerKinesClick( wxCommandEvent& event )  {
-	event.Skip();
+	VerKinesiologosHija ventanaVerKines(this);
+	ventanaVerKines.ShowModal();
 }
 
 void VentanaKinesiologosHija::OnBuscarKineClick( wxCommandEvent& event )  {
-	event.Skip();
+	BuscarkinesiologoHija ventanaBuscar(this);
+	ventanaBuscar.ShowModal();
 }
 
 void VentanaKinesiologosHija::OnVolverKinesClick( wxCommandEvent& event )  {

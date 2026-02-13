@@ -10,6 +10,7 @@ protected:
 	void OnPacientesClick( wxCommandEvent& event )  override;
 	void ClickBotonSalir( wxCommandEvent& event )  override;
 	void OnKinesiologosClick( wxCommandEvent& event );
+	void OnTurnosClick( wxCommandEvent& event ) override;
 public:
 	HijaPrincipal(wxWindow *parent=NULL);
 	~HijaPrincipal();

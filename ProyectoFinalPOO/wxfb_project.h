@@ -45,6 +45,7 @@ class VentanaPrincipal : public wxFrame
 		// Virtual event handlers, override them in your derived class
 		virtual void OnPacientesClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnKinesiologosClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnTurnosClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickBotonSalir( wxCommandEvent& event ) { event.Skip(); }
 
 
@@ -232,6 +233,97 @@ class RegistrarKinesiologoPrincipal : public wxDialog
 		RegistrarKinesiologoPrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Registrar Nuevo Kinesiólogo"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,400 ), long style = wxDEFAULT_DIALOG_STYLE );
 
 		~RegistrarKinesiologoPrincipal();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class VerKinesiologosPrincipal
+///////////////////////////////////////////////////////////////////////////////
+class VerKinesiologosPrincipal : public wxDialog
+{
+	private:
+
+	protected:
+		wxListCtrl* m_listaKines;
+		wxButton* m_buttonVolverListaKines;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void OnVolverListaKinesClick( wxCommandEvent& event ) { event.Skip(); }
+
+
+	public:
+
+		VerKinesiologosPrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Listado de Kinesiologos"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 491,290 ), long style = wxDEFAULT_DIALOG_STYLE );
+
+		~VerKinesiologosPrincipal();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class BuscarKinesiologoPrincipal
+///////////////////////////////////////////////////////////////////////////////
+class BuscarKinesiologoPrincipal : public wxDialog
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText35;
+		wxTextCtrl* m_textDniABuscar;
+		wxButton* m_buttonEjecutarBusqueda;
+		wxStaticText* m_staticText11;
+		wxTextCtrl* m_textNombrekine;
+		wxStaticText* m_staticText12;
+		wxTextCtrl* m_textApellidoKine;
+		wxStaticText* m_staticText13;
+		wxTextCtrl* m_textDniKine;
+		wxStaticText* m_staticText14;
+		wxTextCtrl* m_textTelefonoKine;
+		wxStaticText* m_staticText15;
+		wxTextCtrl* m_textEspecialidadKine;
+		wxStaticText* m_staticText16;
+		wxTextCtrl* m_textMatriculaKine;
+		wxButton* m_buttonVolverBuscarKineClick;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void OnEjecutarBusquedaClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnVolverBuscarKineClick( wxCommandEvent& event ) { event.Skip(); }
+
+
+	public:
+
+		BuscarKinesiologoPrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Buscar Kinesiólogo"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,400 ), long style = wxDEFAULT_DIALOG_STYLE );
+
+		~BuscarKinesiologoPrincipal();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class VentanaTurnosPrincipal
+///////////////////////////////////////////////////////////////////////////////
+class VentanaTurnosPrincipal : public wxDialog
+{
+	private:
+
+	protected:
+		wxButton* m_buttonReservarTurno;
+		wxButton* m_buttonVerAgenda;
+		wxButton* m_buttonModificarTurno;
+		wxButton* m_buttonCancelarTurno;
+		wxButton* m_buttonVolverTurnos;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void OnReservarTurnoClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnVerAgendaClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnModificarTurnoClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnCancelarTurnoClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnVolverTurnosClick( wxCommandEvent& event ) { event.Skip(); }
+
+
+	public:
+
+		VentanaTurnosPrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Menú Turnos"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 482,245 ), long style = wxDEFAULT_DIALOG_STYLE );
+
+		~VentanaTurnosPrincipal();
 
 };
 
