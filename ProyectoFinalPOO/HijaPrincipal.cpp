@@ -1,5 +1,7 @@
 #include "HijaPrincipal.h"
 #include "VentanaPacientesHija.h"
+#include "VentanaKinesiologosHija.h"
+#include "VentanaTurnosHija.h"
 HijaPrincipal::HijaPrincipal(wxWindow *parent) : VentanaPrincipal(parent) {
 	
 }
@@ -21,3 +23,13 @@ void HijaPrincipal::OnPacientesClick( wxCommandEvent& event )  {
 	event.Skip();
 }
 
+void HijaPrincipal::OnKinesiologosClick( wxCommandEvent& event )  {
+	
+	VentanaKinesiologosHija ventanaMenuKines(this);
+	ventanaMenuKines.ShowModal();
+	
+}
+void HijaPrincipal::OnTurnosClick( wxCommandEvent& event ) {
+	VentanaTurnosHija ventanaMenuTurnos(this);
+	ventanaMenuTurnos.ShowModal();
+}
