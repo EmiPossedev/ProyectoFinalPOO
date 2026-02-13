@@ -7,6 +7,8 @@ class HijaPrincipal : public VentanaPrincipal {
 private:
 	
 protected:
+	void OnKinesiologosClick( wxCommandEvent& event )  override;
+	void OnTurnosClick( wxCommandEvent& event )  override;
 	void OnPacientesClick( wxCommandEvent& event )  override;
 	void ClickBotonSalir( wxCommandEvent& event )  override;
 	void OnKinesiologosClick( wxCommandEvent& event );

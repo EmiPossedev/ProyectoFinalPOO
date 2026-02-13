@@ -33,3 +33,12 @@ void HijaPrincipal::OnTurnosClick( wxCommandEvent& event ) {
 	VentanaTurnosHija ventanaMenuTurnos(this);
 	ventanaMenuTurnos.ShowModal();
 }
+
+void HijaPrincipal::OnKinesiologosClick( wxCommandEvent& event )  {
+	event.Skip();
+}
+
+void HijaPrincipal::OnTurnosClick( wxCommandEvent& event )  {
+	event.Skip();
+}
+
