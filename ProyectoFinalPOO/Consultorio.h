@@ -71,28 +71,29 @@ private:
 public:
     // Método constructor y método destructor
     Consultorio() {}
+	Consultorio(string nombreArchivoPacientes, string nombreArchivoKinesiologos, string nombreArchivoTurnos);
     ~Consultorio();
-    // Métodos para agregar/obtener pacientes
+    // Metodos para agregar/obtener pacientes
     void agregarKinesiologo(Kinesiologo *kinesiologo);
     vector<Kinesiologo *> getKinesiologos() const;
 
-    // Métodos para agregar/obtener kinesiólogos
+    // Metodos para agregar/obtener kinesiólogos
     void agregarPaciente(Paciente *paciente);
     vector<Paciente *> getPacientes() const;
 
-    // Métodos para borrar todos los pacientes, turnos y kinesiologos
+    // Metodos para borrar todos los pacientes, turnos y kinesiologos
     void borrarPacientes();
     void borrarTurnos();
     void borrarKinesiologos();
 
-    // Métodos para la gestión de los turnos
+    // Metodos para la gestión de los turnos
     vector<Turno> getTurnos() const;
     void agregarTurno(const Turno &turno);
     void cancelarTurno(const string &nombrePaciente, const Fecha &fecha, const string &hora);
     void reprogramarTurno(const string &dniPacienteBuscado, const string &horaVieja, const Fecha &fechaVieja, const Fecha &fechaNueva, const string &horaNueva);
     void ordenarTurnos();
 
-    // Función de búsqueda templatizada(funciona paragetTurnosPorFecha, getTurnosPorHora, getTurnosPorKinesiologo)
+    // Funcion de busqueda templatizada(funciona paragetTurnosPorFecha, getTurnosPorHora, getTurnosPorKinesiologo)
     template <typename T>
     vector<Turno> getTurnosPor(const T &valorBuscado)
     {
@@ -108,19 +109,19 @@ public:
         return encontrados;
     }
 
-    // Métodos de verificación
+    // Metodos de verificación
     bool verificarDisponibilidadKinesiologo(const string &dniKine, const Fecha &fecha, const string &hora);
     bool verificarDisponibilidadCamilla(const Fecha &fecha, const string &hora);
     bool verificarDisponibilidadGimnasio(const Fecha &fecha, const string &hora);
 
-    /// MÉTODOS DE BÚSQUEDA Y FILTRADO
+    /// METODOS DE BUSQUEDA Y FILTRADO
    vector<Paciente*> filtrarPorNombreApellidoPaciente(const string &nombre, const string &apellido);
    vector<Kinesiologo*> filtrarPorNombreApellidoKinesiologo(const string &nombre, const string &apellido);
 
     Kinesiologo *buscarKinesiologoPorDni(const string &dniBuscado);
     Paciente *buscarPacientePorDni(const string &dniBuscado);
 
-    // Métodos de búsqueda por id (índice en el vector correspondiente)
+    // Metodos de busqueda por id (índice en el vector correspondiente)
     Kinesiologo *buscarKinesiologoPorInd(size_t ind);
     Paciente *buscarPacientePorInd(size_t ind);
 
@@ -132,7 +133,7 @@ public:
     // Método de alerta al kinesiologo de que le tienen que pagar
     vector<Paciente *> getPacientesConPagoPendiente() const;
 
-    /// Métodos con archivos binarios
+    /// Metodos con archivos binarios
 
     // Guardar datos en archivos binarios
     void guardarPacientes(const string &nombreArchivo);

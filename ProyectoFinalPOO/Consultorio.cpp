@@ -13,7 +13,14 @@
 #include <algorithm> // para que funcione el sort
 #include <cctype>    // para usar el toupper transformar en mayusculas para filtrar por nombre
 using namespace std;
-// MÉTODO DESTRUCTOR
+
+Consultorio::Consultorio(string nombreArchivoPacientes, string nombreArchivoKinesiologos, string nombreArchivoTurnos){
+	cargarPacientes(nombreArchivoPacientes);
+	cargarKinesiologos(nombreArchivoKinesiologos);
+	cargarTurnos(nombreArchivoTurnos);
+}
+
+// METODO DESTRUCTOR
 Consultorio::~Consultorio()
 {
     for (size_t i = 0; i < kinesiologos.size(); i++)
@@ -39,9 +46,9 @@ bool coincide(const Turno &turno, const string &valor)
     return turno.hora == valor || turno.nombreKinesiologo == valor;
 }
 
-/// MÉTODOS BÁSICOS PARA AGREGAR/MODIFICAR DATOS
+/// METODOS BÁSICOS PARA AGREGAR/MODIFICAR DATOS
 
-// Métodos BÁSICOS para KINESIÓLOGOS
+// Metodos BA�SICOS para KINESIOLOGOS
 void Consultorio::agregarKinesiologo(Kinesiologo *kinesiologo)
 {
     kinesiologos.push_back(kinesiologo);

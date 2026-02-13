@@ -6,7 +6,7 @@ IMPLEMENT_APP(Application)
 
 bool Application::OnInit() {
 	wxInitAllImageHandlers();
-	Consultorio m_consultorioKinesiologos;
+	m_consultorio = new Consultorio("pacientes.dat","kinesiologos.dat","turnos.dat");
 	HijaPrincipal*win = new HijaPrincipal(NULL);
 	win->Show();
 	return true;
