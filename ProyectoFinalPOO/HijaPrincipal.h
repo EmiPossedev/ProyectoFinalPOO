@@ -9,7 +9,7 @@ private:
 protected:
 	void OnPacientesClick( wxCommandEvent& event )  override;
 	void ClickBotonSalir( wxCommandEvent& event )  override;
-	
+	void OnKinesiologosClick( wxCommandEvent& event );
 public:
 	HijaPrincipal(wxWindow *parent=NULL);
 	~HijaPrincipal();

@@ -44,6 +44,7 @@ class VentanaPrincipal : public wxFrame
 
 		// Virtual event handlers, override them in your derived class
 		virtual void OnPacientesClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnKinesiologosClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickBotonSalir( wxCommandEvent& event ) { event.Skip(); }
 
 
@@ -167,6 +168,70 @@ class RegistrarPacientesPrincipal : public wxDialog
 		RegistrarPacientesPrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 520,288 ), long style = wxDEFAULT_DIALOG_STYLE );
 
 		~RegistrarPacientesPrincipal();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class VentanaKinesiologosPrincipal1
+///////////////////////////////////////////////////////////////////////////////
+class VentanaKinesiologosPrincipal1 : public wxDialog
+{
+	private:
+
+	protected:
+		wxButton* m_buttonRegistrarKine;
+		wxButton* m_buttonVerKines;
+		wxButton* m_buttonBuscarKine;
+		wxButton* m_buttonVolverKines;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void OnRegistrarKineClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnVerKinesClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnBuscarKineClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnVolverKinesClick( wxCommandEvent& event ) { event.Skip(); }
+
+
+	public:
+
+		VentanaKinesiologosPrincipal1( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Menú Kinesiologos"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 482,245 ), long style = wxDEFAULT_DIALOG_STYLE );
+
+		~VentanaKinesiologosPrincipal1();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class RegistrarKinesiologoPrincipal
+///////////////////////////////////////////////////////////////////////////////
+class RegistrarKinesiologoPrincipal : public wxDialog
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText11;
+		wxTextCtrl* m_textNombrekine;
+		wxStaticText* m_staticText12;
+		wxTextCtrl* m_textApellidoKine;
+		wxStaticText* m_staticText13;
+		wxTextCtrl* m_textDniKine;
+		wxStaticText* m_staticText14;
+		wxTextCtrl* m_textTelefonoKine;
+		wxStaticText* m_staticText15;
+		wxTextCtrl* m_textEspecialidadKine;
+		wxStaticText* m_staticText16;
+		wxTextCtrl* m_textMatriculaKine;
+		wxButton* m_buttonCancelarKine;
+		wxButton* m_buttonAceptarKine;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void OnCancelarKineClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnAceptarKineClick( wxCommandEvent& event ) { event.Skip(); }
+
+
+	public:
+
+		RegistrarKinesiologoPrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Registrar Nuevo Kinesiólogo"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,400 ), long style = wxDEFAULT_DIALOG_STYLE );
+
+		~RegistrarKinesiologoPrincipal();
 
 };
 
