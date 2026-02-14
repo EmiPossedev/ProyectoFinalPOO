@@ -25,6 +25,7 @@
 #include <wx/stattext.h>
 #include <wx/textctrl.h>
 #include <wx/statline.h>
+#include <wx/choice.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -324,6 +325,55 @@ class VentanaTurnosPrincipal : public wxDialog
 		VentanaTurnosPrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Menú Turnos"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 482,245 ), long style = wxDEFAULT_DIALOG_STYLE );
 
 		~VentanaTurnosPrincipal();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class ReservarTurnoPrincipal
+///////////////////////////////////////////////////////////////////////////////
+class ReservarTurnoPrincipal : public wxDialog
+{
+	private:
+
+	protected:
+		wxStaticText* m_s;
+		wxTextCtrl* m_textNombrePaciente;
+		wxStaticText* m_staticText43;
+		wxTextCtrl* m_textApellidoPaciente;
+		wxStaticText* m_staticText44;
+		wxTextCtrl* m_textDniPaciente;
+		wxStaticText* m_staticText45;
+		wxTextCtrl* m_textNombreKine;
+		wxStaticText* m_staticText46;
+		wxTextCtrl* m_textApellidoKine;
+		wxStaticText* m_staticText47;
+		wxTextCtrl* m_textDniKine;
+		wxStaticText* m_staticText8;
+		wxStaticText* m_staticText9;
+		wxTextCtrl* m_textCtrl7;
+		wxStaticText* m_staticText10;
+		wxTextCtrl* m_textCtrl8;
+		wxStaticText* m_staticText11;
+		wxTextCtrl* m_textCtrl9;
+		wxStaticText* m_staticText61;
+		wxTextCtrl* m_textHora;
+		wxStaticText* m_staticText56;
+		wxChoice* m_choiceInstalacion;
+		wxStaticText* m_staticText57;
+		wxTextCtrl* m_textObservaciones;
+		wxButton* m_buttonAceptarReserva;
+		wxButton* m_buttonCancelarReserva;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void OnAceptarReservaClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void oncancelarReservaClick( wxCommandEvent& event ) { event.Skip(); }
+
+
+	public:
+
+		ReservarTurnoPrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Reservar Nuevo Turno"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxDEFAULT_DIALOG_STYLE );
+
+		~ReservarTurnoPrincipal();
 
 };
 

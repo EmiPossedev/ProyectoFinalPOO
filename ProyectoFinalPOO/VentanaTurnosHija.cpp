@@ -1,11 +1,12 @@
 #include "VentanaTurnosHija.h"
-
+#include "ReservarTurnoHija.h"
 VentanaTurnosHija::VentanaTurnosHija(wxWindow *parent) : VentanaTurnosPrincipal(parent) {
 	
 }
 
 void VentanaTurnosHija::OnReservarTurnoClick( wxCommandEvent& event )  {
-	event.Skip();
+	ReservarTurnoHija ventanaReserva(this);
+	ventanaReserva.ShowModal();
 }
 
 void VentanaTurnosHija::OnVerAgendaClick( wxCommandEvent& event )  {
@@ -17,7 +18,7 @@ void VentanaTurnosHija::OnModificarTurnoClick( wxCommandEvent& event )  {
 }
 
 void VentanaTurnosHija::OnCancelarTurnoClick( wxCommandEvent& event )  {
-	event.Skip();
+	Close();
 }
 
 void VentanaTurnosHija::OnVolverTurnosClick( wxCommandEvent& event )  {

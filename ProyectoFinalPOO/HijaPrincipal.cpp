@@ -34,11 +34,5 @@ void HijaPrincipal::OnTurnosClick( wxCommandEvent& event ) {
 	ventanaMenuTurnos.ShowModal();
 }
 
-void HijaPrincipal::OnKinesiologosClick( wxCommandEvent& event )  {
-	event.Skip();
-}
 
-void HijaPrincipal::OnTurnosClick( wxCommandEvent& event )  {
-	event.Skip();
-}
 
