@@ -35,7 +35,14 @@ private:
     bool sesionesPagas;
 
 public:
-    // Métodos para obtener y modificar los datos del paciente(en inglés es más corto)
+	// M�todos constructores
+	Paciente() : Persona() {}
+	Paciente(string nom, string ape, string tel, string dniNuevo, Fecha fechaInicio, string diag, string obraSoc, int cantTotal, int cantRealizadas, string obs, bool sesPagas)
+	: Persona(nom, ape, tel, dniNuevo), fechaDeInicio(fechaInicio), diagnostico(diag),
+	  obraSocial(obraSoc), cantSesionesTotales(cantTotal),
+	  cantSesionesRealizadas(cantRealizadas), observaciones(obs), sesionesPagas(sesPagas) {};
+	
+    // Metodos para obtener y modificar los datos del paciente(en ingles es mas corto)
     // Obtener y modificar la fecha de inicio del paciente
     Fecha getFechaDeInicio() const;
     void setFechaDeInicio(const Fecha &nuevaFechaInicio);

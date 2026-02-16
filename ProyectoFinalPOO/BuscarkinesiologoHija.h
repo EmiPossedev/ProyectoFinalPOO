@@ -8,7 +8,6 @@ private:
 	
 protected:
 	void OnEjecutarBusquedaClick( wxCommandEvent& event )  override;
-	void OnVolverBuscarKineClick( wxCommandEvent& event )  override;
 	
 public:
 	BuscarkinesiologoHija(wxWindow *parent=NULL);

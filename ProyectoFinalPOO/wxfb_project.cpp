@@ -538,67 +538,68 @@ BuscarKinesiologoPrincipal::BuscarKinesiologoPrincipal( wxWindow* parent, wxWind
 
 	m_staticText35 = new wxStaticText( this, wxID_ANY, wxT("Ingrese DNI a buscar"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText35->Wrap( -1 );
-	bSizer381->Add( m_staticText35, 0, wxALL, 5 );
+	bSizer381->Add( m_staticText35, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_textDniABuscar = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer381->Add( m_textDniABuscar, 0, wxALL, 5 );
+	bSizer381->Add( m_textDniABuscar, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_buttonEjecutarBusqueda = new wxButton( this, wxID_ANY, wxT("Buscar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer381->Add( m_buttonEjecutarBusqueda, 0, wxALL, 5 );
+	bSizer381->Add( m_buttonEjecutarBusqueda, 0, wxALL|wxALIGN_CENTER_VERTICAL|wxEXPAND, 5 );
 
 
-	bSizer37->Add( bSizer381, 1, wxEXPAND, 5 );
+	bSizer37->Add( bSizer381, 0, wxEXPAND, 5 );
 
-	m_staticText11 = new wxStaticText( this, wxID_ANY, wxT("Nombre:"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText11->Wrap( -1 );
-	bSizer37->Add( m_staticText11, 0, wxALL, 5 );
+	wxBoxSizer* bSizer59;
+	bSizer59 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_textNombrekine = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_READONLY );
-	bSizer37->Add( m_textNombrekine, 0, wxEXPAND, 5 );
+	m_staticText37 = new wxStaticText( this, wxID_ANY, wxT("Nombre:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText37->Wrap( -1 );
+	bSizer59->Add( m_staticText37, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_staticText12 = new wxStaticText( this, wxID_ANY, wxT("Apellido:"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText12->Wrap( -1 );
-	bSizer37->Add( m_staticText12, 0, wxALL, 5 );
-
-	m_textApellidoKine = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_READONLY );
-	bSizer37->Add( m_textApellidoKine, 0, wxEXPAND, 5 );
-
-	m_staticText13 = new wxStaticText( this, wxID_ANY, wxT("DNI:"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText13->Wrap( -1 );
-	bSizer37->Add( m_staticText13, 0, wxALL, 5 );
-
-	m_textDniKine = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_READONLY );
-	bSizer37->Add( m_textDniKine, 0, wxEXPAND, 5 );
-
-	m_staticText14 = new wxStaticText( this, wxID_ANY, wxT("Teléfono:"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText14->Wrap( -1 );
-	bSizer37->Add( m_staticText14, 0, wxALL, 5 );
-
-	m_textTelefonoKine = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_READONLY );
-	bSizer37->Add( m_textTelefonoKine, 0, wxEXPAND, 5 );
-
-	m_staticText15 = new wxStaticText( this, wxID_ANY, wxT("Especialidad:"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText15->Wrap( -1 );
-	bSizer37->Add( m_staticText15, 0, wxALL, 5 );
-
-	m_textEspecialidadKine = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_READONLY );
-	bSizer37->Add( m_textEspecialidadKine, 0, wxEXPAND, 5 );
-
-	m_staticText16 = new wxStaticText( this, wxID_ANY, wxT("Matricula:"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText16->Wrap( -1 );
-	bSizer37->Add( m_staticText16, 0, wxALL, 5 );
-
-	m_textMatriculaKine = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_READONLY );
-	bSizer37->Add( m_textMatriculaKine, 0, wxEXPAND, 5 );
-
-	wxBoxSizer* bSizer38;
-	bSizer38 = new wxBoxSizer( wxHORIZONTAL );
-
-	m_buttonVolverBuscarKineClick = new wxButton( this, wxID_ANY, wxT("Volver"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer38->Add( m_buttonVolverBuscarKineClick, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	m_textCtrl33 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_READONLY );
+	bSizer59->Add( m_textCtrl33, 1, wxALL, 5 );
 
 
-	bSizer37->Add( bSizer38, 1, 0, 5 );
+	bSizer37->Add( bSizer59, 0, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer60;
+	bSizer60 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText39 = new wxStaticText( this, wxID_ANY, wxT("Apellido:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText39->Wrap( -1 );
+	bSizer60->Add( m_staticText39, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_textCtrl34 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_READONLY );
+	bSizer60->Add( m_textCtrl34, 1, wxALL, 5 );
+
+
+	bSizer37->Add( bSizer60, 0, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer61;
+	bSizer61 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText40 = new wxStaticText( this, wxID_ANY, wxT("Matrícula:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText40->Wrap( -1 );
+	bSizer61->Add( m_staticText40, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_textCtrl35 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_READONLY );
+	bSizer61->Add( m_textCtrl35, 1, wxALL, 5 );
+
+
+	bSizer37->Add( bSizer61, 0, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer52;
+	bSizer52 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText34 = new wxStaticText( this, wxID_ANY, wxT("Especialidad:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText34->Wrap( -1 );
+	bSizer52->Add( m_staticText34, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_textCtrl30 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_READONLY );
+	bSizer52->Add( m_textCtrl30, 1, wxALL, 5 );
+
+
+	bSizer37->Add( bSizer52, 0, wxEXPAND, 5 );
 
 
 	this->SetSizer( bSizer37 );
@@ -608,14 +609,12 @@ BuscarKinesiologoPrincipal::BuscarKinesiologoPrincipal( wxWindow* parent, wxWind
 
 	// Connect Events
 	m_buttonEjecutarBusqueda->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BuscarKinesiologoPrincipal::OnEjecutarBusquedaClick ), NULL, this );
-	m_buttonVolverBuscarKineClick->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BuscarKinesiologoPrincipal::OnVolverBuscarKineClick ), NULL, this );
 }
 
 BuscarKinesiologoPrincipal::~BuscarKinesiologoPrincipal()
 {
 	// Disconnect Events
 	m_buttonEjecutarBusqueda->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BuscarKinesiologoPrincipal::OnEjecutarBusquedaClick ), NULL, this );
-	m_buttonVolverBuscarKineClick->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BuscarKinesiologoPrincipal::OnVolverBuscarKineClick ), NULL, this );
 
 }
 
@@ -629,20 +628,11 @@ VentanaTurnosPrincipal::VentanaTurnosPrincipal( wxWindow* parent, wxWindowID id,
 	wxBoxSizer* bSizer14;
 	bSizer14 = new wxBoxSizer( wxVERTICAL );
 
-	m_buttonReservarTurno = new wxButton( this, wxID_ANY, wxT("Reservar nuevo turno"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_buttonReservarTurno = new wxButton( this, wxID_ANY, wxT("Reservar turno"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer14->Add( m_buttonReservarTurno, 1, wxALL|wxEXPAND, 5 );
 
 
 	bSizer13->Add( bSizer14, 1, wxEXPAND, 5 );
-
-	wxBoxSizer* bSizer15;
-	bSizer15 = new wxBoxSizer( wxVERTICAL );
-
-	m_buttonVerAgenda = new wxButton( this, wxID_ANY, wxT("Ver agenda"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer15->Add( m_buttonVerAgenda, 1, wxALL|wxEXPAND, 5 );
-
-
-	bSizer13->Add( bSizer15, 1, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer16;
 	bSizer16 = new wxBoxSizer( wxVERTICAL );
@@ -653,14 +643,14 @@ VentanaTurnosPrincipal::VentanaTurnosPrincipal( wxWindow* parent, wxWindowID id,
 
 	bSizer13->Add( bSizer16, 1, wxEXPAND, 5 );
 
-	wxBoxSizer* bSizer161;
-	bSizer161 = new wxBoxSizer( wxVERTICAL );
+	wxBoxSizer* bSizer53;
+	bSizer53 = new wxBoxSizer( wxVERTICAL );
 
-	m_buttonCancelarTurno = new wxButton( this, wxID_ANY, wxT("Cancelar turno"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer161->Add( m_buttonCancelarTurno, 1, wxALL|wxEXPAND, 5 );
+	m_buttonVerAgenda = new wxButton( this, wxID_ANY, wxT("Ver agenda"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer53->Add( m_buttonVerAgenda, 1, wxALL|wxEXPAND, 5 );
 
 
-	bSizer13->Add( bSizer161, 1, wxEXPAND, 5 );
+	bSizer13->Add( bSizer53, 1, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer17;
 	bSizer17 = new wxBoxSizer( wxVERTICAL );
@@ -679,9 +669,8 @@ VentanaTurnosPrincipal::VentanaTurnosPrincipal( wxWindow* parent, wxWindowID id,
 
 	// Connect Events
 	m_buttonReservarTurno->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaTurnosPrincipal::OnReservarTurnoClick ), NULL, this );
-	m_buttonVerAgenda->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaTurnosPrincipal::OnVerAgendaClick ), NULL, this );
 	m_buttonModificarTurno->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaTurnosPrincipal::OnModificarTurnoClick ), NULL, this );
-	m_buttonCancelarTurno->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaTurnosPrincipal::OnCancelarTurnoClick ), NULL, this );
+	m_buttonVerAgenda->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaTurnosPrincipal::OnVerAgendaClick ), NULL, this );
 	m_buttonVolverTurnos->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaTurnosPrincipal::OnVolverTurnosClick ), NULL, this );
 }
 
@@ -689,9 +678,8 @@ VentanaTurnosPrincipal::~VentanaTurnosPrincipal()
 {
 	// Disconnect Events
 	m_buttonReservarTurno->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaTurnosPrincipal::OnReservarTurnoClick ), NULL, this );
-	m_buttonVerAgenda->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaTurnosPrincipal::OnVerAgendaClick ), NULL, this );
 	m_buttonModificarTurno->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaTurnosPrincipal::OnModificarTurnoClick ), NULL, this );
-	m_buttonCancelarTurno->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaTurnosPrincipal::OnCancelarTurnoClick ), NULL, this );
+	m_buttonVerAgenda->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaTurnosPrincipal::OnVerAgendaClick ), NULL, this );
 	m_buttonVolverTurnos->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaTurnosPrincipal::OnVolverTurnosClick ), NULL, this );
 
 }
@@ -708,78 +696,78 @@ ReservarTurnoPrincipal::ReservarTurnoPrincipal( wxWindow* parent, wxWindowID id,
 
 	m_s = new wxStaticText( this, wxID_ANY, wxT("Nombre Paciente:"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_s->Wrap( -1 );
-	bSizer50->Add( m_s, 0, wxALL, 5 );
+	bSizer50->Add( m_s, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_textNombrePaciente = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer50->Add( m_textNombrePaciente, 0, wxALL, 5 );
+	bSizer50->Add( m_textNombrePaciente, 1, wxALL, 5 );
 
 
-	bSizer49->Add( bSizer50, 1, wxEXPAND, 5 );
+	bSizer49->Add( bSizer50, 0, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer52;
 	bSizer52 = new wxBoxSizer( wxHORIZONTAL );
 
 	m_staticText43 = new wxStaticText( this, wxID_ANY, wxT("Apellido Paciente:"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText43->Wrap( -1 );
-	bSizer52->Add( m_staticText43, 0, wxALL, 5 );
+	bSizer52->Add( m_staticText43, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_textApellidoPaciente = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer52->Add( m_textApellidoPaciente, 0, wxALL, 5 );
+	bSizer52->Add( m_textApellidoPaciente, 1, wxALL, 5 );
 
 
-	bSizer49->Add( bSizer52, 1, wxEXPAND, 5 );
+	bSizer49->Add( bSizer52, 0, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer53;
 	bSizer53 = new wxBoxSizer( wxHORIZONTAL );
 
 	m_staticText44 = new wxStaticText( this, wxID_ANY, wxT("DNI Paciente:"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText44->Wrap( -1 );
-	bSizer53->Add( m_staticText44, 0, wxALL, 5 );
+	bSizer53->Add( m_staticText44, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_textDniPaciente = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer53->Add( m_textDniPaciente, 0, wxALL, 5 );
 
 
-	bSizer49->Add( bSizer53, 1, wxEXPAND, 5 );
+	bSizer49->Add( bSizer53, 0, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer54;
 	bSizer54 = new wxBoxSizer( wxHORIZONTAL );
 
 	m_staticText45 = new wxStaticText( this, wxID_ANY, wxT("Nombre Kinesiologo"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText45->Wrap( -1 );
-	bSizer54->Add( m_staticText45, 0, wxALL, 5 );
+	bSizer54->Add( m_staticText45, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_textNombreKine = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer54->Add( m_textNombreKine, 0, wxALL, 5 );
+	bSizer54->Add( m_textNombreKine, 1, wxALL, 5 );
 
 
-	bSizer49->Add( bSizer54, 1, wxEXPAND, 5 );
+	bSizer49->Add( bSizer54, 0, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer55;
 	bSizer55 = new wxBoxSizer( wxHORIZONTAL );
 
 	m_staticText46 = new wxStaticText( this, wxID_ANY, wxT("Apellido Kinesiologo:"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText46->Wrap( -1 );
-	bSizer55->Add( m_staticText46, 0, wxALL, 5 );
+	bSizer55->Add( m_staticText46, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_textApellidoKine = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer55->Add( m_textApellidoKine, 0, wxALL, 5 );
+	bSizer55->Add( m_textApellidoKine, 1, wxALL, 5 );
 
 
-	bSizer49->Add( bSizer55, 1, wxEXPAND, 5 );
+	bSizer49->Add( bSizer55, 0, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer56;
 	bSizer56 = new wxBoxSizer( wxHORIZONTAL );
 
 	m_staticText47 = new wxStaticText( this, wxID_ANY, wxT("DNI Kinesiologo:"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText47->Wrap( -1 );
-	bSizer56->Add( m_staticText47, 0, wxALL, 5 );
+	bSizer56->Add( m_staticText47, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_textDniKine = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer56->Add( m_textDniKine, 0, wxALL, 5 );
 
 
-	bSizer49->Add( bSizer56, 1, wxEXPAND, 5 );
+	bSizer49->Add( bSizer56, 0, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer12;
 	bSizer12 = new wxBoxSizer( wxHORIZONTAL );
@@ -810,20 +798,20 @@ ReservarTurnoPrincipal::ReservarTurnoPrincipal( wxWindow* parent, wxWindowID id,
 	bSizer12->Add( m_textCtrl9, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 
-	bSizer49->Add( bSizer12, 1, wxEXPAND, 5 );
+	bSizer49->Add( bSizer12, 0, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer65;
 	bSizer65 = new wxBoxSizer( wxHORIZONTAL );
 
 	m_staticText61 = new wxStaticText( this, wxID_ANY, wxT("Hora (HH:MM): "), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText61->Wrap( -1 );
-	bSizer65->Add( m_staticText61, 0, wxALL, 5 );
+	bSizer65->Add( m_staticText61, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_textHora = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer65->Add( m_textHora, 0, wxALL, 5 );
 
 
-	bSizer49->Add( bSizer65, 1, wxEXPAND, 5 );
+	bSizer49->Add( bSizer65, 0, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer60;
 	bSizer60 = new wxBoxSizer( wxHORIZONTAL );
@@ -839,7 +827,7 @@ ReservarTurnoPrincipal::ReservarTurnoPrincipal( wxWindow* parent, wxWindowID id,
 	bSizer60->Add( m_choiceInstalacion, 0, wxALL, 5 );
 
 
-	bSizer49->Add( bSizer60, 1, wxEXPAND, 5 );
+	bSizer49->Add( bSizer60, 0, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer61;
 	bSizer61 = new wxBoxSizer( wxHORIZONTAL );
@@ -849,22 +837,22 @@ ReservarTurnoPrincipal::ReservarTurnoPrincipal( wxWindow* parent, wxWindowID id,
 	bSizer61->Add( m_staticText57, 0, wxALL, 5 );
 
 	m_textObservaciones = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 250,80 ), wxTE_MULTILINE );
-	bSizer61->Add( m_textObservaciones, 0, wxALL, 5 );
+	bSizer61->Add( m_textObservaciones, 1, wxALL, 5 );
 
 
-	bSizer49->Add( bSizer61, 1, wxEXPAND, 5 );
+	bSizer49->Add( bSizer61, 0, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer62;
 	bSizer62 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_buttonAceptarReserva = new wxButton( this, wxID_ANY, wxT("Aceptar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer62->Add( m_buttonAceptarReserva, 0, wxALL, 5 );
-
 	m_buttonCancelarReserva = new wxButton( this, wxID_ANY, wxT("Cancelar"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer62->Add( m_buttonCancelarReserva, 0, wxALL, 5 );
 
+	m_buttonAceptarReserva = new wxButton( this, wxID_ANY, wxT("Aceptar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer62->Add( m_buttonAceptarReserva, 0, wxALL, 5 );
 
-	bSizer49->Add( bSizer62, 1, wxEXPAND, 5 );
+
+	bSizer49->Add( bSizer62, 0, wxALIGN_RIGHT, 5 );
 
 
 	this->SetSizer( bSizer49 );
@@ -874,14 +862,14 @@ ReservarTurnoPrincipal::ReservarTurnoPrincipal( wxWindow* parent, wxWindowID id,
 	this->Centre( wxBOTH );
 
 	// Connect Events
-	m_buttonAceptarReserva->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ReservarTurnoPrincipal::OnAceptarReservaClick ), NULL, this );
 	m_buttonCancelarReserva->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ReservarTurnoPrincipal::oncancelarReservaClick ), NULL, this );
+	m_buttonAceptarReserva->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ReservarTurnoPrincipal::OnAceptarReservaClick ), NULL, this );
 }
 
 ReservarTurnoPrincipal::~ReservarTurnoPrincipal()
 {
 	// Disconnect Events
-	m_buttonAceptarReserva->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ReservarTurnoPrincipal::OnAceptarReservaClick ), NULL, this );
 	m_buttonCancelarReserva->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ReservarTurnoPrincipal::oncancelarReservaClick ), NULL, this );
+	m_buttonAceptarReserva->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ReservarTurnoPrincipal::OnAceptarReservaClick ), NULL, this );
 
 }

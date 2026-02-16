@@ -8,10 +8,6 @@ void BuscarkinesiologoHija::OnEjecutarBusquedaClick( wxCommandEvent& event )  {
 	event.Skip();
 }
 
-void BuscarkinesiologoHija::OnVolverBuscarKineClick( wxCommandEvent& event )  {
-	Close();
-}
-
 BuscarkinesiologoHija::~BuscarkinesiologoHija() {
 	
 }

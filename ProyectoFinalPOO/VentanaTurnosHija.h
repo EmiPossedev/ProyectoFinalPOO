@@ -10,7 +10,6 @@ protected:
 	void OnReservarTurnoClick( wxCommandEvent& event )  override;
 	void OnVerAgendaClick( wxCommandEvent& event )  override;
 	void OnModificarTurnoClick( wxCommandEvent& event )  override;
-	void OnCancelarTurnoClick( wxCommandEvent& event )  override;
 	void OnVolverTurnosClick( wxCommandEvent& event )  override;
 	
 public:

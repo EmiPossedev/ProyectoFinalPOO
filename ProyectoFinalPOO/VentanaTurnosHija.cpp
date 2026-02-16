@@ -17,10 +17,6 @@ void VentanaTurnosHija::OnModificarTurnoClick( wxCommandEvent& event )  {
 	event.Skip();
 }
 
-void VentanaTurnosHija::OnCancelarTurnoClick( wxCommandEvent& event )  {
-	Close();
-}
-
 void VentanaTurnosHija::OnVolverTurnosClick( wxCommandEvent& event )  {
 	Close();
 }

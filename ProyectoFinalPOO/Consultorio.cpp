@@ -370,7 +370,7 @@ vector<Paciente *> Consultorio::getPacientesConPagoPendiente() const
 
 /// MÃ‰TODOS DE ARCHIVOS BINARIOS
 
-// MÃ©todo para guardar/cargar los pacientes en un archivo binario
+// Metodo para guardar/cargar los pacientes en un archivo binario
 void Consultorio::guardarPacientes(const string &nombreArchivo)
 {
     ofstream bin(nombreArchivo, ios::binary | ios::trunc); // la banderea trunc nos va a ayudar a que no se dupliquen los pacientes guardados en el vector
@@ -407,31 +407,29 @@ void Consultorio::cargarPacientes(const string &nombreArchivo)
     if (!bin.is_open())
         return; // Si no existe, no es error critico, solo no carga nada
 
-    // 1. LIMPIEZA DE MEMORIA (IMPORTANTE)
+    // Primero limpiamos la memoria por las dudas
     for (auto p : pacientes)
         delete p;
     pacientes.clear();
 
     RegistroPaciente RegPaciente;
-    // <--- CORREGIDO: QuitÃ© los parÃ©ntesis extra del while
     while (bin.read(reinterpret_cast<char *>(&RegPaciente), sizeof(RegistroPaciente)))
     {
-        Paciente *p = new Paciente();
-        p->setNombre(string(RegPaciente.nombre));
-        p->setApellido(string(RegPaciente.apellido));
-        p->setTelefono(RegPaciente.telefono);
-        p->setDni(string(RegPaciente.dni));
-        p->setFechaDeInicio(RegPaciente.fechaDeInicio);
-        p->setDiagnostico(string(RegPaciente.diagnostico));
-        p->setObraSocial(string(RegPaciente.obraSocial));
-        p->setCantSesionesTotales(RegPaciente.cantSesionesTotales);
-        p->setCantidadSesionesRealizadas(RegPaciente.cantSesionesRealizadas);
-        p->setObservaciones(string(RegPaciente.observaciones));
-        if (RegPaciente.sesionesPagas)
-            p->marcarComoPagado();
-        else
-            p->marcarComoPendiente();
-        pacientes.push_back(p);
+	// Implementé las modificaciones que me dió el profe Cesar
+	Paciente *p = new Paciente(
+		string(RegPaciente.nombre),
+		string(RegPaciente.apellido),
+		string(RegPaciente.telefono),
+		string(RegPaciente.dni),
+		RegPaciente.fechaDeInicio,
+		string(RegPaciente.diagnostico),
+		string(RegPaciente.obraSocial),
+		RegPaciente.cantSesionesTotales,
+		RegPaciente.cantSesionesRealizadas,
+		string(RegPaciente.observaciones),
+		RegPaciente.sesionesPagas
+		);
+		pacientes.push_back(p);
     }
     bin.close();
     cout << "Pacientes cargados: " << pacientes.size() << endl;
@@ -481,17 +479,17 @@ void Consultorio::cargarKinesiologos(const string &nombreArchivo)
     RegistroKinesiologo RegKinesio;
     while (bin.read(reinterpret_cast<char *>(&RegKinesio), sizeof(RegistroKinesiologo)))
     {
-        Kinesiologo *k = new Kinesiologo();
-
-        k->setNombre(string(RegKinesio.nombre));
-        k->setApellido(string(RegKinesio.apellido));
-        k->setTelefono(RegKinesio.telefono);
-        k->setDni(string(RegKinesio.dni));
-        k->setEspecialidad(string(RegKinesio.especialidad));
-        k->setMatricula(RegKinesio.matricula);
-        k->setCantPacientesAtendidos(RegKinesio.cantidadPacientesAtendidos);
-
-        kinesiologos.push_back(k);
+		// Implementé las modificaciones que me dió el profe Cesar
+		Kinesiologo *k = new Kinesiologo(
+			string(RegKinesio.nombre),
+			string(RegKinesio.apellido),
+			string(RegKinesio.telefono),
+			string(RegKinesio.dni),
+			RegKinesio.matricula,
+			string(RegKinesio.especialidad),
+			RegKinesio.cantidadPacientesAtendidos
+		);
+		kinesiologos.push_back(k);
     }
     bin.close();
     cout << "Kinesiologos cargados: " << kinesiologos.size() << endl;

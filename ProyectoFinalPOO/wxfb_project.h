@@ -271,28 +271,22 @@ class BuscarKinesiologoPrincipal : public wxDialog
 		wxStaticText* m_staticText35;
 		wxTextCtrl* m_textDniABuscar;
 		wxButton* m_buttonEjecutarBusqueda;
-		wxStaticText* m_staticText11;
-		wxTextCtrl* m_textNombrekine;
-		wxStaticText* m_staticText12;
-		wxTextCtrl* m_textApellidoKine;
-		wxStaticText* m_staticText13;
-		wxTextCtrl* m_textDniKine;
-		wxStaticText* m_staticText14;
-		wxTextCtrl* m_textTelefonoKine;
-		wxStaticText* m_staticText15;
-		wxTextCtrl* m_textEspecialidadKine;
-		wxStaticText* m_staticText16;
-		wxTextCtrl* m_textMatriculaKine;
-		wxButton* m_buttonVolverBuscarKineClick;
+		wxStaticText* m_staticText37;
+		wxTextCtrl* m_textCtrl33;
+		wxStaticText* m_staticText39;
+		wxTextCtrl* m_textCtrl34;
+		wxStaticText* m_staticText40;
+		wxTextCtrl* m_textCtrl35;
+		wxStaticText* m_staticText34;
+		wxTextCtrl* m_textCtrl30;
 
 		// Virtual event handlers, override them in your derived class
 		virtual void OnEjecutarBusquedaClick( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnVolverBuscarKineClick( wxCommandEvent& event ) { event.Skip(); }
 
 
 	public:
 
-		BuscarKinesiologoPrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Buscar Kinesiólogo"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,400 ), long style = wxDEFAULT_DIALOG_STYLE );
+		BuscarKinesiologoPrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Buscar Kinesiólogo"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 449,235 ), long style = wxDEFAULT_DIALOG_STYLE );
 
 		~BuscarKinesiologoPrincipal();
 
@@ -307,16 +301,14 @@ class VentanaTurnosPrincipal : public wxDialog
 
 	protected:
 		wxButton* m_buttonReservarTurno;
-		wxButton* m_buttonVerAgenda;
 		wxButton* m_buttonModificarTurno;
-		wxButton* m_buttonCancelarTurno;
+		wxButton* m_buttonVerAgenda;
 		wxButton* m_buttonVolverTurnos;
 
 		// Virtual event handlers, override them in your derived class
 		virtual void OnReservarTurnoClick( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnVerAgendaClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnModificarTurnoClick( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnCancelarTurnoClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnVerAgendaClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnVolverTurnosClick( wxCommandEvent& event ) { event.Skip(); }
 
 
@@ -361,12 +353,12 @@ class ReservarTurnoPrincipal : public wxDialog
 		wxChoice* m_choiceInstalacion;
 		wxStaticText* m_staticText57;
 		wxTextCtrl* m_textObservaciones;
-		wxButton* m_buttonAceptarReserva;
 		wxButton* m_buttonCancelarReserva;
+		wxButton* m_buttonAceptarReserva;
 
 		// Virtual event handlers, override them in your derived class
-		virtual void OnAceptarReservaClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void oncancelarReservaClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnAceptarReservaClick( wxCommandEvent& event ) { event.Skip(); }
 
 
 	public:
