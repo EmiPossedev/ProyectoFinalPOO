@@ -188,29 +188,40 @@ BuscarPacienteHija::BuscarPacienteHija( wxWindow* parent, wxWindowID id, const w
 	wxBoxSizer* bSizer18;
 	bSizer18 = new wxBoxSizer( wxVERTICAL );
 
+	wxBoxSizer* bSizer61;
+	bSizer61 = new wxBoxSizer( wxHORIZONTAL );
+
 	m_staticText9 = new wxStaticText( this, wxID_ANY, wxT("Ingrese DNI:"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText9->Wrap( -1 );
-	bSizer18->Add( m_staticText9, 0, wxALL, 5 );
+	bSizer61->Add( m_staticText9, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_txtDniBuscar = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer18->Add( m_txtDniBuscar, 0, wxALL, 5 );
+	bSizer61->Add( m_txtDniBuscar, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_buttonBuscarAccion = new wxButton( this, wxID_ANY, wxT("Buscar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer18->Add( m_buttonBuscarAccion, 0, wxALL, 5 );
+	bSizer61->Add( m_buttonBuscarAccion, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer18->Add( bSizer61, 0, wxEXPAND, 5 );
 
 	m_staticline1 = new wxStaticLine( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
 	bSizer18->Add( m_staticline1, 0, wxEXPAND | wxALL, 5 );
+
+	wxBoxSizer* bSizer62;
+	bSizer62 = new wxBoxSizer( wxVERTICAL );
 
 	m_lblResultado = new wxStaticText( this, wxID_ANY, wxT("Esperando búsqueda..."), wxDefaultPosition, wxDefaultSize, 0 );
 	m_lblResultado->Wrap( -1 );
 	m_lblResultado->SetFont( wxFont( 9, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial") ) );
 
-	bSizer18->Add( m_lblResultado, 0, wxALL, 5 );
+	bSizer62->Add( m_lblResultado, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+
+
+	bSizer18->Add( bSizer62, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
 
 
 	this->SetSizer( bSizer18 );
 	this->Layout();
-	bSizer18->Fit( this );
 
 	this->Centre( wxBOTH );
 
@@ -417,59 +428,95 @@ RegistrarKinesiologoPrincipal::RegistrarKinesiologoPrincipal( wxWindow* parent, 
 	wxBoxSizer* bSizer37;
 	bSizer37 = new wxBoxSizer( wxVERTICAL );
 
+	wxBoxSizer* bSizer53;
+	bSizer53 = new wxBoxSizer( wxHORIZONTAL );
+
 	m_staticText11 = new wxStaticText( this, wxID_ANY, wxT("Nombre:"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText11->Wrap( -1 );
-	bSizer37->Add( m_staticText11, 0, wxALL, 5 );
+	bSizer53->Add( m_staticText11, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_textNombrekine = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer37->Add( m_textNombrekine, 0, wxEXPAND, 5 );
+	bSizer53->Add( m_textNombrekine, 1, wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer37->Add( bSizer53, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer54;
+	bSizer54 = new wxBoxSizer( wxHORIZONTAL );
 
 	m_staticText12 = new wxStaticText( this, wxID_ANY, wxT("Apellido:"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText12->Wrap( -1 );
-	bSizer37->Add( m_staticText12, 0, wxALL, 5 );
+	bSizer54->Add( m_staticText12, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_textApellidoKine = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer37->Add( m_textApellidoKine, 0, wxEXPAND, 5 );
+	bSizer54->Add( m_textApellidoKine, 1, wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer37->Add( bSizer54, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer55;
+	bSizer55 = new wxBoxSizer( wxHORIZONTAL );
 
 	m_staticText13 = new wxStaticText( this, wxID_ANY, wxT("DNI:"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText13->Wrap( -1 );
-	bSizer37->Add( m_staticText13, 0, wxALL, 5 );
+	bSizer55->Add( m_staticText13, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_textDniKine = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer37->Add( m_textDniKine, 0, wxEXPAND, 5 );
+	bSizer55->Add( m_textDniKine, 1, wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer37->Add( bSizer55, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer57;
+	bSizer57 = new wxBoxSizer( wxHORIZONTAL );
 
 	m_staticText14 = new wxStaticText( this, wxID_ANY, wxT("Teléfono:"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText14->Wrap( -1 );
-	bSizer37->Add( m_staticText14, 0, wxALL, 5 );
+	bSizer57->Add( m_staticText14, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_textTelefonoKine = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer37->Add( m_textTelefonoKine, 0, wxEXPAND, 5 );
+	bSizer57->Add( m_textTelefonoKine, 1, wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer37->Add( bSizer57, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer58;
+	bSizer58 = new wxBoxSizer( wxHORIZONTAL );
 
 	m_staticText15 = new wxStaticText( this, wxID_ANY, wxT("Especialidad:"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText15->Wrap( -1 );
-	bSizer37->Add( m_staticText15, 0, wxALL, 5 );
+	bSizer58->Add( m_staticText15, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_textEspecialidadKine = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer37->Add( m_textEspecialidadKine, 0, wxEXPAND, 5 );
+	bSizer58->Add( m_textEspecialidadKine, 1, wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer37->Add( bSizer58, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer59;
+	bSizer59 = new wxBoxSizer( wxHORIZONTAL );
 
 	m_staticText16 = new wxStaticText( this, wxID_ANY, wxT("Matricula:"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText16->Wrap( -1 );
-	bSizer37->Add( m_staticText16, 0, wxALL, 5 );
+	bSizer59->Add( m_staticText16, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_textMatriculaKine = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer37->Add( m_textMatriculaKine, 0, wxEXPAND, 5 );
+	bSizer59->Add( m_textMatriculaKine, 1, wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer37->Add( bSizer59, 1, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer38;
 	bSizer38 = new wxBoxSizer( wxHORIZONTAL );
 
 	m_buttonCancelarKine = new wxButton( this, wxID_ANY, wxT("Cancelar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer38->Add( m_buttonCancelarKine, 0, wxALL, 5 );
+	bSizer38->Add( m_buttonCancelarKine, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_buttonAceptarKine = new wxButton( this, wxID_ANY, wxT("Aceptar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer38->Add( m_buttonAceptarKine, 0, wxALL, 5 );
+	bSizer38->Add( m_buttonAceptarKine, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 
-	bSizer37->Add( bSizer38, 1, 0, 5 );
+	bSizer37->Add( bSizer38, 1, wxALIGN_RIGHT, 5 );
 
 
 	this->SetSizer( bSizer37 );

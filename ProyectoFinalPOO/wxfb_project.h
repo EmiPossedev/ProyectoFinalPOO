@@ -129,7 +129,7 @@ class BuscarPacienteHija : public wxDialog
 
 	public:
 
-		BuscarPacienteHija( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("BuscarPaciente"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
+		BuscarPacienteHija( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("BuscarPaciente"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 339,183 ), long style = wxDEFAULT_DIALOG_STYLE );
 
 		~BuscarPacienteHija();
 
