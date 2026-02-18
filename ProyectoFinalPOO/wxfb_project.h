@@ -122,14 +122,16 @@ class BuscarPacienteHija : public wxDialog
 		wxButton* m_buttonBuscarAccion;
 		wxStaticLine* m_staticline1;
 		wxStaticText* m_lblResultado;
+		wxButton* m_button28;
 
 		// Virtual event handlers, override them in your derived class
 		virtual void OnBuscarClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_botonVolverBuscarPaciente( wxCommandEvent& event ) { event.Skip(); }
 
 
 	public:
 
-		BuscarPacienteHija( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("BuscarPaciente"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 339,183 ), long style = wxDEFAULT_DIALOG_STYLE );
+		BuscarPacienteHija( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("BuscarPaciente"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 494,227 ), long style = wxDEFAULT_DIALOG_STYLE );
 
 		~BuscarPacienteHija();
 

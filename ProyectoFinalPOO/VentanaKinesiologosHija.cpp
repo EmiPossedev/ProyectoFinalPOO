@@ -2,7 +2,8 @@
 #include "RegistrarKinesiologoHija.h"
 #include "VerKinesiologosHija.h"
 #include "BuscarkinesiologoHija.h"
-VentanaKinesiologosHija::VentanaKinesiologosHija(wxWindow *parent) : VentanaKinesiologosPrincipal1(parent) {
+#include "Consultorio.h"
+VentanaKinesiologosHija::VentanaKinesiologosHija(wxWindow *parent, Consultorio *consultorio) : VentanaKinesiologosPrincipal1(parent), m_consultorio(consultorio) {
 	
 }
 

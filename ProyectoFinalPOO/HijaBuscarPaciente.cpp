@@ -8,16 +8,16 @@ HijaBuscarPaciente::HijaBuscarPaciente(wxWindow *parent) : BuscarPacienteHija(pa
 // Lo que pasa cuando tocas el botón "Buscar"
 void HijaBuscarPaciente::OnBuscarClick( wxCommandEvent& event ) {
 	
-	// 1. Obtener lo que escribió el usuario en la cajita
+	// Obtener lo que escribió el usuario en la cajita
 	wxString dniIngresado = m_txtDniBuscar->GetValue();
 	
-	// 2. Verificar si está vacío
+	// Verificar si está vacío
 	if (dniIngresado.IsEmpty()) {
 		wxMessageBox("¡Debes escribir un DNI!", "Error", wxOK | wxICON_ERROR);
 		return;
 	}
 	
-	// 3. Simulación de búsqueda (Más adelante conectaremos esto con tus archivos reales)
+	// Simulación de búsqueda (Más adelante conectaremos esto con los archivos reales)
 	if (dniIngresado == "111") {
 		m_lblResultado->SetLabel("Paciente: TOMAS (Admin)");
 		// Pintar el texto de Azul
@@ -32,3 +32,8 @@ void HijaBuscarPaciente::OnBuscarClick( wxCommandEvent& event ) {
 	// Refrescar la ventana para que se acomoden los textos
 	this->Layout();
 }
+
+void HijaBuscarPaciente::m_botonVolverBuscarPaciente( wxCommandEvent& event )  {
+	Close();
+}
+

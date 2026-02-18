@@ -2,7 +2,7 @@
 #include "HijaBuscarPaciente.h"    // La ventana nueva que vamos a abrir
 #include "RegistrarPacientesHija.h"
 #include "HijaVerPacientes.h"
-VentanaPacientesHija::VentanaPacientesHija(wxWindow *parent) : VentanaPacientesPrincipal(parent) {
+VentanaPacientesHija::VentanaPacientesHija(wxWindow *parent, Consultorio *consultorio) : VentanaPacientesPrincipal(parent), m_consultorio(consultorio) {
 	
 }
 

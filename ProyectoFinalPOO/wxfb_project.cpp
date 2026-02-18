@@ -217,7 +217,16 @@ BuscarPacienteHija::BuscarPacienteHija( wxWindow* parent, wxWindowID id, const w
 	bSizer62->Add( m_lblResultado, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
 
-	bSizer18->Add( bSizer62, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer18->Add( bSizer62, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer611;
+	bSizer611 = new wxBoxSizer( wxVERTICAL );
+
+	m_button28 = new wxButton( this, wxID_ANY, wxT("⬅️Volver"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer611->Add( m_button28, 0, wxALL, 5 );
+
+
+	bSizer18->Add( bSizer611, 0, 0, 5 );
 
 
 	this->SetSizer( bSizer18 );
@@ -227,12 +236,14 @@ BuscarPacienteHija::BuscarPacienteHija( wxWindow* parent, wxWindowID id, const w
 
 	// Connect Events
 	m_buttonBuscarAccion->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BuscarPacienteHija::OnBuscarClick ), NULL, this );
+	m_button28->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BuscarPacienteHija::m_botonVolverBuscarPaciente ), NULL, this );
 }
 
 BuscarPacienteHija::~BuscarPacienteHija()
 {
 	// Disconnect Events
 	m_buttonBuscarAccion->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BuscarPacienteHija::OnBuscarClick ), NULL, this );
+	m_button28->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BuscarPacienteHija::m_botonVolverBuscarPaciente ), NULL, this );
 
 }
 

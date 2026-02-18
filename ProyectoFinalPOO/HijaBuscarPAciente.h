@@ -9,6 +9,7 @@ public:
 	HijaBuscarPaciente(wxWindow *parent=NULL);
 	
 protected:
+	void m_botonVolverBuscarPaciente( wxCommandEvent& event )  override;
 	
 	void OnBuscarClick( wxCommandEvent& event ) override;
 };

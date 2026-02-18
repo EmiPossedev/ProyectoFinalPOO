@@ -20,11 +20,11 @@ current_source=Application.cpp
 path_char=\
 [source]
 path=Application.cpp
-cursor=8:79
+cursor=9:52
 open=true
 [source]
 path=HijaPrincipal.cpp
-cursor=35:0
+cursor=30:56
 open=true
 [source]
 path=wxfb_project.cpp
@@ -34,7 +34,7 @@ cursor=74:0
 open=true
 [source]
 path=VentanaPacientesHija.cpp
-cursor=43:8
+cursor=4:139
 open=true
 [source]
 path=RegistrarPacientesHija.cpp
@@ -66,7 +66,7 @@ cursor=0:0
 open=true
 [source]
 path=HijaBuscarPaciente.cpp
-cursor=27:2
+cursor=36:9
 open=true
 [source]
 path=HijaVerPacientes.cpp
@@ -82,11 +82,11 @@ cursor=0:0
 open=true
 [source]
 path=VentanaKinesiologosHija.cpp
-cursor=0:0
+cursor=5:81
 open=true
 [source]
 path=VentanaTurnosHija.cpp
-cursor=17:1
+cursor=3:69
 open=true
 [source]
 path=VerKinesiologosHija.cpp
@@ -102,7 +102,7 @@ cursor=7:9
 open=true
 [header]
 path=HijaPrincipal.h
-cursor=13:1
+cursor=17:22
 open=true
 [header]
 path=wxfb_project.h
@@ -112,7 +112,7 @@ cursor=60:49
 open=true
 [header]
 path=VentanaPacientesHija.h
-cursor=9:60
+cursor=16:54
 open=true
 [header]
 path=RegistrarPacientesHija.h
@@ -160,11 +160,11 @@ cursor=0:0
 open=true
 [header]
 path=VentanaKinesiologosHija.h
-cursor=0:0
+cursor=8:28
 open=true
 [header]
 path=VentanaTurnosHija.h
-cursor=11:63
+cursor=8:7
 open=true
 [header]
 path=VerKinesiologosHija.h

@@ -1,6 +1,7 @@
 #include "VentanaTurnosHija.h"
 #include "ReservarTurnoHija.h"
-VentanaTurnosHija::VentanaTurnosHija(wxWindow *parent) : VentanaTurnosPrincipal(parent) {
+#include "Consultorio.h"
+VentanaTurnosHija::VentanaTurnosHija(wxWindow *parent, Consultorio *consultorio) : VentanaTurnosPrincipal(parent), m_consultorio(consultorio) {
 	
 }
 

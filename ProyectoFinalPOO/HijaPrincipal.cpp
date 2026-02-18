@@ -2,9 +2,8 @@
 #include "VentanaPacientesHija.h"
 #include "VentanaKinesiologosHija.h"
 #include "VentanaTurnosHija.h"
-HijaPrincipal::HijaPrincipal(wxWindow *parent) : VentanaPrincipal(parent) {
-	
-}
+HijaPrincipal::HijaPrincipal(Consultorio *consultorio) : 
+	VentanaPrincipal(nullptr), m_consultorio(consultorio){}
 
 HijaPrincipal::~HijaPrincipal() {
 	
@@ -17,20 +16,19 @@ void HijaPrincipal::ClickBotonSalir( wxCommandEvent& event )  {
 
 void HijaPrincipal::OnPacientesClick( wxCommandEvent& event )  {
 	
-	VentanaPacientesHija ventanaMenu(this);
+	VentanaPacientesHija ventanaMenu(this, m_consultorio);
 	
 	ventanaMenu.ShowModal();
-	event.Skip();
 }
 
 void HijaPrincipal::OnKinesiologosClick( wxCommandEvent& event )  {
 	
-	VentanaKinesiologosHija ventanaMenuKines(this);
+	VentanaKinesiologosHija ventanaMenuKines(this, m_consultorio);
 	ventanaMenuKines.ShowModal();
 	
 }
 void HijaPrincipal::OnTurnosClick( wxCommandEvent& event ) {
-	VentanaTurnosHija ventanaMenuTurnos(this);
+	VentanaTurnosHija ventanaMenuTurnos(this, m_consultorio);
 	ventanaMenuTurnos.ShowModal();
 }
 
