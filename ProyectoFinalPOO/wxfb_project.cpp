@@ -152,17 +152,72 @@ VerPacienteHija::VerPacienteHija( wxWindow* parent, wxWindowID id, const wxStrin
 	wxBoxSizer* bSizer19;
 	bSizer19 = new wxBoxSizer( wxVERTICAL );
 
-	m_listaPacientes = new wxListCtrl( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLC_REPORT );
-	bSizer19->Add( m_listaPacientes, 1, wxALL|wxEXPAND, 5 );
-
 	wxBoxSizer* bSizer20;
-	bSizer20 = new wxBoxSizer( wxVERTICAL );
+	bSizer20 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_buttonVolver = new wxButton( this, wxID_ANY, wxT("Volver"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer20->Add( m_buttonVolver, 0, wxALL, 5 );
+	m_grillaKinesiologos = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
+
+	// Grid
+	m_grillaKinesiologos->CreateGrid( 0, 7 );
+	m_grillaKinesiologos->EnableEditing( true );
+	m_grillaKinesiologos->EnableGridLines( true );
+	m_grillaKinesiologos->EnableDragGridSize( false );
+	m_grillaKinesiologos->SetMargins( 0, 0 );
+
+	// Columns
+	m_grillaKinesiologos->SetColSize( 0, 124 );
+	m_grillaKinesiologos->SetColSize( 1, 113 );
+	m_grillaKinesiologos->SetColSize( 2, 84 );
+	m_grillaKinesiologos->SetColSize( 3, 80 );
+	m_grillaKinesiologos->SetColSize( 4, 118 );
+	m_grillaKinesiologos->SetColSize( 5, 80 );
+	m_grillaKinesiologos->SetColSize( 6, 142 );
+	m_grillaKinesiologos->EnableDragColMove( false );
+	m_grillaKinesiologos->EnableDragColSize( true );
+	m_grillaKinesiologos->SetColLabelValue( 0, wxT("Nombre") );
+	m_grillaKinesiologos->SetColLabelValue( 1, wxT("Apellido") );
+	m_grillaKinesiologos->SetColLabelValue( 2, wxT("Tel") );
+	m_grillaKinesiologos->SetColLabelValue( 3, wxT("Dni") );
+	m_grillaKinesiologos->SetColLabelValue( 4, wxT("Especialidad") );
+	m_grillaKinesiologos->SetColLabelValue( 5, wxT("Matrícula") );
+	m_grillaKinesiologos->SetColLabelValue( 6, wxT("Cant. Pacientes Atend.") );
+	m_grillaKinesiologos->SetColLabelValue( 7, wxEmptyString );
+	m_grillaKinesiologos->SetColLabelValue( 8, wxEmptyString );
+	m_grillaKinesiologos->SetColLabelValue( 9, wxEmptyString );
+	m_grillaKinesiologos->SetColLabelValue( 10, wxEmptyString );
+	m_grillaKinesiologos->SetColLabelValue( 11, wxEmptyString );
+	m_grillaKinesiologos->SetColLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
+
+	// Rows
+	m_grillaKinesiologos->EnableDragRowSize( true );
+	m_grillaKinesiologos->SetRowLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
+
+	// Label Appearance
+
+	// Cell Defaults
+	m_grillaKinesiologos->SetDefaultCellAlignment( wxALIGN_LEFT, wxALIGN_TOP );
+	bSizer20->Add( m_grillaKinesiologos, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxEXPAND, 5 );
 
 
-	bSizer19->Add( bSizer20, 0, wxALIGN_RIGHT, 5 );
+	bSizer19->Add( bSizer20, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer63;
+	bSizer63 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_botonVolverListaKinesiologos = new wxButton( this, wxID_ANY, wxT("Volver"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer63->Add( m_botonVolverListaKinesiologos, 0, wxALL, 5 );
+
+	m_button32 = new wxButton( this, wxID_ANY, wxT("Modificar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer63->Add( m_button32, 0, wxALL, 5 );
+
+	m_button30 = new wxButton( this, wxID_ANY, wxT("Eliminar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer63->Add( m_button30, 0, wxALL, 5 );
+
+	m_button31 = new wxButton( this, wxID_ANY, wxT("Agregar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer63->Add( m_button31, 0, wxALL, 5 );
+
+
+	bSizer19->Add( bSizer63, 0, wxALIGN_RIGHT, 5 );
 
 
 	this->SetSizer( bSizer19 );
@@ -171,13 +226,13 @@ VerPacienteHija::VerPacienteHija( wxWindow* parent, wxWindowID id, const wxStrin
 	this->Centre( wxBOTH );
 
 	// Connect Events
-	m_buttonVolver->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VerPacienteHija::OnVolverClick ), NULL, this );
+	m_botonVolverListaKinesiologos->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VerPacienteHija::VolverListaKinesiologos ), NULL, this );
 }
 
 VerPacienteHija::~VerPacienteHija()
 {
 	// Disconnect Events
-	m_buttonVolver->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VerPacienteHija::OnVolverClick ), NULL, this );
+	m_botonVolverListaKinesiologos->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VerPacienteHija::VolverListaKinesiologos ), NULL, this );
 
 }
 
@@ -198,8 +253,8 @@ BuscarPacienteHija::BuscarPacienteHija( wxWindow* parent, wxWindowID id, const w
 	m_txtDniBuscar = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer61->Add( m_txtDniBuscar, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_buttonBuscarAccion = new wxButton( this, wxID_ANY, wxT("Buscar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer61->Add( m_buttonBuscarAccion, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	m_botonBuscarPaciente = new wxButton( this, wxID_ANY, wxT("Buscar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer61->Add( m_botonBuscarPaciente, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 
 	bSizer18->Add( bSizer61, 0, wxEXPAND, 5 );
@@ -208,16 +263,17 @@ BuscarPacienteHija::BuscarPacienteHija( wxWindow* parent, wxWindowID id, const w
 	bSizer18->Add( m_staticline1, 0, wxEXPAND | wxALL, 5 );
 
 	wxBoxSizer* bSizer62;
-	bSizer62 = new wxBoxSizer( wxVERTICAL );
+	bSizer62 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_lblResultado = new wxStaticText( this, wxID_ANY, wxT("Esperando búsqueda..."), wxDefaultPosition, wxDefaultSize, 0 );
-	m_lblResultado->Wrap( -1 );
-	m_lblResultado->SetFont( wxFont( 9, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial") ) );
+	m_staticText35 = new wxStaticText( this, wxID_ANY, wxT("Nombre:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText35->Wrap( -1 );
+	bSizer62->Add( m_staticText35, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	bSizer62->Add( m_lblResultado, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	m_textCtrl31 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_READONLY );
+	bSizer62->Add( m_textCtrl31, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 
-	bSizer18->Add( bSizer62, 1, wxEXPAND, 5 );
+	bSizer18->Add( bSizer62, 0, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer611;
 	bSizer611 = new wxBoxSizer( wxVERTICAL );
@@ -235,14 +291,14 @@ BuscarPacienteHija::BuscarPacienteHija( wxWindow* parent, wxWindowID id, const w
 	this->Centre( wxBOTH );
 
 	// Connect Events
-	m_buttonBuscarAccion->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BuscarPacienteHija::OnBuscarClick ), NULL, this );
+	m_botonBuscarPaciente->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BuscarPacienteHija::OnBuscarClick ), NULL, this );
 	m_button28->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BuscarPacienteHija::m_botonVolverBuscarPaciente ), NULL, this );
 }
 
 BuscarPacienteHija::~BuscarPacienteHija()
 {
 	// Disconnect Events
-	m_buttonBuscarAccion->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BuscarPacienteHija::OnBuscarClick ), NULL, this );
+	m_botonBuscarPaciente->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BuscarPacienteHija::OnBuscarClick ), NULL, this );
 	m_button28->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BuscarPacienteHija::m_botonVolverBuscarPaciente ), NULL, this );
 
 }
@@ -305,6 +361,19 @@ RegistrarPacientesPrincipal::RegistrarPacientesPrincipal( wxWindow* parent, wxWi
 
 
 	bSizer6->Add( bSizer9, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer65;
+	bSizer65 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText36 = new wxStaticText( this, wxID_ANY, wxT("Obra Social:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText36->Wrap( -1 );
+	bSizer65->Add( m_staticText36, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_textCtrl32 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer65->Add( m_textCtrl32, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer6->Add( bSizer65, 0, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer12;
 	bSizer12 = new wxBoxSizer( wxHORIZONTAL );

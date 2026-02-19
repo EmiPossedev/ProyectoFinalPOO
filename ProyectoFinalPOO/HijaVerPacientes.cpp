@@ -29,3 +29,7 @@ HijaVerPacientes::~HijaVerPacientes() {
 	
 }
 
+void HijaVerPacientes::VolverListaKinesiologos( wxCommandEvent& event )  {
+	event.Skip();
+}
+

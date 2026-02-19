@@ -7,6 +7,7 @@ class HijaVerPacientes : public VerPacienteHija {
 private:
 	
 protected:
+	void VolverListaKinesiologos( wxCommandEvent& event )  override;
 	void OnVolverClick( wxCommandEvent& event )  override;
 	
 public:

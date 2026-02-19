@@ -234,7 +234,7 @@ bool Consultorio::verificarDisponibilidadGimnasio(const Fecha &fecha, const stri
 
 vector<Paciente *> Consultorio::filtrarPorNombreApellidoPaciente(const string &nombre, const string &apellido)
 {
-    // Transformo el nombre a mayúsculas para poder comparar los nombres sin importar mayúsculas o minúsculas
+    // Transformo el nombre a mayusculas para poder comparar los nombres sin importar mayúsculas o minúsculas
     string nombreBuscado = nombre;                                                           // tuve que hacer una copia porque sino me modificaba el string original
     transform(nombreBuscado.begin(), nombreBuscado.end(), nombreBuscado.begin(), ::toupper); // tuve que ver un video de youtube de un loco para entender como hacer esto
     string apellidoBuscado = apellido;

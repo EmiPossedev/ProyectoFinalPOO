@@ -21,11 +21,10 @@
 #include <wx/sizer.h>
 #include <wx/frame.h>
 #include <wx/dialog.h>
-#include <wx/listctrl.h>
+#include <wx/grid.h>
 #include <wx/stattext.h>
 #include <wx/textctrl.h>
 #include <wx/statline.h>
-#include <wx/grid.h>
 #include <wx/choice.h>
 
 ///////////////////////////////////////////////////////////////////////////
@@ -95,16 +94,19 @@ class VerPacienteHija : public wxDialog
 	private:
 
 	protected:
-		wxListCtrl* m_listaPacientes;
-		wxButton* m_buttonVolver;
+		wxGrid* m_grillaKinesiologos;
+		wxButton* m_botonVolverListaKinesiologos;
+		wxButton* m_button32;
+		wxButton* m_button30;
+		wxButton* m_button31;
 
 		// Virtual event handlers, override them in your derived class
-		virtual void OnVolverClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void VolverListaKinesiologos( wxCommandEvent& event ) { event.Skip(); }
 
 
 	public:
 
-		VerPacienteHija( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Listado de Pacientes"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 491,290 ), long style = wxDEFAULT_DIALOG_STYLE );
+		VerPacienteHija( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Listado de Pacientes"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 860,290 ), long style = wxDEFAULT_DIALOG_STYLE );
 
 		~VerPacienteHija();
 
@@ -120,9 +122,10 @@ class BuscarPacienteHija : public wxDialog
 	protected:
 		wxStaticText* m_staticText9;
 		wxTextCtrl* m_txtDniBuscar;
-		wxButton* m_buttonBuscarAccion;
+		wxButton* m_botonBuscarPaciente;
 		wxStaticLine* m_staticline1;
-		wxStaticText* m_lblResultado;
+		wxStaticText* m_staticText35;
+		wxTextCtrl* m_textCtrl31;
 		wxButton* m_button28;
 
 		// Virtual event handlers, override them in your derived class
@@ -154,6 +157,8 @@ class RegistrarPacientesPrincipal : public wxDialog
 		wxTextCtrl* m_textCtrl6;
 		wxStaticText* m_staticText5;
 		wxTextCtrl* m_textCtrl4;
+		wxStaticText* m_staticText36;
+		wxTextCtrl* m_textCtrl32;
 		wxStaticText* m_staticText8;
 		wxStaticText* m_staticText9;
 		wxTextCtrl* m_textCtrl7;
