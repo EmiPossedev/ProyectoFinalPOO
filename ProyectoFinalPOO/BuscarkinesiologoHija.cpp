@@ -1,6 +1,7 @@
 #include "BuscarkinesiologoHija.h"
 
-BuscarkinesiologoHija::BuscarkinesiologoHija(wxWindow *parent) : BuscarKinesiologoPrincipal(parent) {
+BuscarkinesiologoHija::BuscarkinesiologoHija(wxWindow *parent, Consultorio *consultorio) :
+	BuscarKinesiologoPrincipal(parent), m_consultorio(consultorio) {
 	
 }
 

@@ -8,17 +8,17 @@ VentanaKinesiologosHija::VentanaKinesiologosHija(wxWindow *parent, Consultorio *
 }
 
 void VentanaKinesiologosHija::OnRegistrarKineClick( wxCommandEvent& event )  {
-	RegistrarKinesiologoHija ventanaRegistro(this);
+	RegistrarKinesiologoHija ventanaRegistro(this, m_consultorio);
 	ventanaRegistro.ShowModal();
 }
 
 void VentanaKinesiologosHija::OnVerKinesClick( wxCommandEvent& event )  {
-	VerKinesiologosHija ventanaVerKines(this);
+	VerKinesiologosHija ventanaVerKines(this, m_consultorio);
 	ventanaVerKines.ShowModal();
 }
 
 void VentanaKinesiologosHija::OnBuscarKineClick( wxCommandEvent& event )  {
-	BuscarkinesiologoHija ventanaBuscar(this);
+	BuscarkinesiologoHija ventanaBuscar(this, m_consultorio);
 	ventanaBuscar.ShowModal();
 }
 

@@ -13,10 +13,8 @@ using namespace std;
 // Este struct sirve para guardar en archivo binario (usando char)
 struct RegistroTurno
 {
-    char dniKine[16];
     char dniPaciente[16];
-    char nombreKinesio[60];
-    char nombrePaciente[60];
+	int dniKinesiologo;
     Fecha fecha;             // Usamos el struct Fecha definido en Fecha.h
     char hora[10];           // Formato HH:MM
     char estadoDelTurno[20]; // Programado, Cancelado, Completado
@@ -28,10 +26,8 @@ struct RegistroTurno
 // Y este struct Turno me deja trabajar los datos en memoria
 struct Turno
 {
-    string dniKinesiologo;
     string dniPaciente;
-    string nombreKinesiologo;
-    string nombrePaciente;
+	int dniKinesiologo;
     Fecha fecha;
     string hora; // Formato HH:MM
     bool requiereCamilla;
@@ -57,7 +53,7 @@ bool coincide(const Turno &turno, const Fecha &fecha);
 // Compara si un turno coincide con un string como Nombrekinesio o Hora
 bool coincide(const Turno &turno, const string &valor);
 
-/// Definición de la clase Consultorio
+/// Definicion de la clase Consultorio
 class Consultorio
 {
 
@@ -73,21 +69,28 @@ public:
     Consultorio() {}
 	Consultorio(string nombreArchivoPacientes, string nombreArchivoKinesiologos, string nombreArchivoTurnos);
     ~Consultorio();
-    // Metodos para agregar/obtener pacientes
+    // Metodos para agregar/obtener kinesiologos
     void agregarKinesiologo(Kinesiologo *kinesiologo);
     vector<Kinesiologo *> getKinesiologos() const;
+	size_t getCantKinesiologos() const;
+	string getNombreKinesiologo(int dni);
+	string getApellidoKinesiologo(int dni);
 
-    // Metodos para agregar/obtener kinesiólogos
+    // Metodos para agregar/obtener pacientes
     void agregarPaciente(Paciente *paciente);
     vector<Paciente *> getPacientes() const;
-
+	size_t getCantPacientes() const;
+	string getNombrePaciente(string dni);
+	string getApellidoPaciente(string dni);
+	
     // Metodos para borrar todos los pacientes, turnos y kinesiologos
     void borrarPacientes();
     void borrarTurnos();
     void borrarKinesiologos();
 
-    // Metodos para la gestión de los turnos
+    // Metodos para la gestion de los turnos
     vector<Turno> getTurnos() const;
+	size_t getCantTurnos() const;
     void agregarTurno(const Turno &turno);
     void cancelarTurno(const string &nombrePaciente, const Fecha &fecha, const string &hora);
     void reprogramarTurno(const string &dniPacienteBuscado, const string &horaVieja, const Fecha &fechaVieja, const Fecha &fechaNueva, const string &horaNueva);
@@ -100,7 +103,7 @@ public:
         vector<Turno> encontrados;
         for (size_t i = 0; i < turnos.size(); i++)
         {
-            // la manera más simple encontré fue con una funcion auxiliar
+            // la manera más simple encontro fue con una funcion auxiliar
             if (coincide(turnos[i], valorBuscado)) // coincide es una funcion sobrecargada(no sé si es lo más óptimo pero funciona jajjaj)
             {
                 encontrados.push_back(turnos[i]);
@@ -109,8 +112,8 @@ public:
         return encontrados;
     }
 
-    // Metodos de verificación
-    bool verificarDisponibilidadKinesiologo(const string &dniKine, const Fecha &fecha, const string &hora);
+    // Metodos de verificacion
+    bool verificarDisponibilidadKinesiologo(const int &dniKine, const Fecha &fecha, const string &hora);
     bool verificarDisponibilidadCamilla(const Fecha &fecha, const string &hora);
     bool verificarDisponibilidadGimnasio(const Fecha &fecha, const string &hora);
 
@@ -118,19 +121,19 @@ public:
    vector<Paciente*> filtrarPorNombreApellidoPaciente(const string &nombre, const string &apellido);
    vector<Kinesiologo*> filtrarPorNombreApellidoKinesiologo(const string &nombre, const string &apellido);
 
-    Kinesiologo *buscarKinesiologoPorDni(const string &dniBuscado);
+    Kinesiologo *buscarKinesiologoPorDni(const int &dniBuscado);
     Paciente *buscarPacientePorDni(const string &dniBuscado);
 
-    // Metodos de busqueda por id (índice en el vector correspondiente)
+    /// Metodos de busqueda por id (indice en el vector correspondiente)
     Kinesiologo *buscarKinesiologoPorInd(size_t ind);
     Paciente *buscarPacientePorInd(size_t ind);
 
-    // Métodos de eliminación
+    /// Metodos de eliminacion
     void eliminarPacientePorDni(const string &dniKine);
     void eliminarKinesiologoPorDni(const string &nombreKinesio);
     void eliminarTurno(const string &dniPaciente, const Fecha &fecha, const string &hora);
 
-    // Método de alerta al kinesiologo de que le tienen que pagar
+    /// Metodo de alerta al kinesiologo de que le tienen que pagar
     vector<Paciente *> getPacientesConPagoPendiente() const;
 
     /// Metodos con archivos binarios

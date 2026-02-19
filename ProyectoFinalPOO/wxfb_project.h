@@ -25,6 +25,7 @@
 #include <wx/stattext.h>
 #include <wx/textctrl.h>
 #include <wx/statline.h>
+#include <wx/grid.h>
 #include <wx/choice.h>
 
 ///////////////////////////////////////////////////////////////////////////
@@ -247,16 +248,19 @@ class VerKinesiologosPrincipal : public wxDialog
 	private:
 
 	protected:
-		wxListCtrl* m_listaKines;
-		wxButton* m_buttonVolverListaKines;
+		wxGrid* m_grillaKinesiologos;
+		wxButton* m_botonVolverListaKinesiologos;
+		wxButton* m_button32;
+		wxButton* m_button30;
+		wxButton* m_button31;
 
 		// Virtual event handlers, override them in your derived class
-		virtual void OnVolverListaKinesClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void VolverListaKinesiologos( wxCommandEvent& event ) { event.Skip(); }
 
 
 	public:
 
-		VerKinesiologosPrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Listado de Kinesiologos"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 491,290 ), long style = wxDEFAULT_DIALOG_STYLE );
+		VerKinesiologosPrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Listado de Kinesiologos"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 898,436 ), long style = wxDEFAULT_DIALOG_STYLE );
 
 		~VerKinesiologosPrincipal();
 
@@ -303,13 +307,11 @@ class VentanaTurnosPrincipal : public wxDialog
 
 	protected:
 		wxButton* m_buttonReservarTurno;
-		wxButton* m_buttonModificarTurno;
 		wxButton* m_buttonVerAgenda;
 		wxButton* m_buttonVolverTurnos;
 
 		// Virtual event handlers, override them in your derived class
 		virtual void OnReservarTurnoClick( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnModificarTurnoClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnVerAgendaClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnVolverTurnosClick( wxCommandEvent& event ) { event.Skip(); }
 
@@ -368,6 +370,27 @@ class ReservarTurnoPrincipal : public wxDialog
 		ReservarTurnoPrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Reservar Nuevo Turno"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxDEFAULT_DIALOG_STYLE );
 
 		~ReservarTurnoPrincipal();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class VentanaAgendaTurnosPrincipal
+///////////////////////////////////////////////////////////////////////////////
+class VentanaAgendaTurnosPrincipal : public wxDialog
+{
+	private:
+
+	protected:
+		wxGrid* m_grid2;
+		wxButton* m_button33;
+		wxButton* m_button34;
+		wxButton* m_button35;
+
+	public:
+
+		VentanaAgendaTurnosPrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 816,293 ), long style = wxDEFAULT_DIALOG_STYLE );
+
+		~VentanaAgendaTurnosPrincipal();
 
 };
 

@@ -1,4 +1,4 @@
-/// Includes para la implementación de la clase Consultorio
+/// Includes para la implementacion de la clase Consultorio
 #include "Consultorio.h"
 #include "Persona.h"
 #include "Paciente.h"
@@ -43,10 +43,32 @@ bool coincide(const Turno &turno, const Fecha &fecha)
 // Compara si coincide un turno con el string que puede ser el nombre del kinesiologo o la hora
 bool coincide(const Turno &turno, const string &valor)
 {
-    return turno.hora == valor || turno.nombreKinesiologo == valor;
+	//  O coincide la hora
+	if (turno.hora == valor) return true;
+	
+	// O coincide el dni del Kinesi�logo
+	if (to_string(turno.dniKinesiologo) == valor) return true;
+	
+	return false;
 }
 
-/// METODOS BÁSICOS PARA AGREGAR/MODIFICAR DATOS
+/// METODO PARA OBTENER LA CANTIDAD DE DATOS
+size_t Consultorio::getCantPacientes() const
+{
+	return pacientes.size();
+}
+
+size_t Consultorio::getCantKinesiologos() const
+{
+	return kinesiologos.size();
+}
+
+size_t Consultorio::getCantTurnos() const
+{
+	return pacientes.size();
+}
+
+/// METODOS BASICOS PARA AGREGAR/MODIFICAR DATOS
 
 // Metodos BA�SICOS para KINESIOLOGOS
 void Consultorio::agregarKinesiologo(Kinesiologo *kinesiologo)
@@ -70,8 +92,8 @@ vector<Paciente *> Consultorio::getPacientes() const
     return pacientes;
 }
 
-// MÉTODOS PARA LOS TURNOS(buscar, consultar, agregar, cancelar, reprogramar, ordenar)
-// Método para obtener los turnos
+// METODOS PARA LOS TURNOS(buscar, consultar, agregar, cancelar, reprogramar, ordenar)
+// MEtodo para obtener los turnos
 vector<Turno> Consultorio::getTurnos() const
 {
     return turnos;
@@ -104,9 +126,9 @@ void Consultorio::reprogramarTurno(const string &dniPacienteBuscado, const strin
         // Buscar el turno original
         if (turno.dniPaciente == dniPacienteBuscado && turno.fecha == fechaVieja && turno.hora == horaVieja)
         {
-            if (!verificarDisponibilidadKinesiologo(turno.nombreKinesiologo, fechaNueva, horaNueva))
+            if (!verificarDisponibilidadKinesiologo(turno.dniKinesiologo, fechaNueva, horaNueva))
             {
-                cout << "Error: El kinesiologo " << turno.nombreKinesiologo << " ya tiene un turno a esa hora nueva." << endl;
+                cout << "Error: El kinesiologo " << turno.dniKinesiologo << " ya tiene un turno a esa hora nueva." << endl;
                 return;
             }
 
@@ -146,10 +168,10 @@ void Consultorio::ordenarTurnos()
     sort(turnos.begin(), turnos.end());
 }
 
-/// MÉTODOS PARA VERIFICAR DISPONIBILIDAD DE LOS RECURSOS
+/// METODOS PARA VERIFICAR DISPONIBILIDAD DE LOS RECURSOS
 
-// Disponibilidad del Kinesiólogo
-bool Consultorio::verificarDisponibilidadKinesiologo(const string &dniKine, const Fecha &fecha, const string &hora)
+// Disponibilidad del Kinesiologo
+bool Consultorio::verificarDisponibilidadKinesiologo(const int &dniKine, const Fecha &fecha, const string &hora)
 {
     for (const auto &turno : turnos)
     {
@@ -257,12 +279,12 @@ vector<Kinesiologo *> Consultorio::filtrarPorNombreApellidoKinesiologo(const str
     return encontrados;
 }
 
-// MÉTODOS DE BÚSQUEDA POR DNI
-Kinesiologo *Consultorio::buscarKinesiologoPorDni(const string &dniBuscado)
+/// METODOS DE BUSQUEDA POR DNI
+Kinesiologo *Consultorio::buscarKinesiologoPorDni(const int &dniBuscado)
 {
     for (Kinesiologo *k : kinesiologos)
     {
-        if (k->getDni() == dniBuscado)
+        if (k->getDni() == to_string(dniBuscado))
         {
             return k;
         }
@@ -283,7 +305,43 @@ Paciente *Consultorio::buscarPacientePorDni(const string &dniBuscado)
     return nullptr; // si no se encontró al paciente devuelvo el nullptr
 }
 
-// MÉTODOS DE BÚSQUEDA POR ID (índice en el vector)
+/// METODOS PARA OBTENER LOS NOMBRES Y APELLIDOS DE LOS KINESIOLOGOS
+string Consultorio::getNombreKinesiologo(int dni) {
+	
+	Kinesiologo* k = buscarKinesiologoPorDni(dni);
+	if (k != nullptr) {
+		return k->getNombre(); // Retorno el nombre
+	}
+	return "Desconocido";
+}
+string Consultorio::getApellidoKinesiologo(int dni) {
+	
+	Kinesiologo* k = buscarKinesiologoPorDni(dni);
+	if (k != nullptr) {
+		return k->getApellido(); // Retorno el apellido
+	}
+	return "Desconocido";
+}
+/// METODOS PARA OBTENER LOS NOMBRES Y APELLIDOS DE LOS PACIENTES
+string Consultorio::getNombrePaciente(string dni) {
+	
+	Paciente* p = buscarPacientePorDni(dni);
+	if (p != nullptr) {
+		return p->getNombre();
+	}
+	return "Desconocido";
+}
+
+string Consultorio::getApellidoPaciente(string dni) {
+	
+	Paciente* p = buscarPacientePorDni(dni);
+	if (p != nullptr) {
+		return p->getApellido();
+	}
+	return "Desconocido";
+}
+
+// METODOS DE BUSQUEDA POR ID (indice en el vector)
 Kinesiologo *Consultorio::buscarKinesiologoPorInd(size_t ind)
 {
     if (ind < kinesiologos.size())
@@ -302,7 +360,7 @@ Paciente *Consultorio::buscarPacientePorInd(size_t ind)
     return nullptr;
 }
 
-// MÉTODOS PARA KINESIÓLOGOS
+/// METODOS PARA KINESIOLOGOS
 
 /* LOS DEJO COMENTADOS PORQUE EL ÚNICO QUE VAMOS A UTILIZAR ES POR DNI, PERO ESTOS SON LOS MÉTODOS
 SI QUISIÉSEMOS BUSCAR POR NOMBRE
@@ -508,9 +566,9 @@ void Consultorio::guardarTurnos(const string &nombreArchivo)
     for (const auto &t : turnos)
     {
         RegistroTurno reg;
-
-        strncpy(reg.nombreKinesio, t.nombreKinesiologo.c_str(), 59);
-        strncpy(reg.nombrePaciente, t.nombrePaciente.c_str(), 59);
+		// Guardo los dnis del paciente y el kinesiologo
+		reg.dniKinesiologo = t.dniKinesiologo;
+		strncpy(reg.dniPaciente, t.dniPaciente.c_str(), 15);
         reg.fecha = t.fecha;
         strncpy(reg.hora, t.hora.c_str(), 9);
         strncpy(reg.estadoDelTurno, t.estadoDelTurno.c_str(), 19);
@@ -537,8 +595,8 @@ void Consultorio::cargarTurnos(const string &nombreArchivo)
     while (bin.read(reinterpret_cast<char *>(&reg), sizeof(RegistroTurno)))
     {
         Turno t;
-        t.nombreKinesiologo = reg.nombreKinesio;
-        t.nombrePaciente = reg.nombrePaciente;
+        t.dniKinesiologo = reg.dniKinesiologo;
+        t.dniPaciente= reg.dniPaciente;
         t.fecha = reg.fecha;
         t.hora = reg.hora;
         t.estadoDelTurno = reg.estadoDelTurno;
@@ -628,11 +686,11 @@ void Consultorio::borrarKinesiologos()
 }
 
 // Eliminar un turno por dni de paciente, fecha y hora, y actualizar archivo binario
-void Consultorio::eliminarTurno(const string &dniPaciente, const Fecha &fecha, const string &hora)
+void Consultorio::eliminarTurno(const string &dniPacienteBuscado, const Fecha &fecha, const string &hora)
 {
     for (auto it = turnos.begin(); it != turnos.end(); ++it)
     {
-        if (it->dniKinesiologo == dniPaciente && it->fecha == fecha && it->hora == hora)
+        if (it->dniPaciente == dniPacienteBuscado && it->fecha == fecha && it->hora == hora)
         {
             turnos.erase(it);
             guardarTurnos("turnos.dat");
@@ -640,7 +698,7 @@ void Consultorio::eliminarTurno(const string &dniPaciente, const Fecha &fecha, c
             return;
         }
     }
-    cout << "No se encontró turno con esos datos." << endl;
+    cout << "No se encontr� turno con esos datos." << endl;
 }
 // Borra todos los turnos
 void Consultorio::borrarTurnos()

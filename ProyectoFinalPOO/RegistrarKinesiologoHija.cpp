@@ -1,6 +1,7 @@
 #include "RegistrarKinesiologoHija.h"
 
-RegistrarKinesiologoHija::RegistrarKinesiologoHija(wxWindow *parent) : RegistrarKinesiologoPrincipal(parent) {
+RegistrarKinesiologoHija::RegistrarKinesiologoHija(wxWindow *parent, Consultorio *consultorio) : 
+	RegistrarKinesiologoPrincipal(parent),  m_consultorio(consultorio) {
 	
 }
 
