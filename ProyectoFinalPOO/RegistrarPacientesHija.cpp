@@ -18,7 +18,7 @@ void RegistrarPacientesHija::ClickBotonCancelarHija( wxCommandEvent& event ) {
 
 void RegistrarPacientesHija::OnAceptarClick( wxCommandEvent& event ) {
 	
-	// 1. Leemos SOLO lo que corresponde a un alta nueva
+	// leemos los datos
 	string nombre = m_txtNombre->GetValue().ToStdString();
 	string apellido = m_txtApellido->GetValue().ToStdString();
 	string telefono = m_txtTelefono->GetValue().ToStdString();
@@ -30,7 +30,7 @@ void RegistrarPacientesHija::OnAceptarClick( wxCommandEvent& event ) {
 	int anio = wxAtoi(m_txtAnio->GetValue());
 	int asignadas = wxAtoi(m_txtSesionesAsignadas->GetValue());
 	
-	// 2. VALORES POR DEFECTO AUTOMÁTICOS (La magia de un buen sistema)
+	// Valores por defecto
 	int realizadas = 0;  // Empieza con 0 sesiones hechas
 	bool pagas = false;  // Empieza con la deuda pendiente
 	string diagnostico = "Sin diagnóstico";
@@ -42,14 +42,14 @@ void RegistrarPacientesHija::OnAceptarClick( wxCommandEvent& event ) {
 	fechaInicio.mes = mes;
 	fechaInicio.anio = anio;
 	
-	// 4. Creamos el paciente
+	// Creamos el paciente
 	Paciente* nuevoPaciente = new Paciente(nombre, apellido, telefono, dni, fechaInicio, diagnostico, obraSocial, asignadas, realizadas, observaciones, pagas);
 	
-	// 5. Lo guardamos a través del teletransportador
+	// Se guarda el paciente
 	wxGetApp().m_consultorio->agregarPaciente(nuevoPaciente);
 	wxGetApp().m_consultorio->guardarPacientes("pacientes.dat"); 
 	
-	// 6. Festejar y cerrar
+	// Paciente guardado 
 	wxMessageBox("¡Paciente registrado con éxito!", "Éxito", wxOK | wxICON_INFORMATION);
 	Close();
 }
