@@ -21,10 +21,9 @@
 #include <wx/sizer.h>
 #include <wx/frame.h>
 #include <wx/dialog.h>
-#include <wx/grid.h>
 #include <wx/stattext.h>
 #include <wx/textctrl.h>
-#include <wx/statline.h>
+#include <wx/grid.h>
 #include <wx/choice.h>
 
 ///////////////////////////////////////////////////////////////////////////
@@ -87,28 +86,45 @@ class VentanaPacientesPrincipal : public wxDialog
 };
 
 ///////////////////////////////////////////////////////////////////////////////
-/// Class VerPacienteHija
+/// Class RegistrarPacientesPrincipal
 ///////////////////////////////////////////////////////////////////////////////
-class VerPacienteHija : public wxDialog
+class RegistrarPacientesPrincipal : public wxDialog
 {
 	private:
 
 	protected:
-		wxGrid* m_grillaKinesiologos;
-		wxButton* m_botonVolverListaKinesiologos;
-		wxButton* m_button32;
-		wxButton* m_button30;
-		wxButton* m_button31;
+		wxStaticText* m_staticText3;
+		wxTextCtrl* m_txtNombre;
+		wxStaticText* m_staticText4;
+		wxTextCtrl* m_txtApellido;
+		wxStaticText* m_staticText7;
+		wxTextCtrl* m_txtTelefono;
+		wxStaticText* m_staticText5;
+		wxTextCtrl* m_txtDni;
+		wxStaticText* m_staticText36;
+		wxTextCtrl* m_txtObraSocial;
+		wxStaticText* m_staticText8;
+		wxStaticText* m_staticText9;
+		wxTextCtrl* m_txtDia;
+		wxStaticText* m_staticText10;
+		wxTextCtrl* m_txtMes;
+		wxStaticText* m_staticText11;
+		wxTextCtrl* m_txtAnio;
+		wxStaticText* m_staticText31;
+		wxTextCtrl* m_txtSesionesAsignadas;
+		wxButton* m_button10;
+		wxButton* m_button11;
 
 		// Virtual event handlers, override them in your derived class
-		virtual void VolverListaKinesiologos( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickBotonCancelarHija( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnAceptarClick( wxCommandEvent& event ) { event.Skip(); }
 
 
 	public:
 
-		VerPacienteHija( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Listado de Pacientes"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 860,290 ), long style = wxDEFAULT_DIALOG_STYLE );
+		RegistrarPacientesPrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 520,300 ), long style = wxDEFAULT_DIALOG_STYLE );
 
-		~VerPacienteHija();
+		~RegistrarPacientesPrincipal();
 
 };
 
@@ -120,64 +136,29 @@ class BuscarPacienteHija : public wxDialog
 	private:
 
 	protected:
-		wxStaticText* m_staticText9;
-		wxTextCtrl* m_txtDniBuscar;
-		wxButton* m_botonBuscarPaciente;
-		wxStaticLine* m_staticline1;
-		wxStaticText* m_staticText35;
-		wxTextCtrl* m_textCtrl31;
-		wxButton* m_button28;
+		wxStaticText* m_txtDniBuscarPac;
+		wxTextCtrl* m_textDniABuscar;
+		wxButton* m_btnBuscarPac;
+		wxStaticText* m_txtNombrePac;
+		wxTextCtrl* m_textCtrl33;
+		wxStaticText* m_txtApellidoPac;
+		wxTextCtrl* m_textCtrl34;
+		wxStaticText* m_txtTelefonoPac;
+		wxTextCtrl* m_textCtrl35;
+		wxStaticText* m_txtObraSocialPac;
+		wxTextCtrl* m_textCtrl30;
+		wxStaticText* m_txtSesionesPac;
+		wxTextCtrl* m_textCtrl301;
 
 		// Virtual event handlers, override them in your derived class
-		virtual void OnBuscarClick( wxCommandEvent& event ) { event.Skip(); }
-		virtual void m_botonVolverBuscarPaciente( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnBuscarPacClick( wxCommandEvent& event ) { event.Skip(); }
 
 
 	public:
 
-		BuscarPacienteHija( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("BuscarPaciente"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 494,227 ), long style = wxDEFAULT_DIALOG_STYLE );
+		BuscarPacienteHija( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Buscar Paciente Por DNI"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 449,235 ), long style = wxDEFAULT_DIALOG_STYLE );
 
 		~BuscarPacienteHija();
-
-};
-
-///////////////////////////////////////////////////////////////////////////////
-/// Class RegistrarPacientesPrincipal
-///////////////////////////////////////////////////////////////////////////////
-class RegistrarPacientesPrincipal : public wxDialog
-{
-	private:
-
-	protected:
-		wxStaticText* m_staticText3;
-		wxTextCtrl* m_textCtrl2;
-		wxStaticText* m_staticText4;
-		wxTextCtrl* m_textCtrl3;
-		wxStaticText* m_staticText7;
-		wxTextCtrl* m_textCtrl6;
-		wxStaticText* m_staticText5;
-		wxTextCtrl* m_textCtrl4;
-		wxStaticText* m_staticText36;
-		wxTextCtrl* m_textCtrl32;
-		wxStaticText* m_staticText8;
-		wxStaticText* m_staticText9;
-		wxTextCtrl* m_textCtrl7;
-		wxStaticText* m_staticText10;
-		wxTextCtrl* m_textCtrl8;
-		wxStaticText* m_staticText11;
-		wxTextCtrl* m_textCtrl9;
-		wxButton* m_button10;
-		wxButton* m_button11;
-
-		// Virtual event handlers, override them in your derived class
-		virtual void ClickBotonCancelarHija( wxCommandEvent& event ) { event.Skip(); }
-
-
-	public:
-
-		RegistrarPacientesPrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 520,288 ), long style = wxDEFAULT_DIALOG_STYLE );
-
-		~RegistrarPacientesPrincipal();
 
 };
 
@@ -396,6 +377,82 @@ class VentanaAgendaTurnosPrincipal : public wxDialog
 		VentanaAgendaTurnosPrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 816,293 ), long style = wxDEFAULT_DIALOG_STYLE );
 
 		~VentanaAgendaTurnosPrincipal();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class VerPacienteHija
+///////////////////////////////////////////////////////////////////////////////
+class VerPacienteHija : public wxDialog
+{
+	private:
+
+	protected:
+		wxGrid* m_grillaPacientes;
+		wxButton* m_botonVolverPac;
+		wxButton* m_btnModificarPac;
+		wxButton* m_btnEliminarPac;
+		wxButton* m_button31;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void OnVolverClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnModificarClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnEliminarClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnAgregarClick( wxCommandEvent& event ) { event.Skip(); }
+
+
+	public:
+
+		VerPacienteHija( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Lista Completa de Pacientes"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 800,450 ), long style = wxDEFAULT_DIALOG_STYLE );
+
+		~VerPacienteHija();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class ModificarPacientePrincipal
+///////////////////////////////////////////////////////////////////////////////
+class ModificarPacientePrincipal : public wxDialog
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText3;
+		wxTextCtrl* m_txtNombre;
+		wxStaticText* m_staticText4;
+		wxTextCtrl* m_txtApellido;
+		wxStaticText* m_staticText7;
+		wxTextCtrl* m_txtTelefono;
+		wxStaticText* m_staticText5;
+		wxTextCtrl* m_txtDni;
+		wxStaticText* m_staticText36;
+		wxTextCtrl* m_txtObraSocial;
+		wxStaticText* m_staticText8;
+		wxStaticText* m_staticText9;
+		wxTextCtrl* m_txtDia;
+		wxStaticText* m_staticText10;
+		wxTextCtrl* m_txtMes;
+		wxStaticText* m_staticText11;
+		wxTextCtrl* m_txtAnio;
+		wxStaticText* m_staticText31;
+		wxTextCtrl* m_txtSesionesAsignadas;
+		wxStaticText* m_staticText311;
+		wxTextCtrl* m_txtSesionesRealizadasMod;
+		wxStaticText* m_staticText3111;
+		wxTextCtrl* m_txtSesionesPagasMod;
+		wxButton* m_button10;
+		wxButton* m_button11;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void OnCancelarModClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnGuardarModClick( wxCommandEvent& event ) { event.Skip(); }
+
+
+	public:
+
+		ModificarPacientePrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Modificar Datos del Paciente"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 540,480 ), long style = wxDEFAULT_DIALOG_STYLE );
+
+		~ModificarPacientePrincipal();
 
 };
 

@@ -8,7 +8,7 @@ private:
 	
 protected:
 	void ClickBotonCancelarHija( wxCommandEvent& event )  override;
-	
+	void OnAceptarClick( wxCommandEvent& event ) override;
 public:
 	RegistrarPacientesHija(wxWindow *parent=NULL);
 	~RegistrarPacientesHija();
