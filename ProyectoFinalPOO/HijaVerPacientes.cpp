@@ -119,23 +119,43 @@ void HijaVerPacientes::OnModificarClick( wxCommandEvent& event ) {
 }
 
 void HijaVerPacientes::OnEliminarClick( wxCommandEvent& event ) {
-	// Lógica básica de cómo funcionará el eliminar
+	
+	// fila seleccionada
 	int filaSeleccionada = m_grillaPacientes->GetGridCursorRow();
 	
-	if (filaSeleccionada >= 0) {
-		wxString nombre = m_grillaPacientes->GetCellValue(filaSeleccionada, 0);
-		wxMessageBox("Acá eliminaremos a: " + nombre, "Aviso");
-	} else {
-		wxMessageBox("Primero debes seleccionar un paciente de la lista", "Error");
+	if (filaSeleccionada < 0) {
+		wxMessageBox("Por favor, selecciona un paciente de la lista primero.", "Aviso", wxOK | wxICON_INFORMATION);
+		return; 
+	}
+	
+	// Obtener DNI, nombre y apellido de la grilla
+	// Nombre es 0, Apellido es 1, DNI es 3.
+	wxString nombre = m_grillaPacientes->GetCellValue(filaSeleccionada, 0);
+	wxString apellido = m_grillaPacientes->GetCellValue(filaSeleccionada, 1);
+	wxString dni = m_grillaPacientes->GetCellValue(filaSeleccionada, 3); 
+	
+	// Doble confirmación por las dudas jajaja
+	wxString mensaje = "¿Estás seguro de que querés eliminar a " + nombre + " " + apellido + " (DNI: " + dni + ") de forma permanente?";
+	int respuesta = wxMessageBox(mensaje, "Confirmar eliminación", wxYES_NO | wxICON_EXCLAMATION);
+	
+	if (respuesta == wxYES) {
+		
+		// Borramos 
+		m_consultorio->eliminarPacientePorDni(dni.ToStdString()); 
+		m_consultorio->guardarPacientes("pacientes.dat");
+		
+		//actualizamos la grilla entera
+		RefrescarGrillaPacientes();
+		
+		wxMessageBox("Paciente eliminado correctamente.", "Éxito", wxOK | wxICON_INFORMATION);
 	}
 }
-
 void HijaVerPacientes::OnAgregarClick( wxCommandEvent& event ) {
 	// Creamos la ventana de registro en la memoria 
 	RegistrarPacientesHija ventanaRegistro(this, m_consultorio);
 	
 	// La mostramos en pantalla
 	ventanaRegistro.ShowModal();
-	
-	//Falta codigo para que se actualice la grilla posse
+	// actualizamos
+	RefrescarGrillaPacientes();
 }

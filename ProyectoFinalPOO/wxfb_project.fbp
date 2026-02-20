@@ -2342,7 +2342,7 @@
         </object>
       </object>
     </object>
-    <object class="Dialog" expanded="false">
+    <object class="Dialog" expanded="true">
       <property name="aui_managed">0</property>
       <property name="aui_manager_style">wxAUI_MGR_DEFAULT</property>
       <property name="bg"></property>
@@ -2370,7 +2370,7 @@
       <property name="window_extra_style"></property>
       <property name="window_name"></property>
       <property name="window_style"></property>
-      <object class="wxBoxSizer" expanded="false">
+      <object class="wxBoxSizer" expanded="true">
         <property name="minimum_size"></property>
         <property name="name">bSizer88</property>
         <property name="orient">wxVERTICAL</property>
@@ -2464,11 +2464,11 @@
             <property name="window_style"></property>
           </object>
         </object>
-        <object class="sizeritem" expanded="false">
+        <object class="sizeritem" expanded="true">
           <property name="border">5</property>
           <property name="flag">wxALIGN_RIGHT</property>
           <property name="proportion">0</property>
-          <object class="wxBoxSizer" expanded="false">
+          <object class="wxBoxSizer" expanded="true">
             <property name="minimum_size"></property>
             <property name="name">bSizer63</property>
             <property name="orient">wxHORIZONTAL</property>
@@ -6131,7 +6131,7 @@
                 <property name="minimize_button">0</property>
                 <property name="minimum_size"></property>
                 <property name="moveable">1</property>
-                <property name="name">m_textNombrekine</property>
+                <property name="name">m_textNombreKine</property>
                 <property name="pane_border">1</property>
                 <property name="pane_position"></property>
                 <property name="pane_size"></property>
@@ -7010,7 +7010,7 @@
         </object>
       </object>
     </object>
-    <object class="Dialog" expanded="false">
+    <object class="Dialog" expanded="true">
       <property name="aui_managed">0</property>
       <property name="aui_manager_style">wxAUI_MGR_DEFAULT</property>
       <property name="bg"></property>
@@ -7038,23 +7038,23 @@
       <property name="window_extra_style"></property>
       <property name="window_name"></property>
       <property name="window_style"></property>
-      <object class="wxBoxSizer" expanded="false">
+      <object class="wxBoxSizer" expanded="true">
         <property name="minimum_size"></property>
         <property name="name">bSizer19</property>
         <property name="orient">wxVERTICAL</property>
         <property name="permission">none</property>
-        <object class="sizeritem" expanded="false">
+        <object class="sizeritem" expanded="true">
           <property name="border">5</property>
           <property name="flag">wxEXPAND</property>
           <property name="proportion">1</property>
-          <object class="wxBoxSizer" expanded="false">
+          <object class="wxBoxSizer" expanded="true">
             <property name="minimum_size"></property>
             <property name="name">bSizer20</property>
             <property name="orient">wxHORIZONTAL</property>
             <property name="permission">none</property>
             <object class="sizeritem" expanded="false">
               <property name="border">5</property>
-              <property name="flag">wxALL|wxALIGN_CENTER_HORIZONTAL|wxEXPAND</property>
+              <property name="flag">wxALL|wxEXPAND</property>
               <property name="proportion">1</property>
               <object class="wxGrid" expanded="false">
                 <property name="BottomDockable">1</property>
@@ -7143,11 +7143,11 @@
             </object>
           </object>
         </object>
-        <object class="sizeritem" expanded="false">
+        <object class="sizeritem" expanded="true">
           <property name="border">5</property>
           <property name="flag">wxALIGN_RIGHT</property>
           <property name="proportion">0</property>
-          <object class="wxBoxSizer" expanded="false">
+          <object class="wxBoxSizer" expanded="true">
             <property name="minimum_size"></property>
             <property name="name">bSizer63</property>
             <property name="orient">wxHORIZONTAL</property>
@@ -7350,7 +7350,7 @@
                 <property name="minimize_button">0</property>
                 <property name="minimum_size"></property>
                 <property name="moveable">1</property>
-                <property name="name">m_button30</property>
+                <property name="name">m_buttonEliminarListaKinesiologos</property>
                 <property name="pane_border">1</property>
                 <property name="pane_position"></property>
                 <property name="pane_size"></property>
@@ -7373,6 +7373,7 @@
                 <property name="window_extra_style"></property>
                 <property name="window_name"></property>
                 <property name="window_style"></property>
+                <event name="OnButtonClick">OnEliminarClick</event>
               </object>
             </object>
             <object class="sizeritem" expanded="false">
@@ -7424,7 +7425,7 @@
                 <property name="minimize_button">0</property>
                 <property name="minimum_size"></property>
                 <property name="moveable">1</property>
-                <property name="name">m_button31</property>
+                <property name="name">m_buttonAgregarListaKinesiologos</property>
                 <property name="pane_border">1</property>
                 <property name="pane_position"></property>
                 <property name="pane_size"></property>
@@ -7447,6 +7448,7 @@
                 <property name="window_extra_style"></property>
                 <property name="window_name"></property>
                 <property name="window_style"></property>
+                <event name="OnButtonClick">OnAgregarClick</event>
               </object>
             </object>
           </object>

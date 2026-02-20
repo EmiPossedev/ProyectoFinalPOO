@@ -760,8 +760,8 @@ RegistrarKinesiologoPrincipal::RegistrarKinesiologoPrincipal( wxWindow* parent, 
 	m_staticText11->Wrap( -1 );
 	bSizer53->Add( m_staticText11, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_textNombrekine = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer53->Add( m_textNombrekine, 1, wxALIGN_CENTER_VERTICAL, 5 );
+	m_textNombreKine = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer53->Add( m_textNombreKine, 1, wxALIGN_CENTER_VERTICAL, 5 );
 
 
 	bSizer37->Add( bSizer53, 1, wxEXPAND, 5 );
@@ -913,7 +913,7 @@ VerKinesiologosPrincipal::VerKinesiologosPrincipal( wxWindow* parent, wxWindowID
 
 	// Cell Defaults
 	m_grillaKinesiologos->SetDefaultCellAlignment( wxALIGN_LEFT, wxALIGN_TOP );
-	bSizer20->Add( m_grillaKinesiologos, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxEXPAND, 5 );
+	bSizer20->Add( m_grillaKinesiologos, 1, wxALL|wxEXPAND, 5 );
 
 
 	bSizer19->Add( bSizer20, 1, wxEXPAND, 5 );
@@ -927,11 +927,11 @@ VerKinesiologosPrincipal::VerKinesiologosPrincipal( wxWindow* parent, wxWindowID
 	m_button32 = new wxButton( this, wxID_ANY, wxT("Modificar"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer63->Add( m_button32, 0, wxALL, 5 );
 
-	m_button30 = new wxButton( this, wxID_ANY, wxT("Eliminar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer63->Add( m_button30, 0, wxALL, 5 );
+	m_buttonEliminarListaKinesiologos = new wxButton( this, wxID_ANY, wxT("Eliminar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer63->Add( m_buttonEliminarListaKinesiologos, 0, wxALL, 5 );
 
-	m_button31 = new wxButton( this, wxID_ANY, wxT("Agregar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer63->Add( m_button31, 0, wxALL, 5 );
+	m_buttonAgregarListaKinesiologos = new wxButton( this, wxID_ANY, wxT("Agregar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer63->Add( m_buttonAgregarListaKinesiologos, 0, wxALL, 5 );
 
 
 	bSizer19->Add( bSizer63, 0, wxALIGN_RIGHT, 5 );
@@ -944,12 +944,16 @@ VerKinesiologosPrincipal::VerKinesiologosPrincipal( wxWindow* parent, wxWindowID
 
 	// Connect Events
 	m_botonVolverListaKinesiologos->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VerKinesiologosPrincipal::VolverListaKinesiologos ), NULL, this );
+	m_buttonEliminarListaKinesiologos->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VerKinesiologosPrincipal::OnEliminarClick ), NULL, this );
+	m_buttonAgregarListaKinesiologos->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VerKinesiologosPrincipal::OnAgregarClick ), NULL, this );
 }
 
 VerKinesiologosPrincipal::~VerKinesiologosPrincipal()
 {
 	// Disconnect Events
 	m_botonVolverListaKinesiologos->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VerKinesiologosPrincipal::VolverListaKinesiologos ), NULL, this );
+	m_buttonEliminarListaKinesiologos->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VerKinesiologosPrincipal::OnEliminarClick ), NULL, this );
+	m_buttonAgregarListaKinesiologos->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VerKinesiologosPrincipal::OnAgregarClick ), NULL, this );
 
 }
 

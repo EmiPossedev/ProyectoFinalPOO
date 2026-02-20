@@ -277,7 +277,7 @@ class RegistrarKinesiologoPrincipal : public wxDialog
 
 	protected:
 		wxStaticText* m_staticText11;
-		wxTextCtrl* m_textNombrekine;
+		wxTextCtrl* m_textNombreKine;
 		wxStaticText* m_staticText12;
 		wxTextCtrl* m_textApellidoKine;
 		wxStaticText* m_staticText13;
@@ -315,11 +315,13 @@ class VerKinesiologosPrincipal : public wxDialog
 		wxGrid* m_grillaKinesiologos;
 		wxButton* m_botonVolverListaKinesiologos;
 		wxButton* m_button32;
-		wxButton* m_button30;
-		wxButton* m_button31;
+		wxButton* m_buttonEliminarListaKinesiologos;
+		wxButton* m_buttonAgregarListaKinesiologos;
 
 		// Virtual event handlers, override them in your derived class
 		virtual void VolverListaKinesiologos( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnEliminarClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnAgregarClick( wxCommandEvent& event ) { event.Skip(); }
 
 
 	public:
