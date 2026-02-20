@@ -4,7 +4,8 @@
 #include "Paciente.h"
 #include "Fecha.h"
 #include "Application.h"
-RegistrarPacientesHija::RegistrarPacientesHija(wxWindow *parent) : RegistrarPacientesPrincipal(parent) {
+RegistrarPacientesHija::RegistrarPacientesHija(wxWindow *parent, Consultorio *consultorio) : 
+	RegistrarPacientesPrincipal(parent), m_consultorio(consultorio) {
 	
 }
 
@@ -46,8 +47,8 @@ void RegistrarPacientesHija::OnAceptarClick( wxCommandEvent& event ) {
 	Paciente* nuevoPaciente = new Paciente(nombre, apellido, telefono, dni, fechaInicio, diagnostico, obraSocial, asignadas, realizadas, observaciones, pagas);
 	
 	// Se guarda el paciente
-	wxGetApp().m_consultorio->agregarPaciente(nuevoPaciente);
-	wxGetApp().m_consultorio->guardarPacientes("pacientes.dat"); 
+	m_consultorio->agregarPaciente(nuevoPaciente);
+	m_consultorio->guardarPacientes("pacientes.dat"); 
 	
 	// Paciente guardado 
 	wxMessageBox("¡Paciente registrado con éxito!", "Éxito", wxOK | wxICON_INFORMATION);

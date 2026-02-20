@@ -2,6 +2,7 @@
 #include "Application.h"
 #include "HijaPrincipal.h"
 #include "Consultorio.h"
+
 IMPLEMENT_APP(Application)
 
 bool Application::OnInit() {

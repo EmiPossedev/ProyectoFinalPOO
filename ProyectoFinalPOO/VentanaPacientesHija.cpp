@@ -13,7 +13,7 @@ VentanaPacientesHija::~VentanaPacientesHija() {
 
 void VentanaPacientesHija::OnAbrirBusquedaClick( wxCommandEvent& event )  {
 	
-	HijaBuscarPaciente ventanaBusqueda(this);
+	HijaBuscarPaciente ventanaBusqueda(this, m_consultorio);
 	
 	ventanaBusqueda.ShowModal();
 	event.Skip();
@@ -21,7 +21,7 @@ void VentanaPacientesHija::OnAbrirBusquedaClick( wxCommandEvent& event )  {
 
 void VentanaPacientesHija::OnRegistrarClick( wxCommandEvent& event )  {
 	// Creamos la ventana de registro 
-	RegistrarPacientesHija ventanaRegistro(this);
+	RegistrarPacientesHija ventanaRegistro(this, m_consultorio);
 	
 	// La mostramos y congelamos la de atrás (Modal)
 	ventanaRegistro.ShowModal();
@@ -32,7 +32,7 @@ void VentanaPacientesHija::OnRegistrarClick( wxCommandEvent& event )  {
 void VentanaPacientesHija::OnVerListaClick( wxCommandEvent& event ) {
 	
 	// Creamos la ventana de la lista
-	HijaVerPacientes ventanaListado(this);
+	HijaVerPacientes ventanaListado(this, m_consultorio);
 	
 	// La mostramos
 	ventanaListado.ShowModal();

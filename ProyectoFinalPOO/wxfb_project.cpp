@@ -199,7 +199,7 @@ RegistrarPacientesPrincipal::RegistrarPacientesPrincipal( wxWindow* parent, wxWi
 	bSizer9->Add( m_staticText5, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_txtDni = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer9->Add( m_txtDni, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	bSizer9->Add( m_txtDni, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 
 	bSizer6->Add( bSizer9, 1, wxEXPAND, 5 );
@@ -289,6 +289,288 @@ RegistrarPacientesPrincipal::~RegistrarPacientesPrincipal()
 	// Disconnect Events
 	m_button10->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( RegistrarPacientesPrincipal::ClickBotonCancelarHija ), NULL, this );
 	m_button11->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( RegistrarPacientesPrincipal::OnAceptarClick ), NULL, this );
+
+}
+
+VerPacienteHija::VerPacienteHija( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+
+	wxBoxSizer* bSizer88;
+	bSizer88 = new wxBoxSizer( wxVERTICAL );
+
+	m_grillaPacientes = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
+
+	// Grid
+	m_grillaPacientes->CreateGrid( 0, 10 );
+	m_grillaPacientes->EnableEditing( true );
+	m_grillaPacientes->EnableGridLines( true );
+	m_grillaPacientes->EnableDragGridSize( false );
+	m_grillaPacientes->SetMargins( 0, 0 );
+
+	// Columns
+	m_grillaPacientes->SetColSize( 0, 114 );
+	m_grillaPacientes->SetColSize( 1, 144 );
+	m_grillaPacientes->SetColSize( 2, 80 );
+	m_grillaPacientes->SetColSize( 3, 80 );
+	m_grillaPacientes->SetColSize( 4, 80 );
+	m_grillaPacientes->SetColSize( 5, 106 );
+	m_grillaPacientes->SetColSize( 6, 80 );
+	m_grillaPacientes->SetColSize( 7, 135 );
+	m_grillaPacientes->SetColSize( 8, 125 );
+	m_grillaPacientes->SetColSize( 9, 77 );
+	m_grillaPacientes->EnableDragColMove( false );
+	m_grillaPacientes->EnableDragColSize( true );
+	m_grillaPacientes->SetColLabelValue( 0, wxT("Nombre") );
+	m_grillaPacientes->SetColLabelValue( 1, wxT("Apellido") );
+	m_grillaPacientes->SetColLabelValue( 2, wxT("Tel") );
+	m_grillaPacientes->SetColLabelValue( 3, wxT("Dni") );
+	m_grillaPacientes->SetColLabelValue( 4, wxT("Inicio") );
+	m_grillaPacientes->SetColLabelValue( 5, wxT("Diag") );
+	m_grillaPacientes->SetColLabelValue( 6, wxT("Obra Social") );
+	m_grillaPacientes->SetColLabelValue( 7, wxT("Ses. Totales/Realizadas") );
+	m_grillaPacientes->SetColLabelValue( 8, wxT("Observaciones") );
+	m_grillaPacientes->SetColLabelValue( 9, wxT("Ses. Pagas") );
+	m_grillaPacientes->SetColLabelValue( 10, wxEmptyString );
+	m_grillaPacientes->SetColLabelValue( 11, wxEmptyString );
+	m_grillaPacientes->SetColLabelValue( 12, wxEmptyString );
+	m_grillaPacientes->SetColLabelValue( 13, wxEmptyString );
+	m_grillaPacientes->SetColLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
+
+	// Rows
+	m_grillaPacientes->EnableDragRowSize( true );
+	m_grillaPacientes->SetRowLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
+
+	// Label Appearance
+
+	// Cell Defaults
+	m_grillaPacientes->SetDefaultCellAlignment( wxALIGN_LEFT, wxALIGN_TOP );
+	bSizer88->Add( m_grillaPacientes, 1, wxALL|wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer63;
+	bSizer63 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_botonVolverPac = new wxButton( this, wxID_ANY, wxT("Volver"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer63->Add( m_botonVolverPac, 0, wxALL, 5 );
+
+	m_btnModificarPac = new wxButton( this, wxID_ANY, wxT("Modificar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer63->Add( m_btnModificarPac, 0, wxALL, 5 );
+
+	m_btnEliminarPac = new wxButton( this, wxID_ANY, wxT("Eliminar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer63->Add( m_btnEliminarPac, 0, wxALL, 5 );
+
+	m_button31 = new wxButton( this, wxID_ANY, wxT("Agregar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer63->Add( m_button31, 0, wxALL, 5 );
+
+
+	bSizer88->Add( bSizer63, 0, wxALIGN_RIGHT, 5 );
+
+
+	this->SetSizer( bSizer88 );
+	this->Layout();
+
+	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_botonVolverPac->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VerPacienteHija::OnVolverClick ), NULL, this );
+	m_btnModificarPac->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VerPacienteHija::OnModificarClick ), NULL, this );
+	m_btnEliminarPac->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VerPacienteHija::OnEliminarClick ), NULL, this );
+	m_button31->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VerPacienteHija::OnAgregarClick ), NULL, this );
+}
+
+VerPacienteHija::~VerPacienteHija()
+{
+	// Disconnect Events
+	m_botonVolverPac->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VerPacienteHija::OnVolverClick ), NULL, this );
+	m_btnModificarPac->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VerPacienteHija::OnModificarClick ), NULL, this );
+	m_btnEliminarPac->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VerPacienteHija::OnEliminarClick ), NULL, this );
+	m_button31->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VerPacienteHija::OnAgregarClick ), NULL, this );
+
+}
+
+ModificarPacientePrincipal::ModificarPacientePrincipal( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+
+	wxBoxSizer* bSizer6;
+	bSizer6 = new wxBoxSizer( wxVERTICAL );
+
+	wxBoxSizer* bSizer7;
+	bSizer7 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText3 = new wxStaticText( this, wxID_ANY, wxT("Nombre :"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText3->Wrap( -1 );
+	bSizer7->Add( m_staticText3, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_txtNombre = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer7->Add( m_txtNombre, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer6->Add( bSizer7, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer8;
+	bSizer8 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText4 = new wxStaticText( this, wxID_ANY, wxT("Apellido :"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText4->Wrap( -1 );
+	bSizer8->Add( m_staticText4, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_txtApellido = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer8->Add( m_txtApellido, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer6->Add( bSizer8, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer11;
+	bSizer11 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText7 = new wxStaticText( this, wxID_ANY, wxT("Teléfono :"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText7->Wrap( -1 );
+	bSizer11->Add( m_staticText7, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_txtTelefono = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer11->Add( m_txtTelefono, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer6->Add( bSizer11, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer9;
+	bSizer9 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText5 = new wxStaticText( this, wxID_ANY, wxT("DNI :"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText5->Wrap( -1 );
+	bSizer9->Add( m_staticText5, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_txtDni = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_READONLY );
+	bSizer9->Add( m_txtDni, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer6->Add( bSizer9, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer65;
+	bSizer65 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText36 = new wxStaticText( this, wxID_ANY, wxT("Obra Social:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText36->Wrap( -1 );
+	bSizer65->Add( m_staticText36, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_txtObraSocial = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer65->Add( m_txtObraSocial, 1, wxALL, 5 );
+
+
+	bSizer6->Add( bSizer65, 0, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer12;
+	bSizer12 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText8 = new wxStaticText( this, wxID_ANY, wxT("Fecha de inicio:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText8->Wrap( -1 );
+	bSizer12->Add( m_staticText8, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_staticText9 = new wxStaticText( this, wxID_ANY, wxT("Día"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText9->Wrap( -1 );
+	bSizer12->Add( m_staticText9, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_txtDia = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer12->Add( m_txtDia, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_staticText10 = new wxStaticText( this, wxID_ANY, wxT("Mes"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText10->Wrap( -1 );
+	bSizer12->Add( m_staticText10, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_txtMes = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer12->Add( m_txtMes, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_staticText11 = new wxStaticText( this, wxID_ANY, wxT("Año"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText11->Wrap( -1 );
+	bSizer12->Add( m_staticText11, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_txtAnio = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer12->Add( m_txtAnio, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer6->Add( bSizer12, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer71;
+	bSizer71 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText31 = new wxStaticText( this, wxID_ANY, wxT("Cantidad de sesiones asignadas:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText31->Wrap( -1 );
+	bSizer71->Add( m_staticText31, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_txtSesionesAsignadas = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer71->Add( m_txtSesionesAsignadas, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer6->Add( bSizer71, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer711;
+	bSizer711 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText311 = new wxStaticText( this, wxID_ANY, wxT("Cantidad de sesiones realizadas:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText311->Wrap( -1 );
+	bSizer711->Add( m_staticText311, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_txtSesionesRealizadasMod = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer711->Add( m_txtSesionesRealizadasMod, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer6->Add( bSizer711, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer7111;
+	bSizer7111 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText3111 = new wxStaticText( this, wxID_ANY, wxT("Sesiones pagas:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText3111->Wrap( -1 );
+	bSizer7111->Add( m_staticText3111, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_txtSesionesPagasMod = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer7111->Add( m_txtSesionesPagasMod, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer6->Add( bSizer7111, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer81;
+	bSizer81 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText53 = new wxStaticText( this, wxID_ANY, wxT("Observaciones:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText53->Wrap( -1 );
+	bSizer81->Add( m_staticText53, 0, wxALL, 5 );
+
+	m_txtObservaciones = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE );
+	bSizer81->Add( m_txtObservaciones, 1, wxALL, 5 );
+
+
+	bSizer6->Add( bSizer81, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer17;
+	bSizer17 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_button10 = new wxButton( this, wxID_ANY, wxT("Cancelar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer17->Add( m_button10, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_botonGuardarModPaciente = new wxButton( this, wxID_ANY, wxT("Guardar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer17->Add( m_botonGuardarModPaciente, 0, wxALL, 5 );
+
+
+	bSizer6->Add( bSizer17, 0, wxALIGN_RIGHT, 5 );
+
+
+	this->SetSizer( bSizer6 );
+	this->Layout();
+
+	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_button10->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ModificarPacientePrincipal::OnCancelarModClick ), NULL, this );
+	m_botonGuardarModPaciente->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ModificarPacientePrincipal::OnGuardarModClick ), NULL, this );
+}
+
+ModificarPacientePrincipal::~ModificarPacientePrincipal()
+{
+	// Disconnect Events
+	m_button10->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ModificarPacientePrincipal::OnCancelarModClick ), NULL, this );
+	m_botonGuardarModPaciente->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ModificarPacientePrincipal::OnGuardarModClick ), NULL, this );
 
 }
 
@@ -1086,249 +1368,4 @@ VentanaAgendaTurnosPrincipal::VentanaAgendaTurnosPrincipal( wxWindow* parent, wx
 
 VentanaAgendaTurnosPrincipal::~VentanaAgendaTurnosPrincipal()
 {
-}
-
-VerPacienteHija::VerPacienteHija( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
-{
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
-
-	wxBoxSizer* bSizer88;
-	bSizer88 = new wxBoxSizer( wxVERTICAL );
-
-	m_grillaPacientes = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
-
-	// Grid
-	m_grillaPacientes->CreateGrid( 0, 0 );
-	m_grillaPacientes->EnableEditing( true );
-	m_grillaPacientes->EnableGridLines( true );
-	m_grillaPacientes->EnableDragGridSize( false );
-	m_grillaPacientes->SetMargins( 0, 0 );
-
-	// Columns
-	m_grillaPacientes->EnableDragColMove( false );
-	m_grillaPacientes->EnableDragColSize( true );
-	m_grillaPacientes->SetColLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
-
-	// Rows
-	m_grillaPacientes->EnableDragRowSize( true );
-	m_grillaPacientes->SetRowLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
-
-	// Label Appearance
-
-	// Cell Defaults
-	m_grillaPacientes->SetDefaultCellAlignment( wxALIGN_LEFT, wxALIGN_TOP );
-	bSizer88->Add( m_grillaPacientes, 1, wxALL|wxEXPAND, 5 );
-
-	wxBoxSizer* bSizer63;
-	bSizer63 = new wxBoxSizer( wxHORIZONTAL );
-
-	m_botonVolverPac = new wxButton( this, wxID_ANY, wxT("Volver"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer63->Add( m_botonVolverPac, 0, wxALL, 5 );
-
-	m_btnModificarPac = new wxButton( this, wxID_ANY, wxT("Modificar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer63->Add( m_btnModificarPac, 0, wxALL, 5 );
-
-	m_btnEliminarPac = new wxButton( this, wxID_ANY, wxT("Eliminar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer63->Add( m_btnEliminarPac, 0, wxALL, 5 );
-
-	m_button31 = new wxButton( this, wxID_ANY, wxT("Agregar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer63->Add( m_button31, 0, wxALL, 5 );
-
-
-	bSizer88->Add( bSizer63, 0, wxALIGN_RIGHT, 5 );
-
-
-	this->SetSizer( bSizer88 );
-	this->Layout();
-
-	this->Centre( wxBOTH );
-
-	// Connect Events
-	m_botonVolverPac->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VerPacienteHija::OnVolverClick ), NULL, this );
-	m_btnModificarPac->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VerPacienteHija::OnModificarClick ), NULL, this );
-	m_btnEliminarPac->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VerPacienteHija::OnEliminarClick ), NULL, this );
-	m_button31->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VerPacienteHija::OnAgregarClick ), NULL, this );
-}
-
-VerPacienteHija::~VerPacienteHija()
-{
-	// Disconnect Events
-	m_botonVolverPac->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VerPacienteHija::OnVolverClick ), NULL, this );
-	m_btnModificarPac->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VerPacienteHija::OnModificarClick ), NULL, this );
-	m_btnEliminarPac->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VerPacienteHija::OnEliminarClick ), NULL, this );
-	m_button31->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VerPacienteHija::OnAgregarClick ), NULL, this );
-
-}
-
-ModificarPacientePrincipal::ModificarPacientePrincipal( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
-{
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
-
-	wxBoxSizer* bSizer6;
-	bSizer6 = new wxBoxSizer( wxVERTICAL );
-
-	wxBoxSizer* bSizer7;
-	bSizer7 = new wxBoxSizer( wxHORIZONTAL );
-
-	m_staticText3 = new wxStaticText( this, wxID_ANY, wxT("Nombre :"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText3->Wrap( -1 );
-	bSizer7->Add( m_staticText3, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-	m_txtNombre = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer7->Add( m_txtNombre, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-
-	bSizer6->Add( bSizer7, 1, wxEXPAND, 5 );
-
-	wxBoxSizer* bSizer8;
-	bSizer8 = new wxBoxSizer( wxHORIZONTAL );
-
-	m_staticText4 = new wxStaticText( this, wxID_ANY, wxT("Apellido :"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText4->Wrap( -1 );
-	bSizer8->Add( m_staticText4, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-	m_txtApellido = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer8->Add( m_txtApellido, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-
-	bSizer6->Add( bSizer8, 1, wxEXPAND, 5 );
-
-	wxBoxSizer* bSizer11;
-	bSizer11 = new wxBoxSizer( wxHORIZONTAL );
-
-	m_staticText7 = new wxStaticText( this, wxID_ANY, wxT("Teléfono :"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText7->Wrap( -1 );
-	bSizer11->Add( m_staticText7, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-	m_txtTelefono = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer11->Add( m_txtTelefono, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-
-	bSizer6->Add( bSizer11, 1, wxEXPAND, 5 );
-
-	wxBoxSizer* bSizer9;
-	bSizer9 = new wxBoxSizer( wxHORIZONTAL );
-
-	m_staticText5 = new wxStaticText( this, wxID_ANY, wxT("DNI :"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText5->Wrap( -1 );
-	bSizer9->Add( m_staticText5, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-	m_txtDni = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_READONLY );
-	bSizer9->Add( m_txtDni, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-
-	bSizer6->Add( bSizer9, 1, wxEXPAND, 5 );
-
-	wxBoxSizer* bSizer65;
-	bSizer65 = new wxBoxSizer( wxHORIZONTAL );
-
-	m_staticText36 = new wxStaticText( this, wxID_ANY, wxT("Obra Social:"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText36->Wrap( -1 );
-	bSizer65->Add( m_staticText36, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-	m_txtObraSocial = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer65->Add( m_txtObraSocial, 1, wxALL, 5 );
-
-
-	bSizer6->Add( bSizer65, 0, wxEXPAND, 5 );
-
-	wxBoxSizer* bSizer12;
-	bSizer12 = new wxBoxSizer( wxHORIZONTAL );
-
-	m_staticText8 = new wxStaticText( this, wxID_ANY, wxT("Fecha de inicio:"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText8->Wrap( -1 );
-	bSizer12->Add( m_staticText8, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-	m_staticText9 = new wxStaticText( this, wxID_ANY, wxT("Día"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText9->Wrap( -1 );
-	bSizer12->Add( m_staticText9, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-	m_txtDia = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer12->Add( m_txtDia, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-	m_staticText10 = new wxStaticText( this, wxID_ANY, wxT("Mes"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText10->Wrap( -1 );
-	bSizer12->Add( m_staticText10, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-	m_txtMes = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer12->Add( m_txtMes, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-	m_staticText11 = new wxStaticText( this, wxID_ANY, wxT("Año"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText11->Wrap( -1 );
-	bSizer12->Add( m_staticText11, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-	m_txtAnio = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer12->Add( m_txtAnio, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-
-	bSizer6->Add( bSizer12, 1, wxEXPAND, 5 );
-
-	wxBoxSizer* bSizer71;
-	bSizer71 = new wxBoxSizer( wxHORIZONTAL );
-
-	m_staticText31 = new wxStaticText( this, wxID_ANY, wxT("Cantidad de sesiones asignadas:"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText31->Wrap( -1 );
-	bSizer71->Add( m_staticText31, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-	m_txtSesionesAsignadas = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer71->Add( m_txtSesionesAsignadas, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-
-	bSizer6->Add( bSizer71, 1, wxEXPAND, 5 );
-
-	wxBoxSizer* bSizer711;
-	bSizer711 = new wxBoxSizer( wxHORIZONTAL );
-
-	m_staticText311 = new wxStaticText( this, wxID_ANY, wxT("Cantidad de sesiones realizadas:"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText311->Wrap( -1 );
-	bSizer711->Add( m_staticText311, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-	m_txtSesionesRealizadasMod = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer711->Add( m_txtSesionesRealizadasMod, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-
-	bSizer6->Add( bSizer711, 1, wxEXPAND, 5 );
-
-	wxBoxSizer* bSizer7111;
-	bSizer7111 = new wxBoxSizer( wxHORIZONTAL );
-
-	m_staticText3111 = new wxStaticText( this, wxID_ANY, wxT("Sesiones pagas:"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText3111->Wrap( -1 );
-	bSizer7111->Add( m_staticText3111, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-	m_txtSesionesPagasMod = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer7111->Add( m_txtSesionesPagasMod, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-
-	bSizer6->Add( bSizer7111, 1, wxEXPAND, 5 );
-
-	wxBoxSizer* bSizer17;
-	bSizer17 = new wxBoxSizer( wxHORIZONTAL );
-
-	m_button10 = new wxButton( this, wxID_ANY, wxT("Cancelar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer17->Add( m_button10, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-	m_button11 = new wxButton( this, wxID_ANY, wxT("Aceptar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer17->Add( m_button11, 0, wxALL, 5 );
-
-
-	bSizer6->Add( bSizer17, 0, wxALIGN_RIGHT, 5 );
-
-
-	this->SetSizer( bSizer6 );
-	this->Layout();
-
-	this->Centre( wxBOTH );
-
-	// Connect Events
-	m_button10->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ModificarPacientePrincipal::OnCancelarModClick ), NULL, this );
-	m_button11->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ModificarPacientePrincipal::OnGuardarModClick ), NULL, this );
-}
-
-ModificarPacientePrincipal::~ModificarPacientePrincipal()
-{
-	// Disconnect Events
-	m_button10->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ModificarPacientePrincipal::OnCancelarModClick ), NULL, this );
-	m_button11->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ModificarPacientePrincipal::OnGuardarModClick ), NULL, this );
-
 }

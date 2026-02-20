@@ -1,6 +1,11 @@
 #include "Fecha.h"
 using namespace std;
 
+string Fecha::toString() const
+{
+	return to_string(dia) + "/" + to_string(mes) + "/" + to_string(anio);
+}
+
 bool esBisiesto(int anio) {
    // Es bisiesto si es divisible por 4, excepto si es divisible por 100 (salvo que sea por 400)
     return (anio % 4 == 0 && anio % 100 != 0) || (anio % 400 == 0);

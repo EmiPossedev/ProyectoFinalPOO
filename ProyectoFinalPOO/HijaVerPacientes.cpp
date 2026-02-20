@@ -4,31 +4,54 @@
 #include "RegistrarPacientesHija.h"
 #include "HijaModificarPaciente.h"
 
-HijaVerPacientes::HijaVerPacientes(wxWindow *parent) : VerPacienteHija(parent) {
+HijaVerPacientes::HijaVerPacientes(wxWindow *parent, Consultorio *consultorio) : 
+	VerPacienteHija(parent), m_consultorio(consultorio) {
+	for(int i=0 ; i<m_consultorio->getCantPacientes() ; i++) { 
+		Paciente *p = m_consultorio->buscarPacientePorInd(i);
+		m_grillaPacientes->AppendRows();
+		m_grillaPacientes->SetCellValue(i,0, p->getNombre());
+		m_grillaPacientes->SetCellValue(i,1, p->getApellido());
+		m_grillaPacientes->SetCellValue(i,2, p->getTelefono());
+		m_grillaPacientes->SetCellValue(i,3, p->getDni());
+		m_grillaPacientes->SetCellValue(i,4, p->getFechaDeInicio().toString());
+		m_grillaPacientes->SetCellValue(i,5, p->getDiagnostico());
+		m_grillaPacientes->SetCellValue(i,6, p->getObraSocial());
+		m_grillaPacientes->SetCellValue(i,7, to_string(p->getCantidadSesionesRealizadas()) + "/" + to_string(p->getCantSesionesTotales()));
+		m_grillaPacientes->SetCellValue(i,8, p->getObservaciones());
+		string pagoHecho;
+		if (p->getSesionesPagas()){ pagoHecho = "Si"; } 
+		else { pagoHecho = "No";}
+		m_grillaPacientes->SetCellValue(i,9, pagoHecho);
+	}
 	
-	m_grillaPacientes->AppendCols(7); // Agregamos 7 columnas
-	m_grillaPacientes->AppendRows(1); // Agregamos 1 fila
-	
-	m_grillaPacientes->SetColLabelValue(0, "Nombre");
-	m_grillaPacientes->SetColLabelValue(1, "Apellido");
-	m_grillaPacientes->SetColLabelValue(2, "DNI");
-	m_grillaPacientes->SetColLabelValue(3, "Teléfono");
-	m_grillaPacientes->SetColLabelValue(4, "Obra Social");
-	m_grillaPacientes->SetColLabelValue(5, "Sesiones Pagas");
-	m_grillaPacientes->SetColLabelValue(6, "Sesiones (Real/Tot)");
-	
-	m_grillaPacientes->SetCellValue(0, 0, "Albertina");
-	m_grillaPacientes->SetCellValue(0, 1, "Giannone");
-	m_grillaPacientes->SetCellValue(0, 2, "41490773");
-	m_grillaPacientes->SetCellValue(0, 3, "3425856780");
-	m_grillaPacientes->SetCellValue(0, 4, "Ospac");
-	m_grillaPacientes->SetCellValue(0, 5, "Sí");
-	m_grillaPacientes->SetCellValue(0, 6, "1/7");
-	
-	// TRUCO DE MAGIA: Hace que al hacer clic, se seleccione toda la fila azul, no solo una celda.
-	// Esto es ideal para el botón Eliminar/Modificar
+	// Esto es para q se seleccione toda la fila, no solo una celda.
 	m_grillaPacientes->SetSelectionMode(wxGrid::wxGridSelectRows);
 	
+	m_grillaPacientes->EnableEditing(false);
+	m_grillaPacientes->AutoSizeColumns();
+}
+
+void HijaVerPacientes::RefrescarGrillaPacientes(){
+	if (m_grillaPacientes->GetNumberRows() !=0){
+			m_grillaPacientes->DeleteRows(0,m_grillaPacientes->GetNumberRows());
+	}
+	for(int i=0 ; i<m_consultorio->getCantPacientes() ; i++) { 
+		Paciente *p = m_consultorio->buscarPacientePorInd(i);
+		m_grillaPacientes->AppendRows();
+		m_grillaPacientes->SetCellValue(i,0, p->getNombre());
+		m_grillaPacientes->SetCellValue(i,1, p->getApellido());
+		m_grillaPacientes->SetCellValue(i,2, p->getTelefono());
+		m_grillaPacientes->SetCellValue(i,3, p->getDni());
+		m_grillaPacientes->SetCellValue(i,4, p->getFechaDeInicio().toString());
+		m_grillaPacientes->SetCellValue(i,5, p->getDiagnostico());
+		m_grillaPacientes->SetCellValue(i,6, p->getObraSocial());
+		m_grillaPacientes->SetCellValue(i,7, to_string(p->getCantidadSesionesRealizadas()) + "/" + to_string(p->getCantSesionesTotales()));
+		m_grillaPacientes->SetCellValue(i,8, p->getObservaciones());
+		string pagoHecho;
+		if (p->getSesionesPagas()){ pagoHecho = "Si"; } 
+			else { pagoHecho = "No";}
+		m_grillaPacientes->SetCellValue(i,9, pagoHecho);
+	}
 	m_grillaPacientes->EnableEditing(false);
 	m_grillaPacientes->AutoSizeColumns();
 }
@@ -36,7 +59,7 @@ HijaVerPacientes::HijaVerPacientes(wxWindow *parent) : VerPacienteHija(parent) {
 HijaVerPacientes::~HijaVerPacientes() {
 }
 
-// --- ACCIONES DE LOS BOTONES ---
+/// BOTONES
 
 void HijaVerPacientes::OnVolverClick( wxCommandEvent& event ) {
 	Close();
@@ -51,29 +74,46 @@ void HijaVerPacientes::OnModificarClick( wxCommandEvent& event ) {
 		return;
 	}
 	
-	// Agarramos los datos 
-	wxString nombre = m_grillaPacientes->GetCellValue(filaSeleccionada, 0);
-	wxString apellido = m_grillaPacientes->GetCellValue(filaSeleccionada, 1);
-	wxString dni = m_grillaPacientes->GetCellValue(filaSeleccionada, 2);
-	wxString telefono = m_grillaPacientes->GetCellValue(filaSeleccionada, 3);
-	wxString obraSocial = m_grillaPacientes->GetCellValue(filaSeleccionada, 4);
-	wxString sesionesPagas = m_grillaPacientes->GetCellValue(filaSeleccionada, 5);
+	// Me quedo con el dni y obtengo los datos directamente de m_consultorio
+	wxString dniTexto = m_grillaPacientes->GetCellValue(filaSeleccionada, 3);
 	
+	// Busco el paciente real en memoria
+	Paciente *p = m_consultorio->buscarPacientePorDni(dniTexto.ToStdString());
 	
-	wxString sesionesJuntas = m_grillaPacientes->GetCellValue(filaSeleccionada, 6);
-	wxString realizadas = sesionesJuntas.BeforeFirst('/'); 
-	wxString asignadas = sesionesJuntas.AfterFirst('/');   
-	
-	// Como la grilla no tiene la fecha, le pasamos textos vacíos por ahora
-	wxString dia = "";
-	wxString mes = "";
-	wxString anio = "";
-	
-	// Creamos la ventana y le metemos toda la info
-	HijaModificarPaciente ventanaMod(this);
-	ventanaMod.CargarDatos(nombre, apellido, dni, telefono, obraSocial, sesionesPagas, dia, mes, anio, asignadas, realizadas);
-	
-	ventanaMod.ShowModal();
+	if (p != nullptr) {
+		wxString nombre = p->getNombre();
+		wxString apellido = p->getApellido();
+		wxString telefono = p->getTelefono();
+		wxString obraSocial = p->getObraSocial();
+		
+		// La fecha ya la tenemos separada en el struct, solo la pasamos a string
+		wxString dia = to_string(p->getFechaDeInicio().dia);
+		wxString mes = to_string(p->getFechaDeInicio().mes);
+		wxString anio = to_string(p->getFechaDeInicio().anio);
+		
+		wxString asignadas = to_string(p->getCantSesionesTotales());
+		wxString realizadas = to_string(p->getCantidadSesionesRealizadas());
+		wxString obs = p->getObservaciones();
+		
+		// Formateo un poco el tema del pago de las sesiones porque lo tengo tengo guardado como un booleano
+		wxString sesionesPagas;
+		if (p->getSesionesPagas() == true) {
+			sesionesPagas = "Si";
+		} else {
+			sesionesPagas = "No";
+		}
+		
+		HijaModificarPaciente ventanaMod(this, m_consultorio); 
+		ventanaMod.CargarDatos(nombre, apellido, dniTexto, telefono, obraSocial, sesionesPagas, dia, mes, anio, asignadas, realizadas, obs);
+		
+		// Si el usuario aceptó, refresco la grilla
+		if (ventanaMod.ShowModal() == 1) {
+			RefrescarGrillaPacientes();
+		}
+		
+	} else {
+		wxMessageBox("Error al buscar los datos del paciente.", "Error", wxOK | wxICON_ERROR);
+	}
 }
 
 void HijaVerPacientes::OnEliminarClick( wxCommandEvent& event ) {
@@ -90,7 +130,7 @@ void HijaVerPacientes::OnEliminarClick( wxCommandEvent& event ) {
 
 void HijaVerPacientes::OnAgregarClick( wxCommandEvent& event ) {
 	// Creamos la ventana de registro en la memoria 
-	RegistrarPacientesHija ventanaRegistro(this);
+	RegistrarPacientesHija ventanaRegistro(this, m_consultorio);
 	
 	// La mostramos en pantalla
 	ventanaRegistro.ShowModal();

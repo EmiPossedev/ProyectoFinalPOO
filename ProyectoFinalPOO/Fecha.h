@@ -9,9 +9,12 @@ struct Fecha
     int dia;
     int mes;
     int anio;
-
+	
+	// Funcion para poder transformar el struct a string
+	string toString() const;
+	
     // Sobrecarga del operador < (Para que el sort funcione solo)
-    // Compara Años, luego Meses, luego Días.
+    // Compara Anios, luego Meses, luego Dias.
     bool operator<(const Fecha &f) const
     {
         if (anio != f.anio)
@@ -21,13 +24,13 @@ struct Fecha
         return dia < f.dia;
     }
 
-    // 2. Sobrecarga del operador == (Para buscar turnos por fecha)
+    // Sobrecarga del operador == (Para buscar turnos por fecha)
     bool operator==(const Fecha &f) const
     {
         return dia == f.dia && mes == f.mes && anio == f.anio;
     }
 
-    // 3. Sobrecarga del operador != (Para saber si son distintas)
+    // Sobrecarga del operador != (Para saber si son distintas)
     bool operator!=(const Fecha &f) const
     {
         return !(*this == f);

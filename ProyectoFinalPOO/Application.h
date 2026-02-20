@@ -5,11 +5,8 @@
 #include "Consultorio.h"
 
 class Application : public wxApp {
-	
+	Consultorio *m_consultorio;
 public:
-	Consultorio *m_consultorio; //Para que las ventanas puedan usarlo
 	virtual bool OnInit();
 };
-//permite que 
-DECLARE_APP(Application)
 #endif
