@@ -54,7 +54,7 @@ cursor=0:0
 open=true
 [source]
 path=Paciente.cpp
-cursor=57:37
+cursor=57:34
 open=true
 [source]
 path=Persona.cpp
@@ -97,7 +97,7 @@ cursor=0:0
 open=true
 [source]
 path=HijaVerPacientes.cpp
-cursor=55:38
+cursor=57:35
 open=true
 [source]
 path=HijaModificarPaciente.cpp

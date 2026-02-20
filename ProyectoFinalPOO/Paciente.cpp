@@ -55,7 +55,7 @@ string Paciente::getObservaciones() const
 }
 void Paciente::setObservaciones(const string &nuevaObservacion)
 {
-    observaciones = nuevaObservacion;
+	observaciones = nuevaObservacion;
 }
 void Paciente::borrarObservaciones() // faltaba "Paciente::" ;)
 {

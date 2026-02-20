@@ -335,6 +335,7 @@ VerPacienteHija::VerPacienteHija( wxWindow* parent, wxWindowID id, const wxStrin
 	m_grillaPacientes->SetColLabelValue( 11, wxEmptyString );
 	m_grillaPacientes->SetColLabelValue( 12, wxEmptyString );
 	m_grillaPacientes->SetColLabelValue( 13, wxEmptyString );
+	m_grillaPacientes->SetColLabelSize( wxGRID_AUTOSIZE );
 	m_grillaPacientes->SetColLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
 
 	// Rows

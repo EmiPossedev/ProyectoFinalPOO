@@ -29,6 +29,7 @@ HijaVerPacientes::HijaVerPacientes(wxWindow *parent, Consultorio *consultorio) :
 	
 	m_grillaPacientes->EnableEditing(false);
 	m_grillaPacientes->AutoSizeColumns();
+	m_grillaPacientes->AutoSizeRows();
 }
 
 void HijaVerPacientes::RefrescarGrillaPacientes(){
@@ -54,6 +55,7 @@ void HijaVerPacientes::RefrescarGrillaPacientes(){
 	}
 	m_grillaPacientes->EnableEditing(false);
 	m_grillaPacientes->AutoSizeColumns();
+	m_grillaPacientes->AutoSizeRows();
 }
 
 HijaVerPacientes::~HijaVerPacientes() {
