@@ -1131,7 +1131,7 @@ ReservarTurnoPrincipal::ReservarTurnoPrincipal( wxWindow* parent, wxWindowID id,
 	bSizer53->Add( m_staticText44, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_textDniPaciente = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer53->Add( m_textDniPaciente, 0, wxALL, 5 );
+	bSizer53->Add( m_textDniPaciente, 1, wxALL, 5 );
 
 
 	bSizer49->Add( bSizer53, 0, wxEXPAND, 5 );
@@ -1226,7 +1226,7 @@ ReservarTurnoPrincipal::ReservarTurnoPrincipal( wxWindow* parent, wxWindowID id,
 	m_staticText56->Wrap( -1 );
 	bSizer60->Add( m_staticText56, 0, wxALL, 5 );
 
-	wxString m_choiceInstalacionChoices[] = { wxT("Camilla"), wxT("Gimnasio") };
+	wxString m_choiceInstalacionChoices[] = { wxT("Camilla"), wxT("Gimnasio"), wxT(" Ambos") };
 	int m_choiceInstalacionNChoices = sizeof( m_choiceInstalacionChoices ) / sizeof( wxString );
 	m_choiceInstalacion = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_choiceInstalacionNChoices, m_choiceInstalacionChoices, 0 );
 	m_choiceInstalacion->SetSelection( 0 );
@@ -1290,47 +1290,47 @@ VentanaAgendaTurnosPrincipal::VentanaAgendaTurnosPrincipal( wxWindow* parent, wx
 	wxBoxSizer* bSizer64;
 	bSizer64 = new wxBoxSizer( wxVERTICAL );
 
-	m_grid2 = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
+	m_grillaTurnos = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 
 	// Grid
-	m_grid2->CreateGrid( 0, 8 );
-	m_grid2->EnableEditing( true );
-	m_grid2->EnableGridLines( true );
-	m_grid2->EnableDragGridSize( false );
-	m_grid2->SetMargins( 0, 0 );
+	m_grillaTurnos->CreateGrid( 0, 8 );
+	m_grillaTurnos->EnableEditing( true );
+	m_grillaTurnos->EnableGridLines( true );
+	m_grillaTurnos->EnableDragGridSize( false );
+	m_grillaTurnos->SetMargins( 0, 0 );
 
 	// Columns
-	m_grid2->SetColSize( 0, 61 );
-	m_grid2->SetColSize( 1, 64 );
-	m_grid2->SetColSize( 2, 104 );
-	m_grid2->SetColSize( 3, 87 );
-	m_grid2->SetColSize( 4, 64 );
-	m_grid2->SetColSize( 5, 79 );
-	m_grid2->SetColSize( 6, 87 );
-	m_grid2->SetColSize( 7, 165 );
-	m_grid2->EnableDragColMove( false );
-	m_grid2->EnableDragColSize( true );
-	m_grid2->SetColLabelValue( 0, wxT("DIA") );
-	m_grid2->SetColLabelValue( 1, wxT("HORA") );
-	m_grid2->SetColLabelValue( 2, wxT("Paciente") );
-	m_grid2->SetColLabelValue( 3, wxT("Kinesiologo") );
-	m_grid2->SetColLabelValue( 4, wxT("Camilla") );
-	m_grid2->SetColLabelValue( 5, wxT("Gimnasio") );
-	m_grid2->SetColLabelValue( 6, wxT("Estado") );
-	m_grid2->SetColLabelValue( 7, wxT("Observaciones") );
-	m_grid2->SetColLabelValue( 8, wxEmptyString );
-	m_grid2->SetColLabelValue( 9, wxEmptyString );
-	m_grid2->SetColLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
+	m_grillaTurnos->SetColSize( 0, 61 );
+	m_grillaTurnos->SetColSize( 1, 64 );
+	m_grillaTurnos->SetColSize( 2, 104 );
+	m_grillaTurnos->SetColSize( 3, 87 );
+	m_grillaTurnos->SetColSize( 4, 64 );
+	m_grillaTurnos->SetColSize( 5, 79 );
+	m_grillaTurnos->SetColSize( 6, 87 );
+	m_grillaTurnos->SetColSize( 7, 165 );
+	m_grillaTurnos->EnableDragColMove( false );
+	m_grillaTurnos->EnableDragColSize( true );
+	m_grillaTurnos->SetColLabelValue( 0, wxT("DIA") );
+	m_grillaTurnos->SetColLabelValue( 1, wxT("HORA") );
+	m_grillaTurnos->SetColLabelValue( 2, wxT("Paciente") );
+	m_grillaTurnos->SetColLabelValue( 3, wxT("Kinesiologo") );
+	m_grillaTurnos->SetColLabelValue( 4, wxT("Camilla") );
+	m_grillaTurnos->SetColLabelValue( 5, wxT("Gimnasio") );
+	m_grillaTurnos->SetColLabelValue( 6, wxT("Estado") );
+	m_grillaTurnos->SetColLabelValue( 7, wxT("Observaciones") );
+	m_grillaTurnos->SetColLabelValue( 8, wxEmptyString );
+	m_grillaTurnos->SetColLabelValue( 9, wxEmptyString );
+	m_grillaTurnos->SetColLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
 
 	// Rows
-	m_grid2->EnableDragRowSize( true );
-	m_grid2->SetRowLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
+	m_grillaTurnos->EnableDragRowSize( true );
+	m_grillaTurnos->SetRowLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
 
 	// Label Appearance
 
 	// Cell Defaults
-	m_grid2->SetDefaultCellAlignment( wxALIGN_LEFT, wxALIGN_TOP );
-	bSizer64->Add( m_grid2, 1, wxALL|wxEXPAND, 5 );
+	m_grillaTurnos->SetDefaultCellAlignment( wxALIGN_LEFT, wxALIGN_TOP );
+	bSizer64->Add( m_grillaTurnos, 1, wxALL|wxEXPAND, 5 );
 
 
 	bSizer63->Add( bSizer64, 1, wxEXPAND, 5 );
@@ -1338,14 +1338,17 @@ VentanaAgendaTurnosPrincipal::VentanaAgendaTurnosPrincipal( wxWindow* parent, wx
 	wxBoxSizer* bSizer65;
 	bSizer65 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_button33 = new wxButton( this, wxID_ANY, wxT("Volver"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer65->Add( m_button33, 0, wxALL, 5 );
+	m_btnVolver = new wxButton( this, wxID_ANY, wxT("Volver"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer65->Add( m_btnVolver, 0, wxALL, 5 );
 
-	m_button34 = new wxButton( this, wxID_ANY, wxT("Eliminar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer65->Add( m_button34, 0, wxALL, 5 );
+	m_btnEliminarTurno = new wxButton( this, wxID_ANY, wxT("Eliminar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer65->Add( m_btnEliminarTurno, 0, wxALL, 5 );
 
-	m_button35 = new wxButton( this, wxID_ANY, wxT("Modificar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer65->Add( m_button35, 0, wxALL, 5 );
+	m_btnModificarTurno = new wxButton( this, wxID_ANY, wxT("Modificar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer65->Add( m_btnModificarTurno, 0, wxALL, 5 );
+
+	m_btnAgregarTurno = new wxButton( this, wxID_ANY, wxT("Agregar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer65->Add( m_btnAgregarTurno, 0, wxALL, 5 );
 
 
 	bSizer63->Add( bSizer65, 0, wxALIGN_RIGHT, 5 );
@@ -1355,10 +1358,22 @@ VentanaAgendaTurnosPrincipal::VentanaAgendaTurnosPrincipal( wxWindow* parent, wx
 	this->Layout();
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_btnVolver->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaAgendaTurnosPrincipal::OnVolverClick ), NULL, this );
+	m_btnEliminarTurno->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaAgendaTurnosPrincipal::OnEliminarTurnoClick ), NULL, this );
+	m_btnModificarTurno->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaAgendaTurnosPrincipal::OnModificarTurnoClick ), NULL, this );
+	m_btnAgregarTurno->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaAgendaTurnosPrincipal::OnAgregarTurnoClick ), NULL, this );
 }
 
 VentanaAgendaTurnosPrincipal::~VentanaAgendaTurnosPrincipal()
 {
+	// Disconnect Events
+	m_btnVolver->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaAgendaTurnosPrincipal::OnVolverClick ), NULL, this );
+	m_btnEliminarTurno->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaAgendaTurnosPrincipal::OnEliminarTurnoClick ), NULL, this );
+	m_btnModificarTurno->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaAgendaTurnosPrincipal::OnModificarTurnoClick ), NULL, this );
+	m_btnAgregarTurno->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaAgendaTurnosPrincipal::OnAgregarTurnoClick ), NULL, this );
+
 }
 
 ModificarKinesiologosPrincipal::ModificarKinesiologosPrincipal( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
