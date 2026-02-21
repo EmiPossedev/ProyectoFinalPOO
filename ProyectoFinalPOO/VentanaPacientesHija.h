@@ -10,7 +10,6 @@ private:
 protected:
 	void botonVolverPacientesPrincipal( wxCommandEvent& event )  override;
 	void OnRegistrarClick( wxCommandEvent& event )  override;
-	void OnAbrirBusquedaClick( wxCommandEvent& event )  override;
 	void OnVerListaClick( wxCommandEvent& event ) override;
 	
 public:

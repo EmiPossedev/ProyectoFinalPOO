@@ -8,6 +8,7 @@ class VerKinesiologosHija : public VerKinesiologosPrincipal {
 private:
 	Consultorio *m_consultorio;
 protected:
+	void ClickBotonModKinesiologo( wxCommandEvent& event )  override;
 	void OnAgregarClick( wxCommandEvent& event )  override;
 	void OnEliminarClick( wxCommandEvent& event )  override;
 	void VolverListaKinesiologos( wxCommandEvent& event )  override;

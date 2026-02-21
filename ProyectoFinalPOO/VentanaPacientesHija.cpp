@@ -10,15 +10,6 @@ VentanaPacientesHija::~VentanaPacientesHija() {
 	
 }
 
-
-void VentanaPacientesHija::OnAbrirBusquedaClick( wxCommandEvent& event )  {
-	
-	HijaBuscarPaciente ventanaBusqueda(this, m_consultorio);
-	
-	ventanaBusqueda.ShowModal();
-	event.Skip();
-}
-
 void VentanaPacientesHija::OnRegistrarClick( wxCommandEvent& event )  {
 	// Creamos la ventana de registro 
 	RegistrarPacientesHija ventanaRegistro(this, m_consultorio);

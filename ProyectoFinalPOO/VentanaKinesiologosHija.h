@@ -10,7 +10,6 @@ private:
 protected:
 	void OnRegistrarKineClick( wxCommandEvent& event )  override;
 	void OnVerKinesClick( wxCommandEvent& event )  override;
-	void OnBuscarKineClick( wxCommandEvent& event )  override;
 	void OnVolverKinesClick( wxCommandEvent& event )  override;
 	
 public:

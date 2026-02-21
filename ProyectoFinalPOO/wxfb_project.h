@@ -67,13 +67,11 @@ class VentanaPacientesPrincipal : public wxDialog
 	protected:
 		wxButton* m_button9;
 		wxButton* m_button10;
-		wxButton* m_button11;
 		wxButton* m_botonVolverPacientesPrincipal;
 
 		// Virtual event handlers, override them in your derived class
 		virtual void OnRegistrarClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnVerListaClick( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnAbrirBusquedaClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void botonVolverPacientesPrincipal( wxCommandEvent& event ) { event.Skip(); }
 
 
@@ -250,13 +248,11 @@ class VentanaKinesiologosPrincipal1 : public wxDialog
 	protected:
 		wxButton* m_buttonRegistrarKine;
 		wxButton* m_buttonVerKines;
-		wxButton* m_buttonBuscarKine;
 		wxButton* m_buttonVolverKines;
 
 		// Virtual event handlers, override them in your derived class
 		virtual void OnRegistrarKineClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnVerKinesClick( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnBuscarKineClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnVolverKinesClick( wxCommandEvent& event ) { event.Skip(); }
 
 
@@ -314,12 +310,13 @@ class VerKinesiologosPrincipal : public wxDialog
 	protected:
 		wxGrid* m_grillaKinesiologos;
 		wxButton* m_botonVolverListaKinesiologos;
-		wxButton* m_button32;
+		wxButton* m_botonModificarKinesiologos;
 		wxButton* m_buttonEliminarListaKinesiologos;
 		wxButton* m_buttonAgregarListaKinesiologos;
 
 		// Virtual event handlers, override them in your derived class
 		virtual void VolverListaKinesiologos( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickBotonModKinesiologo( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnEliminarClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnAgregarClick( wxCommandEvent& event ) { event.Skip(); }
 
@@ -457,6 +454,43 @@ class VentanaAgendaTurnosPrincipal : public wxDialog
 		VentanaAgendaTurnosPrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 816,293 ), long style = wxDEFAULT_DIALOG_STYLE );
 
 		~VentanaAgendaTurnosPrincipal();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class ModificarKinesiologosPrincipal
+///////////////////////////////////////////////////////////////////////////////
+class ModificarKinesiologosPrincipal : public wxDialog
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText57;
+		wxTextCtrl* m_textNombre;
+		wxStaticText* m_staticText58;
+		wxTextCtrl* m_textApellido;
+		wxStaticText* m_staticText59;
+		wxTextCtrl* m_textTelefono;
+		wxStaticText* m_staticText60;
+		wxTextCtrl* m_textDni;
+		wxStaticText* m_staticText61;
+		wxTextCtrl* m_textEspecialidad;
+		wxStaticText* m_staticText62;
+		wxTextCtrl* m_textMatricula;
+		wxStaticText* m_staticText63;
+		wxTextCtrl* m_textCantPacientesAtend;
+		wxButton* m_botonCancelarModPaciente;
+		wxButton* m_botonAceptarModPaciente;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void ClickBotonAceptarMod( wxCommandEvent& event ) { event.Skip(); }
+
+
+	public:
+
+		ModificarKinesiologosPrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 561,352 ), long style = wxDEFAULT_DIALOG_STYLE );
+
+		~ModificarKinesiologosPrincipal();
 
 };
 

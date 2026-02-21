@@ -17,11 +17,6 @@ void VentanaKinesiologosHija::OnVerKinesClick( wxCommandEvent& event )  {
 	ventanaVerKines.ShowModal();
 }
 
-void VentanaKinesiologosHija::OnBuscarKineClick( wxCommandEvent& event )  {
-	BuscarkinesiologoHija ventanaBuscar(this, m_consultorio);
-	ventanaBuscar.ShowModal();
-}
-
 void VentanaKinesiologosHija::OnVolverKinesClick( wxCommandEvent& event )  {
 	Close();
 }

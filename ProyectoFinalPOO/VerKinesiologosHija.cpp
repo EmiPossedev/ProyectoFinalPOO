@@ -2,6 +2,7 @@
 #include <wx/grid.h> 
 #include <wx/msgdlg.h>
 #include "RegistrarKinesiologoHija.h"
+#include "ModificarKinesiologosHija.h"
 
 VerKinesiologosHija::VerKinesiologosHija(wxWindow *parent, Consultorio *consultorio) :
 	VerKinesiologosPrincipal(parent), m_consultorio(consultorio) 
@@ -100,5 +101,12 @@ void VerKinesiologosHija::OnAgregarClick( wxCommandEvent& event ) {
 	
 	ventanaRegistro.ShowModal();
 	
-	RefrescarGrillaKinesiologos(); 
+	if( ventanaRegistro.ShowModal() == 1) RefrescarGrillaKinesiologos(); 
 }
+
+void VerKinesiologosHija::ClickBotonModKinesiologo( wxCommandEvent& event )  {
+	ModificarKinesiologosHija ventanaModificarKinesio(this, m_consultorio);
+	ventanaModificarKinesio.ShowModal();
+	if(ventanaModificarKinesio.ShowModal() == 1) RefrescarGrillaKinesiologos();
+}
+
