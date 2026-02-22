@@ -709,3 +709,23 @@ void Consultorio::borrarTurnos()
     bin.close();
     cout << "Archivo de turnos vaciado correctamente." << std::endl;
 }
+
+void Consultorio::actualizarTurno(Turno turnoViejo, Turno turnoNuevo) {
+	for (auto it = turnos.begin(); it != turnos.end(); ++it) {
+		// Buscamos el turno exacto comparando los 3 datos clave
+		if (it->dniPaciente == turnoViejo.dniPaciente && it->fecha == turnoViejo.fecha && it->hora == turnoViejo.hora) {
+			// si lo encontramos lo pasamos por arriba con el nuevo
+			*it = turnoNuevo;
+			
+			// ordneamos
+			ordenarTurnos();
+			
+			// Guardamos
+			guardarTurnos("turnos.dat");
+			
+			cout << "Turno actualizado y guardado correctamente." << endl;
+			return; //chau
+		}
+	}
+	cout << "Error: No se encontró el turno viejo en la memoria." << endl;
+}

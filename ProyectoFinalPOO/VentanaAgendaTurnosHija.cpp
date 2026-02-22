@@ -1,9 +1,9 @@
 #include "VentanaAgendaTurnosHija.h"
-#include "ReservarTurnoHija.h" // ¡Clave para que ande el botón Agregar!
+#include "ReservarTurnoHija.h" 
 #include <wx/grid.h>
 #include <string>
 #include <wx/msgdlg.h>
-
+#include "ModificarTurnosHija.h"
 using namespace std;
 
 VentanaAgendaTurnosHija::VentanaAgendaTurnosHija(wxWindow *parent, Consultorio *consultorio) :
@@ -105,7 +105,7 @@ void VentanaAgendaTurnosHija::OnEliminarTurnoClick( wxCommandEvent& event )  {
 	if (filaSeleccionada < 0) {
 		wxMessageBox("Por favor, seleccioná un turno de la lista primero.", "Aviso", wxOK | wxICON_INFORMATION);
 		return; 
-	
+	} 
 	// Traemos la lista de turnos y sacamos el turno exacto usando el número de fila
 	vector<Turno> listaTurnos = m_consultorio->getTurnos();
 	Turno turnoABorrar = listaTurnos[filaSeleccionada];
@@ -123,7 +123,7 @@ void VentanaAgendaTurnosHija::OnEliminarTurnoClick( wxCommandEvent& event )  {
 		// Borramos del backend usando los datos exactos del objeto Turno
 		m_consultorio->eliminarTurno(turnoABorrar.dniPaciente, turnoABorrar.fecha, turnoABorrar.hora);
 		
-		// Guardamos en el archivo 
+		// Guardamos en el archivo (tu backend ya lo hace, pero no molesta asegurar)
 		m_consultorio->guardarTurnos("turnos.dat");
 		
 		// Refrescamos
@@ -132,7 +132,26 @@ void VentanaAgendaTurnosHija::OnEliminarTurnoClick( wxCommandEvent& event )  {
 		wxMessageBox("El turno fue eliminado correctamente.", "Éxito", wxOK | wxICON_INFORMATION);
 	}
 }
-}
+
+
 void VentanaAgendaTurnosHija::OnModificarTurnoClick( wxCommandEvent& event )  {
+	//Que fila ?
+	int filaSeleccionada = m_grillaTurnos->GetGridCursorRow();
 	
+	if (filaSeleccionada < 0) {
+		wxMessageBox("Por favor, seleccioná un turno de la lista primero.", "Aviso", wxOK | wxICON_INFORMATION);
+		return; 
+	}
+	
+	// Agarramos el turno 
+	vector<Turno> listaTurnos = m_consultorio->getTurnos();
+	Turno turnoAModificar = listaTurnos[filaSeleccionada];
+	
+	// abrimos la ventana y pasam,os datos
+	ModificarTurnosHija ventanaMod(this, m_consultorio, turnoAModificar);
+	
+	// ShowModal pausa todo Si devuelve 1 significa que guardó los cambios
+	if (ventanaMod.ShowModal() == 1) {
+		RefrescarGrillaTurnos(); // actualizamos insta
+	}
 }

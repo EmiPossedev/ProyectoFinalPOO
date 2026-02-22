@@ -7,10 +7,13 @@ class ModificarTurnosHija : public ModificarTurnosPrincipal {
 	
 private:
 	Consultorio *m_consultorio;
+	Turno m_turnoOriginal;
 protected:
+	void OnCancelarModClick( wxCommandEvent& event )  override;
+	void OnGuardarModClick( wxCommandEvent& event )  override;
 	
 public:
-	ModificarTurnosHija(wxWindow *parent, Consultorio *consultorio);
+	ModificarTurnosHija(wxWindow *parent, Consultorio *consultorio, Turno turnoOriginal);
 	~ModificarTurnosHija();
 };
 

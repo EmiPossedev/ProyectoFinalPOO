@@ -95,7 +95,7 @@ public:
     void cancelarTurno(const string &nombrePaciente, const Fecha &fecha, const string &hora);
     void reprogramarTurno(const string &dniPacienteBuscado, const string &horaVieja, const Fecha &fechaVieja, const Fecha &fechaNueva, const string &horaNueva);
     void ordenarTurnos();
-
+	void actualizarTurno(Turno turnoViejo, Turno turnoNuevo); // Actualiza un turno existente con nuevos datos
     // Funcion de busqueda templatizada(funciona paragetTurnosPorFecha, getTurnosPorHora, getTurnosPorKinesiologo)
     template <typename T>
     vector<Turno> getTurnosPor(const T &valorBuscado)

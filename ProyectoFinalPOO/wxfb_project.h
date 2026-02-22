@@ -503,29 +503,32 @@ class ModificarTurnosPrincipal : public wxDialog
 	private:
 
 	protected:
+		wxStaticText* m_staticText44;
+		wxTextCtrl* m_textDniPacienteMod;
+		wxStaticText* m_staticText72;
+		wxChoice* m_choiceKinesiologoMod;
+		wxStaticText* m_staticText8;
+		wxStaticText* m_staticText9;
+		wxTextCtrl* m_textDiaMod;
+		wxStaticText* m_staticText10;
+		wxTextCtrl* m_textMesMod;
+		wxStaticText* m_staticText11;
+		wxTextCtrl* m_textAnioMod;
 		wxStaticText* m_staticText61;
-		wxTextCtrl* m_textCtrl57;
-		wxStaticText* m_staticText62;
-		wxTextCtrl* m_textCtrl58;
-		wxStaticText* m_staticText63;
-		wxStaticText* m_staticText64;
-		wxTextCtrl* m_textCtrl59;
-		wxStaticText* m_staticText65;
-		wxTextCtrl* m_textCtrl60;
-		wxStaticText* m_staticText66;
-		wxTextCtrl* m_textCtrl61;
-		wxStaticText* m_staticText67;
-		wxTextCtrl* m_textCtrl63;
-		wxStaticText* m_staticText68;
-		wxChoice* m_choice2;
-		wxStaticText* m_staticText69;
-		wxChoice* m_choice3;
-		wxStaticText* m_staticText70;
-		wxChoice* m_choice4;
-		wxStaticText* m_staticText71;
-		wxTextCtrl* m_textCtrl65;
-		wxButton* m_button39;
-		wxButton* m_button41;
+		wxTextCtrl* m_textHoraMod;
+		wxStaticText* m_staticText56;
+		wxChoice* m_choiceInstalacionMod;
+		wxStaticText* m_staticText561;
+		wxChoice* m_choiceEstadoMod;
+		wxStaticText* m_staticText57;
+		wxTextCtrl* m_textObservacionesMod;
+		wxButton* m_btnCancelarMod;
+		wxButton* m_btnGuardarMod;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void OnCancelarModClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnGuardarModClick( wxCommandEvent& event ) { event.Skip(); }
+
 
 	public:
 
