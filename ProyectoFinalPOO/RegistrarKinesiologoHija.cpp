@@ -31,7 +31,7 @@ void RegistrarKinesiologoHija::OnAceptarKineClick( wxCommandEvent& event ) {
 	
 	
 	wxMessageBox("¡Kinesiólogo registrado con éxito!", "Éxito", wxOK | wxICON_INFORMATION);
-	Close();
+	EndModal(1);
 }
 
 RegistrarKinesiologoHija::~RegistrarKinesiologoHija() {

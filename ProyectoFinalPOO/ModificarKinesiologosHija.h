@@ -8,6 +8,7 @@ class ModificarKinesiologosHija : public ModificarKinesiologosPrincipal {
 private:
 	Consultorio *m_consultorio;
 protected:
+	void ClickBotonCancelarModKinesiologo( wxCommandEvent& event )  override;
 	void ClickBotonAceptarMod( wxCommandEvent& event )  override;
 	
 public:

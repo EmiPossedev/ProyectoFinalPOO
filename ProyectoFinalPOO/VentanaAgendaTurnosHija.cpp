@@ -90,11 +90,9 @@ void VentanaAgendaTurnosHija::OnVolverClick( wxCommandEvent& event )  {
 void VentanaAgendaTurnosHija::OnAgregarTurnoClick( wxCommandEvent& event )  {
 	// Abrimos la ventana de reservas
 	ReservarTurnoHija ventanaReserva(this, m_consultorio);
-	ventanaReserva.ShowModal();
-	
-	//refrescamos para que se vea bien
-	RefrescarGrillaTurnos();
+	if (ventanaReserva.ShowModal() == 1) RefrescarGrillaTurnos();
 }
+
 /*En vez de leer el texto de las celdas de la grilla (como hicimos con los pacientes y kinesiólogos)
 como llenamos la grilla leyendo el vector original de turnos desde el principio hasta el final, el número de fila seleccionada es 
 exactamente el mismo índice que tiene el turno adentro de tu vector de memoria.(y esta ordenado por la funcion ordenarTurnos().
@@ -136,5 +134,5 @@ void VentanaAgendaTurnosHija::OnEliminarTurnoClick( wxCommandEvent& event )  {
 }
 }
 void VentanaAgendaTurnosHija::OnModificarTurnoClick( wxCommandEvent& event )  {
-	event.Skip(); //FALTA ESTOOOOOOOOOOOOOOOOOOOOOOOO
+	
 }

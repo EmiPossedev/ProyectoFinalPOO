@@ -4,6 +4,8 @@
 #include "RegistrarKinesiologoHija.h"
 #include "ModificarKinesiologosHija.h"
 
+VerKinesiologosHija::~VerKinesiologosHija() {}
+
 VerKinesiologosHija::VerKinesiologosHija(wxWindow *parent, Consultorio *consultorio) :
 	VerKinesiologosPrincipal(parent), m_consultorio(consultorio) 
 {
@@ -63,10 +65,6 @@ void VerKinesiologosHija::RefrescarGrillaKinesiologos(){
 	m_grillaKinesiologos->AutoSizeRows();
 }
 
-VerKinesiologosHija::~VerKinesiologosHija() {
-	
-}
-
 void VerKinesiologosHija::OnEliminarClick( wxCommandEvent& event ) {
 	//Seleccionar fila
 	int filaSeleccionada = m_grillaKinesiologos->GetGridCursorRow();
@@ -99,14 +97,51 @@ void VerKinesiologosHija::OnAgregarClick( wxCommandEvent& event ) {
 
 	RegistrarKinesiologoHija ventanaRegistro(this, m_consultorio);
 	
-	ventanaRegistro.ShowModal();
-	
 	if( ventanaRegistro.ShowModal() == 1) RefrescarGrillaKinesiologos(); 
 }
 
 void VerKinesiologosHija::ClickBotonModKinesiologo( wxCommandEvent& event )  {
-	ModificarKinesiologosHija ventanaModificarKinesio(this, m_consultorio);
-	ventanaModificarKinesio.ShowModal();
-	if(ventanaModificarKinesio.ShowModal() == 1) RefrescarGrillaKinesiologos();
+	// Veo la fila que seleccionó el usuario
+	int filaSeleccionada = m_grillaKinesiologos->GetGridCursorRow();
+	
+	// Este tipo de alertas me las recomendó chat, está bueno usarlas bro
+	if (filaSeleccionada < 0) {
+		wxMessageBox("Por favor, selecciona un Kinesiólogo de la lista primero.", "Aviso", wxOK | wxICON_INFORMATION);
+		return;
+	}
+	
+	// Saco el dni de la grilla
+	wxString dniTexto = m_grillaKinesiologos->GetCellValue(filaSeleccionada, 3);
+	
+	// Lo convierto a int para buscarlo
+	int dniBuscado = wxAtoi(dniTexto);
+	
+	// Busco al Kinesiólogo real en la memoria
+	Kinesiologo *k = m_consultorio->buscarKinesiologoPorDni(dniBuscado);
+	
+	if (k != nullptr) {
+		// Saco los datos del kinesio
+		wxString nombre = k->getNombre();
+		wxString apellido = k->getApellido();
+		wxString telefono = k->getTelefono();
+		wxString especialidad = k->getEspecialidad();
+		wxString matricula = to_string(k->getMatricula());
+		wxString cantPacientes = to_string(k->getCantidadPacientesAtendidos());
+		
+		ModificarKinesiologosHija ventanaModificarKinesio(this, m_consultorio);
+		
+		// Con esta funcion le paso los datos a la ventana de modificar, así aparecen todos los datos de la grilla
+		// pero en la ventana de modificaciones para no tener que escribir todo de nuevo
+		ventanaModificarKinesio.CargarDatos(nombre, apellido, dniTexto, telefono, especialidad, matricula, cantPacientes);
+		
+		// Si el usuario elije modificar los datos, refresco la grilla
+		if(ventanaModificarKinesio.ShowModal() == 1) {
+			RefrescarGrillaKinesiologos();
+		}
+		
+	} else {
+		// Y esta es la alerta que te decía que me recomendó chat para mostrarle al usuario, parece una buena práctica
+		wxMessageBox("Error al buscar los datos del Kinesiólogo.", "Error", wxOK | wxICON_ERROR);
+	}
 }
 

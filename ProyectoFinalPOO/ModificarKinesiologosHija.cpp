@@ -57,3 +57,8 @@ void ModificarKinesiologosHija::CargarDatos(wxString nombre, wxString apellido, 
 	m_textMatricula->SetValue(matricula);
 	m_textCantPacientesAtend->SetValue(cantPacientes);
 }
+
+void ModificarKinesiologosHija::ClickBotonCancelarModKinesiologo( wxCommandEvent& event )  {
+	Close();
+}
+

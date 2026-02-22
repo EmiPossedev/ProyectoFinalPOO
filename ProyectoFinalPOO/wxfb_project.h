@@ -330,6 +330,44 @@ class VerKinesiologosPrincipal : public wxDialog
 };
 
 ///////////////////////////////////////////////////////////////////////////////
+/// Class ModificarKinesiologosPrincipal
+///////////////////////////////////////////////////////////////////////////////
+class ModificarKinesiologosPrincipal : public wxDialog
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText57;
+		wxTextCtrl* m_textNombre;
+		wxStaticText* m_staticText58;
+		wxTextCtrl* m_textApellido;
+		wxStaticText* m_staticText59;
+		wxTextCtrl* m_textTelefono;
+		wxStaticText* m_staticText60;
+		wxTextCtrl* m_textDni;
+		wxStaticText* m_staticText61;
+		wxTextCtrl* m_textEspecialidad;
+		wxStaticText* m_staticText62;
+		wxTextCtrl* m_textMatricula;
+		wxStaticText* m_staticText63;
+		wxTextCtrl* m_textCantPacientesAtend;
+		wxButton* m_botonCancelarModPaciente;
+		wxButton* m_botonAceptarModPaciente;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void ClickBotonCancelarModKinesiologo( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickBotonAceptarMod( wxCommandEvent& event ) { event.Skip(); }
+
+
+	public:
+
+		ModificarKinesiologosPrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 561,352 ), long style = wxDEFAULT_DIALOG_STYLE );
+
+		~ModificarKinesiologosPrincipal();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
 /// Class BuscarKinesiologoPrincipal
 ///////////////////////////////////////////////////////////////////////////////
 class BuscarKinesiologoPrincipal : public wxDialog
@@ -395,18 +433,10 @@ class ReservarTurnoPrincipal : public wxDialog
 	private:
 
 	protected:
-		wxStaticText* m_s;
-		wxTextCtrl* m_textNombrePaciente;
-		wxStaticText* m_staticText43;
-		wxTextCtrl* m_textApellidoPaciente;
 		wxStaticText* m_staticText44;
 		wxTextCtrl* m_textDniPaciente;
-		wxStaticText* m_staticText45;
-		wxTextCtrl* m_textNombreKine;
-		wxStaticText* m_staticText46;
-		wxTextCtrl* m_textApellidoKine;
-		wxStaticText* m_staticText47;
-		wxTextCtrl* m_textDniKine;
+		wxStaticText* m_staticText72;
+		wxChoice* m_opcionesKinesiologos;
 		wxStaticText* m_staticText8;
 		wxStaticText* m_staticText9;
 		wxTextCtrl* m_textCtrl7;
@@ -466,39 +496,42 @@ class VentanaAgendaTurnosPrincipal : public wxDialog
 };
 
 ///////////////////////////////////////////////////////////////////////////////
-/// Class ModificarKinesiologosPrincipal
+/// Class ModificarTurnosPrincipal
 ///////////////////////////////////////////////////////////////////////////////
-class ModificarKinesiologosPrincipal : public wxDialog
+class ModificarTurnosPrincipal : public wxDialog
 {
 	private:
 
 	protected:
-		wxStaticText* m_staticText57;
-		wxTextCtrl* m_textNombre;
-		wxStaticText* m_staticText58;
-		wxTextCtrl* m_textApellido;
-		wxStaticText* m_staticText59;
-		wxTextCtrl* m_textTelefono;
-		wxStaticText* m_staticText60;
-		wxTextCtrl* m_textDni;
 		wxStaticText* m_staticText61;
-		wxTextCtrl* m_textEspecialidad;
+		wxTextCtrl* m_textCtrl57;
 		wxStaticText* m_staticText62;
-		wxTextCtrl* m_textMatricula;
+		wxTextCtrl* m_textCtrl58;
 		wxStaticText* m_staticText63;
-		wxTextCtrl* m_textCantPacientesAtend;
-		wxButton* m_botonCancelarModPaciente;
-		wxButton* m_botonAceptarModPaciente;
-
-		// Virtual event handlers, override them in your derived class
-		virtual void ClickBotonAceptarMod( wxCommandEvent& event ) { event.Skip(); }
-
+		wxStaticText* m_staticText64;
+		wxTextCtrl* m_textCtrl59;
+		wxStaticText* m_staticText65;
+		wxTextCtrl* m_textCtrl60;
+		wxStaticText* m_staticText66;
+		wxTextCtrl* m_textCtrl61;
+		wxStaticText* m_staticText67;
+		wxTextCtrl* m_textCtrl63;
+		wxStaticText* m_staticText68;
+		wxChoice* m_choice2;
+		wxStaticText* m_staticText69;
+		wxChoice* m_choice3;
+		wxStaticText* m_staticText70;
+		wxChoice* m_choice4;
+		wxStaticText* m_staticText71;
+		wxTextCtrl* m_textCtrl65;
+		wxButton* m_button39;
+		wxButton* m_button41;
 
 	public:
 
-		ModificarKinesiologosPrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 561,352 ), long style = wxDEFAULT_DIALOG_STYLE );
+		ModificarTurnosPrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
 
-		~ModificarKinesiologosPrincipal();
+		~ModificarTurnosPrincipal();
 
 };
 

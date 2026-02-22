@@ -7,6 +7,25 @@ using namespace std;
 ReservarTurnoHija::ReservarTurnoHija(wxWindow *parent, Consultorio *consultorio) : 
 	ReservarTurnoPrincipal(parent), m_consultorio(consultorio) 
 {
+	// Vacío las opciones por las dudas
+	m_opcionesKinesiologos->Clear();
+	
+	// Me guardo la cantidad de kinesiologos
+	int cantidadKines = m_consultorio->getCantKinesiologos();
+	
+	for(int i = 0; i < cantidadKines; i++) {
+		
+		// Agarro al kinesiólogo
+		Kinesiologo *k = m_consultorio->buscarKinesiologoPorInd(i);
+		
+		if (k != nullptr) {
+			// Junto el nombre y apellido con un espacio en el medio
+			string nombreCompleto = k->getNombre() + " " + k->getApellido();
+			
+			// Agrego las opciones al wxChoice
+			m_opcionesKinesiologos->Append(nombreCompleto);
+		}
+	}
 }
 
 ReservarTurnoHija::~ReservarTurnoHija() {
@@ -21,10 +40,16 @@ void ReservarTurnoHija::oncancelarReservaClick( wxCommandEvent& event )  {
 void ReservarTurnoHija::OnAceptarReservaClick( wxCommandEvent& event )  {
 	
 	string dniPac = m_textDniPaciente->GetValue().ToStdString();
-	int dniKine = wxAtoi(m_textDniKine->GetValue());
+	int dniKine = 0;
 	string hora = m_textHora->GetValue().ToStdString();
 	string obs = m_textObservaciones->GetValue().ToStdString();
-	
+	// Para validar que el usuario si o si elija una opcion
+	int indiceElegido = m_opcionesKinesiologos->GetSelection();
+	if (indiceElegido != wxNOT_FOUND) {
+		Kinesiologo *k = m_consultorio->buscarKinesiologoPorInd(indiceElegido);
+		// Le saco el dni de la memoria
+		dniKine = k->getMatricula();
+	}
 	// Armamos la Fecha leyendo los 3 cuadritos 
 	int dia = wxAtoi(m_textCtrl7->GetValue());
 	int mes = wxAtoi(m_textCtrl8->GetValue());
@@ -35,10 +60,10 @@ void ReservarTurnoHija::OnAceptarReservaClick( wxCommandEvent& event )  {
 	fechaTurno.mes = mes;
 	fechaTurno.anio = anio;
 	
-	// Validaciones 
-	if (dniPac.empty() || m_textDniKine->GetValue().IsEmpty() || hora.empty()) {
-		wxMessageBox("Por favor, completá los DNI y la hora del turno.", "Error", wxOK | wxICON_ERROR);
-		return; 
+	// Valido que el usuario haya llenado lo necesario(esta idea fue de Gemini)
+	if (dniPac.empty() || indiceElegido == wxNOT_FOUND || hora.empty()) {
+		wxMessageBox("Por favor, completá el DNI del paciente, elegí un Kinesiólogo y la hora del turno.", "Error", wxOK | wxICON_ERROR);
+		return;
 	}
 	
 	wxString eleccion = m_choiceInstalacion->GetStringSelection();
@@ -87,5 +112,5 @@ void ReservarTurnoHija::OnAceptarReservaClick( wxCommandEvent& event )  {
 	
 	// chau
 	wxMessageBox("¡Turno reservado con éxito!", "Éxito", wxOK | wxICON_INFORMATION);
-	Close();
+	EndModal(1);
 }
