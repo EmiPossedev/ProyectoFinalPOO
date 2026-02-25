@@ -48,7 +48,7 @@ void ReservarTurnoHija::OnAceptarReservaClick( wxCommandEvent& event )  {
 	if (indiceElegido != wxNOT_FOUND) {
 		Kinesiologo *k = m_consultorio->buscarKinesiologoPorInd(indiceElegido);
 		// Le saco el dni de la memoria
-		dniKine = k->getMatricula();
+		dniKine = stoi(k->getDni());
 	}
 	// Armamos la Fecha leyendo los 3 cuadritos 
 	int dia = wxAtoi(m_textCtrl7->GetValue());

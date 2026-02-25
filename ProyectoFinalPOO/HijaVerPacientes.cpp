@@ -6,7 +6,7 @@
 
 HijaVerPacientes::HijaVerPacientes(wxWindow *parent, Consultorio *consultorio) : 
 	VerPacienteHija(parent), m_consultorio(consultorio) {
-	for(int i=0 ; i<m_consultorio->getCantPacientes() ; i++) { 
+	for(size_t i=0 ; i<m_consultorio->getCantPacientes() ; i++) { 
 		Paciente *p = m_consultorio->buscarPacientePorInd(i);
 		m_grillaPacientes->AppendRows();
 		m_grillaPacientes->SetCellValue(i,0, p->getNombre());
@@ -36,7 +36,7 @@ void HijaVerPacientes::RefrescarGrillaPacientes(){
 	if (m_grillaPacientes->GetNumberRows() !=0){
 			m_grillaPacientes->DeleteRows(0,m_grillaPacientes->GetNumberRows());
 	}
-	for(int i=0 ; i<m_consultorio->getCantPacientes() ; i++) { 
+	for(size_t i=0 ; i<m_consultorio->getCantPacientes() ; i++) { 
 		Paciente *p = m_consultorio->buscarPacientePorInd(i);
 		m_grillaPacientes->AppendRows();
 		m_grillaPacientes->SetCellValue(i,0, p->getNombre());

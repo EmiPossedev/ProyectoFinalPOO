@@ -10,7 +10,7 @@ VerKinesiologosHija::VerKinesiologosHija(wxWindow *parent, Consultorio *consulto
 	VerKinesiologosPrincipal(parent), m_consultorio(consultorio) 
 {
 	// Llenamos la grilla
-	for(int i = 0 ; i < m_consultorio->getCantKinesiologos() ; i++){
+	for(size_t i = 0 ; i < m_consultorio->getCantKinesiologos() ; i++){
 		
 		// Buscamos al kinesiologo 
 		Kinesiologo *k = m_consultorio->buscarKinesiologoPorInd(i);
@@ -47,7 +47,7 @@ void VerKinesiologosHija::RefrescarGrillaKinesiologos(){
 		m_grillaKinesiologos->DeleteRows(0, m_grillaKinesiologos->GetNumberRows());
 	}
 	
-	for(int i=0 ; i<m_consultorio->getCantKinesiologos() ; i++) { 
+	for(size_t i=0 ; i<m_consultorio->getCantKinesiologos() ; i++) { 
 		Kinesiologo *k = m_consultorio->buscarKinesiologoPorInd(i);
 		m_grillaKinesiologos->AppendRows();
 		
