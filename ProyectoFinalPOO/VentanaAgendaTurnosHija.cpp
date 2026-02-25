@@ -155,3 +155,40 @@ void VentanaAgendaTurnosHija::OnModificarTurnoClick( wxCommandEvent& event )  {
 		RefrescarGrillaTurnos(); // actualizamos insta
 	}
 }
+
+void VentanaAgendaTurnosHija::ClickBotonCambiarEstado( wxCommandEvent& event )  {
+	
+	int filaSeleccionada = m_grillaTurnos->GetGridCursorRow();
+	
+	if (filaSeleccionada < 0) {
+		wxMessageBox("Por favor, seleccioná un turno de la lista primero.", "Aviso", wxOK | wxICON_INFORMATION);
+		return; 
+	}
+	// Agarramos el turno 
+	vector<Turno> listaTurnos = m_consultorio->getTurnos();
+	Turno &turnoAModificar = listaTurnos[filaSeleccionada];
+	
+	string estadoActual = turnoAModificar.estadoDelTurno;
+	if (estadoActual == "Programado")
+	{
+		estadoActual = "Completado";
+	} else {
+		if (estadoActual == "Completado"){
+			estadoActual = "Cancelado";
+		} else { estadoActual = "Programado" ;}
+	}
+	Turno TurnoActualizado;
+	TurnoActualizado.dniPaciente = turnoAModificar.dniPaciente;
+	TurnoActualizado.dniKinesiologo = turnoAModificar.dniKinesiologo;
+	TurnoActualizado.estadoDelTurno = estadoActual;
+	TurnoActualizado.fecha = turnoAModificar.fecha;
+	TurnoActualizado.hora = turnoAModificar.hora;
+	TurnoActualizado.observaciones = turnoAModificar.observaciones;
+	TurnoActualizado.requiereCamilla = turnoAModificar.requiereCamilla;
+	TurnoActualizado.requiereGimnasio = turnoAModificar.requiereGimnasio;
+	m_consultorio->actualizarTurno(turnoAModificar, TurnoActualizado);
+	
+	m_consultorio->guardarTurnos("turnos.dat");
+	RefrescarGrillaTurnos();
+}
+

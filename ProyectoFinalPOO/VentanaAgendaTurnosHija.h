@@ -8,6 +8,7 @@ class VentanaAgendaTurnosHija : public VentanaAgendaTurnosPrincipal {
 private:
 	Consultorio *m_consultorio;
 protected:
+	void ClickBotonCambiarEstado( wxCommandEvent& event )  override;
 	void OnVolverClick( wxCommandEvent& event )  override;
 	void OnEliminarTurnoClick( wxCommandEvent& event )  override;
 	void OnModificarTurnoClick( wxCommandEvent& event )  override;

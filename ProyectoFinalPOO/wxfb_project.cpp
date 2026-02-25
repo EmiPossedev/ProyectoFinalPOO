@@ -1420,6 +1420,9 @@ VentanaAgendaTurnosPrincipal::VentanaAgendaTurnosPrincipal( wxWindow* parent, wx
 	m_btnVolver = new wxButton( this, wxID_ANY, wxT("Volver"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer65->Add( m_btnVolver, 0, wxALL, 5 );
 
+	m_botonEstadoTurno = new wxButton( this, wxID_ANY, wxT("Cambiar estado"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer65->Add( m_botonEstadoTurno, 0, wxALL, 5 );
+
 	m_btnEliminarTurno = new wxButton( this, wxID_ANY, wxT("Eliminar"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer65->Add( m_btnEliminarTurno, 0, wxALL, 5 );
 
@@ -1440,6 +1443,7 @@ VentanaAgendaTurnosPrincipal::VentanaAgendaTurnosPrincipal( wxWindow* parent, wx
 
 	// Connect Events
 	m_btnVolver->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaAgendaTurnosPrincipal::OnVolverClick ), NULL, this );
+	m_botonEstadoTurno->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaAgendaTurnosPrincipal::ClickBotonCambiarEstado ), NULL, this );
 	m_btnEliminarTurno->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaAgendaTurnosPrincipal::OnEliminarTurnoClick ), NULL, this );
 	m_btnModificarTurno->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaAgendaTurnosPrincipal::OnModificarTurnoClick ), NULL, this );
 	m_btnAgregarTurno->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaAgendaTurnosPrincipal::OnAgregarTurnoClick ), NULL, this );
@@ -1449,6 +1453,7 @@ VentanaAgendaTurnosPrincipal::~VentanaAgendaTurnosPrincipal()
 {
 	// Disconnect Events
 	m_btnVolver->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaAgendaTurnosPrincipal::OnVolverClick ), NULL, this );
+	m_botonEstadoTurno->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaAgendaTurnosPrincipal::ClickBotonCambiarEstado ), NULL, this );
 	m_btnEliminarTurno->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaAgendaTurnosPrincipal::OnEliminarTurnoClick ), NULL, this );
 	m_btnModificarTurno->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaAgendaTurnosPrincipal::OnModificarTurnoClick ), NULL, this );
 	m_btnAgregarTurno->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VentanaAgendaTurnosPrincipal::OnAgregarTurnoClick ), NULL, this );

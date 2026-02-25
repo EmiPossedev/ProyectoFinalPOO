@@ -17,7 +17,7 @@ ModificarTurnosHija::ModificarTurnosHija(wxWindow *parent, Consultorio *consulto
 		string nombreLindo = listaKines[i]->getNombre() + " " + listaKines[i]->getApellido();
 		m_choiceKinesiologoMod->Append(nombreLindo);
 		
-		// Comparamos el DNI (stoi converitr texto a numero entero)
+		// Comparamos el DNI (stoi para convertir texto a numero entero)
 		if(stoi(listaKines[i]->getDni()) == m_turnoOriginal.dniKinesiologo) {
 			indiceSeleccionado = i;
 		}
@@ -72,9 +72,9 @@ void ModificarTurnosHija::OnGuardarModClick( wxCommandEvent& event )  {
 	bool reqCam = (inst == "Camilla" || inst == "Ambos");
 	bool reqGim = (inst == "Gimnasio" || inst == "Ambos");
 	
-	int kineIndex = m_choiceKinesiologoMod->GetSelection();
-	if (kineIndex == wxNOT_FOUND) return;
-	int nuevoDniKine = stoi(m_consultorio->getKinesiologos()[kineIndex]->getDni());
+	int kineIndice = m_choiceKinesiologoMod->GetSelection();
+	if (kineIndice == wxNOT_FOUND) return;
+	int nuevoDniKine = stoi(m_consultorio->getKinesiologos()[kineIndice]->getDni());
 	
 	// al modificar las cosas dbemos ver si no superpone otro existente
 	bool cambioLugar = (m_turnoOriginal.dniKinesiologo != nuevoDniKine || !(m_turnoOriginal.fecha == nuevaFecha) || m_turnoOriginal.hora != nuevaHora);

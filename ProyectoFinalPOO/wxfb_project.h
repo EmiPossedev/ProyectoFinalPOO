@@ -476,12 +476,14 @@ class VentanaAgendaTurnosPrincipal : public wxDialog
 	protected:
 		wxGrid* m_grillaTurnos;
 		wxButton* m_btnVolver;
+		wxButton* m_botonEstadoTurno;
 		wxButton* m_btnEliminarTurno;
 		wxButton* m_btnModificarTurno;
 		wxButton* m_btnAgregarTurno;
 
 		// Virtual event handlers, override them in your derived class
 		virtual void OnVolverClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickBotonCambiarEstado( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnEliminarTurnoClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnModificarTurnoClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnAgregarTurnoClick( wxCommandEvent& event ) { event.Skip(); }
