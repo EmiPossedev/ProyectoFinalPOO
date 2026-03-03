@@ -104,7 +104,7 @@ void VerKinesiologosHija::ClickBotonModKinesiologo( wxCommandEvent& event )  {
 	// Veo la fila que seleccionó el usuario
 	int filaSeleccionada = m_grillaKinesiologos->GetGridCursorRow();
 	
-	// Este tipo de alertas me las recomendó chat, está bueno usarlas bro
+	//alerta
 	if (filaSeleccionada < 0) {
 		wxMessageBox("Por favor, selecciona un Kinesiólogo de la lista primero.", "Aviso", wxOK | wxICON_INFORMATION);
 		return;
@@ -140,7 +140,7 @@ void VerKinesiologosHija::ClickBotonModKinesiologo( wxCommandEvent& event )  {
 		}
 		
 	} else {
-		// Y esta es la alerta que te decía que me recomendó chat para mostrarle al usuario, parece una buena práctica
+		// alerta
 		wxMessageBox("Error al buscar los datos del Kinesiólogo.", "Error", wxOK | wxICON_ERROR);
 	}
 }

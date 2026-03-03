@@ -10,23 +10,17 @@ int Kinesiologo::getCantidadPacientesAtendidos() const
     return cantidadPacientesAtendidos;
 }
 
-/// Métodos para modificar los datos del kinesiólogo faltantes
+/// Metodos para modificar los datos del kinesiólogo faltantes
 
 void Kinesiologo::setEspecialidad(const string &nuevaEspecialidad)
 {
-    if (especialidad.empty())
-    {
-        especialidad = nuevaEspecialidad;
-    }
-    else
-    {
-        especialidad += '\n' + nuevaEspecialidad; // \n es el caracter que indica salto de línea
-    }
+	
+	especialidad = nuevaEspecialidad; 
 }
 
 void Kinesiologo::borrarEspecialidad()
 {
-    especialidad = ""; // vacío sus especialidades
+    especialidad = ""; 
 }
 
 void Kinesiologo::setCantPacientesAtendidos(const int &cant)

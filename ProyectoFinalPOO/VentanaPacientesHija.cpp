@@ -1,4 +1,4 @@
-#include "VentanaPacientesHija.h"  // El archivo propio
+#include "VentanaPacientesHija.h"  
 #include "HijaBuscarPaciente.h"    // La ventana nueva que vamos a abrir
 #include "RegistrarPacientesHija.h"
 #include "HijaVerPacientes.h"

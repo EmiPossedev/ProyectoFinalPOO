@@ -51,7 +51,7 @@ void ModificarKinesiologosHija::CargarDatos(wxString nombre, wxString apellido, 
 	m_textNombre->SetValue(nombre);
 	m_textApellido->SetValue(apellido);
 	m_textDni->SetValue(dni);
-	m_textDni->Disable(); // Para que el usuario no lo pueda modificar porque sino me caga todo el código y el funcionamiento buscadno por dni
+	m_textDni->Disable(); // Para que el usuario no lo pueda modificar porque sino se arruina todo el código y el funcionamiento buscando por dni
 	m_textTelefono->SetValue(telefono);
 	m_textEspecialidad->SetValue(especialidad);
 	m_textMatricula->SetValue(matricula);

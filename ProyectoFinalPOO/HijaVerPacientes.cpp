@@ -134,7 +134,7 @@ void HijaVerPacientes::OnEliminarClick( wxCommandEvent& event ) {
 	wxString apellido = m_grillaPacientes->GetCellValue(filaSeleccionada, 1);
 	wxString dni = m_grillaPacientes->GetCellValue(filaSeleccionada, 3); 
 	
-	// Doble confirmación por las dudas jajaja
+	// Doble confirmación por las dudas 
 	wxString mensaje = "¿Estás seguro de que querés eliminar a " + nombre + " " + apellido + " (DNI: " + dni + ") de forma permanente?";
 	int respuesta = wxMessageBox(mensaje, "Confirmar eliminación", wxYES_NO | wxICON_EXCLAMATION);
 	

@@ -42,7 +42,7 @@ public:
 	  obraSocial(obraSoc), cantSesionesTotales(cantTotal),
 	  cantSesionesRealizadas(cantRealizadas), observaciones(obs), sesionesPagas(sesPagas) {};
 	
-    // Metodos para obtener y modificar los datos del paciente(en ingles es mas corto)
+    // Metodos para obtener y modificar los datos del paciente
     // Obtener y modificar la fecha de inicio del paciente
     Fecha getFechaDeInicio() const;
     void setFechaDeInicio(const Fecha &nuevaFechaInicio);
@@ -55,22 +55,22 @@ public:
     // Obtener y modificar las sesiones totales que le corresponden al paciente
     int getCantSesionesTotales() const;
     void setCantSesionesTotales(const int &nuevaCant);
-    // Solo un método para saber las sesiones realizadas y no para modificarlas porque
-    // esa lógica la manejan otros métodos, si alguien las modifica podría romper la lógica del sistema
+    // Solo un metodo para saber las sesiones realizadas y no para modificarlas porque
+    // esa logica la manejan otros metodos, si alguien las modifica podra romper la logica del sistema
     int getCantidadSesionesRealizadas() const;
     void setCantidadSesionesRealizadas(const int &nuevaCant);
     // Obtener y modificar las observaciones del paciente
     string getObservaciones() const;
     void setObservaciones(const string &nuevaObservacion);
     void borrarObservaciones();
-    // Métodos para las sesiones pagas y pendientes
+    // Metodos para las sesiones pagas y pendientes
     bool getSesionesPagas() const;
     void marcarComoPendiente();
     void marcarComoPagado();
 
-    // Métodos para las cancelación de turnos de los pacientes
-    void descontarSesionDelTotal();   // descontar la sesion si se agendó un turno
-    void reintegrarSesionRealizada(); // reintegrar la sesion si se canceló el turno
+    // Metodos para las cancelacion de turnos de los pacientes
+    void descontarSesionDelTotal();   // descontar la sesion si se agenda un turno
+    void reintegrarSesionRealizada(); // reintegrar la sesion si se cancela el turno
 };
 
 #endif

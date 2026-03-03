@@ -40,7 +40,7 @@ struct Fecha
 bool esFechaValida(int dia, int mes, int anio);
 // Sobrecarga del operador <<
 //  Esto permite hacer: cout << turno.fecha;
-//  y salga impreso  "25/10/2023" automáticamente.
+//  y salga impreso  "25/10/2023" automaticamente.
 ostream &operator<<(std::ostream &os, const Fecha &f);
 
 #endif

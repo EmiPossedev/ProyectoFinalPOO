@@ -4,7 +4,7 @@
 
 /// Implementación de los métodos de la clase Persona
 
-// Métodos para el nombre
+// Metodos para el nombre
 void Persona::setNombre(const string &nuevoNombre)
 {
     nombre = nuevoNombre;
@@ -14,7 +14,7 @@ string Persona::getNombre() const
     return nombre;
 }
 
-// Métodos para el apellido
+// Mwtodos para el apellido
 void Persona::setApellido(const string &nuevoApellido)
 {
     apellido = nuevoApellido;
@@ -24,7 +24,7 @@ string Persona::getApellido() const
     return apellido;
 }
 
-// Métodos para el teléfono
+// Mwtodos para el teléfono
 void Persona::setTelefono(const std::string &nuevoTelefono)
 {
     telefono = nuevoTelefono;

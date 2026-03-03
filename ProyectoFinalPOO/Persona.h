@@ -13,7 +13,7 @@ struct registro_persona
     char dni[16];
 };
 
-/// Definición de la clase Persona
+/// Definicion de la clase Persona
 class Persona
 {
 private:

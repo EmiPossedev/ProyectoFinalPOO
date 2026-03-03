@@ -33,12 +33,13 @@ ModificarTurnosHija::ModificarTurnosHija(wxWindow *parent, Consultorio *consulto
 	m_textHoraMod->SetValue(m_turnoOriginal.hora);
 	
 	// Cargar Instalación
-	if(m_turnoOriginal.requiereGimnasio) {
+	if (m_turnoOriginal.requiereCamilla && m_turnoOriginal.requiereGimnasio) {
+		m_choiceInstalacionMod->SetStringSelection("Ambos");
+	} else if (m_turnoOriginal.requiereGimnasio) {
 		m_choiceInstalacionMod->SetStringSelection("Gimnasio");
-	} else {
+	} else if (m_turnoOriginal.requiereCamilla) {
 		m_choiceInstalacionMod->SetStringSelection("Camilla");
-	}
-	
+	} 
 	// Cargar Estado
 	m_choiceEstadoMod->SetStringSelection(m_turnoOriginal.estadoDelTurno);
 	
@@ -69,8 +70,10 @@ void ModificarTurnosHija::OnGuardarModClick( wxCommandEvent& event )  {
 	nuevaFecha.anio = anio;
 	
 	wxString inst = m_choiceInstalacionMod->GetStringSelection();
-	bool reqCam = (inst == "Camilla" || inst == "Ambos");
-	bool reqGim = (inst == "Gimnasio" || inst == "Ambos");
+	
+	// Usamos Contains por si en wxFormBuilder quedó un espacio sin querer ("Ambos ")
+	bool reqCam = inst.Contains("Camilla") || inst.Contains("Ambos");
+	bool reqGim = inst.Contains("Gimnasio") || inst.Contains("Ambos");
 	
 	int kineIndice = m_choiceKinesiologoMod->GetSelection();
 	if (kineIndice == wxNOT_FOUND) return;

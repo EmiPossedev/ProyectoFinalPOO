@@ -41,9 +41,9 @@ struct Turno
     {
         if (fecha != Turno.fecha)
         {
-            return fecha < Turno.fecha; // Usa la lógica de tu Fecha.h
+            return fecha < Turno.fecha; // Usa la la logica de fecha.h
         }
-        return hora < Turno.hora; // Si es el mismo día, desempata por hora
+        return hora < Turno.hora; // Si es el mismo dia, desempata por hora
     }
 };
 
@@ -65,7 +65,7 @@ private:
     int capacidadGimnasio = 5;
 
 public:
-    // Método constructor y método destructor
+    // Metodo constructor y metodo destructor
     Consultorio() {}
 	Consultorio(string nombreArchivoPacientes, string nombreArchivoKinesiologos, string nombreArchivoTurnos);
     ~Consultorio();
@@ -96,21 +96,25 @@ public:
     void reprogramarTurno(const string &dniPacienteBuscado, const string &horaVieja, const Fecha &fechaVieja, const Fecha &fechaNueva, const string &horaNueva);
     void ordenarTurnos();
 	void actualizarTurno(Turno turnoViejo, Turno turnoNuevo); // Actualiza un turno existente con nuevos datos
-    // Funcion de busqueda templatizada(funciona paragetTurnosPorFecha, getTurnosPorHora, getTurnosPorKinesiologo)
-    template <typename T>
-    vector<Turno> getTurnosPor(const T &valorBuscado)
-    {
-        vector<Turno> encontrados;
-        for (size_t i = 0; i < turnos.size(); i++)
-        {
-            // la manera más simple encontro fue con una funcion auxiliar
-            if (coincide(turnos[i], valorBuscado)) // coincide es una funcion sobrecargada(no sé si es lo más óptimo pero funciona jajjaj)
-            {
-                encontrados.push_back(turnos[i]);
-            }
-        }
-        return encontrados;
-    }
+    // Funcion de busqueda templatizada(funciona para getTurnosPorFecha, getTurnosPorHora, getTurnosPorKinesiologo)
+	
+	// M�todo de b�squeda gen�rica usando Templates (Plantillas)
+	// Permite buscar turnos pasando cualquier tipo de dato (T), ya sea una Fecha, una hora (string) o un DNI.
+	template <typename T>
+	vector<Turno> getTurnosPor(const T &valorBuscado)
+	{
+		vector<Turno> encontrados;
+		
+		for (size_t i = 0; i < turnos.size(); i++)
+		{
+			if (coincide(turnos[i], valorBuscado)) 
+			{
+				encontrados.push_back(turnos[i]);
+			}
+		}
+		
+		return encontrados;
+	}
 
     // Metodos de verificacion
     bool verificarDisponibilidadKinesiologo(const int &dniKine, const Fecha &fecha, const string &hora);

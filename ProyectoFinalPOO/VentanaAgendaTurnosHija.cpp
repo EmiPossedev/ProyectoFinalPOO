@@ -95,7 +95,7 @@ void VentanaAgendaTurnosHija::OnAgregarTurnoClick( wxCommandEvent& event )  {
 
 /*En vez de leer el texto de las celdas de la grilla (como hicimos con los pacientes y kinesiólogos)
 como llenamos la grilla leyendo el vector original de turnos desde el principio hasta el final, el número de fila seleccionada es 
-exactamente el mismo índice que tiene el turno adentro de tu vector de memoria.(y esta ordenado por la funcion ordenarTurnos().
+exactamente el mismo índice que tiene el turno adentro del vector de memoria.(y esta ordenado por la funcion ordenarTurnos().
 */
 void VentanaAgendaTurnosHija::OnEliminarTurnoClick( wxCommandEvent& event )  {
 	

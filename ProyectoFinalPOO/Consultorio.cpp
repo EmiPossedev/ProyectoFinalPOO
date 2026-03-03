@@ -70,7 +70,7 @@ size_t Consultorio::getCantTurnos() const
 
 /// METODOS BASICOS PARA AGREGAR/MODIFICAR DATOS
 
-// Metodos BA�SICOS para KINESIOLOGOS
+// Metodos basicos para KINESIOLOGOS
 void Consultorio::agregarKinesiologo(Kinesiologo *kinesiologo)
 {
     kinesiologos.push_back(kinesiologo);
@@ -81,7 +81,7 @@ vector<Kinesiologo *> Consultorio::getKinesiologos() const
     return kinesiologos;
 }
 
-// Métodos BÁSICOS para PACIENTES
+// Metodos basicos para PACIENTES
 void Consultorio::agregarPaciente(Paciente *paciente)
 {
     pacientes.push_back(paciente);
@@ -92,8 +92,9 @@ vector<Paciente *> Consultorio::getPacientes() const
     return pacientes;
 }
 
-// METODOS PARA LOS TURNOS(buscar, consultar, agregar, cancelar, reprogramar, ordenar)
-// MEtodo para obtener los turnos
+/// METODOS PARA LOS TURNOS(buscar, consultar, agregar, cancelar, reprogramar, ordenar)
+
+// Metodo para obtener los turnos
 vector<Turno> Consultorio::getTurnos() const
 {
     return turnos;
@@ -149,7 +150,7 @@ void Consultorio::reprogramarTurno(const string &dniPacienteBuscado, const strin
                 }
             }
 
-            // Actualización de datos
+            // Actualizar datos
             turno.fecha = fechaNueva;
             turno.hora = horaNueva;
             turno.estadoDelTurno = "Reprogramado";
@@ -168,7 +169,7 @@ void Consultorio::ordenarTurnos()
     sort(turnos.begin(), turnos.end());
 }
 
-/// METODOS PARA VERIFICAR DISPONIBILIDAD DE LOS RECURSOS
+/// METODOS PARA VERIFICAR DISPONIBILIDAD DE LOS RECURSOS 
 
 // Disponibilidad del Kinesiologo
 bool Consultorio::verificarDisponibilidadKinesiologo(const int &dniKine, const Fecha &fecha, const string &hora)
@@ -230,11 +231,11 @@ bool Consultorio::verificarDisponibilidadGimnasio(const Fecha &fecha, const stri
     }
 }
 
-// MÉTODOS DE BÚSQUEDA Y FILTRADO para Kinesios y Pacientes por nombre y apellido
+// Metodos de busqueda y filtrado para Kinesiologos y Pacientes por nombre y apellido
 
 vector<Paciente *> Consultorio::filtrarPorNombreApellidoPaciente(const string &nombre, const string &apellido)
 {
-    // Transformo el nombre a mayusculas para poder comparar los nombres sin importar mayúsculas o minúsculas
+    // Transformo el nombre a mayusculas para poder comparar los nombres sin importar mayusculas o minusculas
     string nombreBuscado = nombre;                                                           // tuve que hacer una copia porque sino me modificaba el string original
     transform(nombreBuscado.begin(), nombreBuscado.end(), nombreBuscado.begin(), ::toupper); // tuve que ver un video de youtube de un loco para entender como hacer esto
     string apellidoBuscado = apellido;
@@ -258,7 +259,7 @@ vector<Paciente *> Consultorio::filtrarPorNombreApellidoPaciente(const string &n
 
 vector<Kinesiologo *> Consultorio::filtrarPorNombreApellidoKinesiologo(const string &nombre, const string &apellido)
 {
-    // Transformo el nombre a mayúsculas para poder comparar los nombres sin importar mayúsculas o minúsculas
+    // Transformo el nombre a mayusculas para poder comparar los nombres sin importar mayusculas o minusculas
     string nombreBuscado = nombre;                                                           // tuve que hacer una copia porque sino me modificaba el string original
     transform(nombreBuscado.begin(), nombreBuscado.end(), nombreBuscado.begin(), ::toupper); // tuve que ver un video de youtube de un loco para entender como hacer esto
     string apellidoBuscado = apellido;
@@ -302,7 +303,7 @@ Paciente *Consultorio::buscarPacientePorDni(const string &dniBuscado)
             return p;
         }
     }
-    return nullptr; // si no se encontró al paciente devuelvo el nullptr
+    return nullptr; // si no se encuentra al paciente devuelvo el nullptr
 }
 
 /// METODOS PARA OBTENER LOS NOMBRES Y APELLIDOS DE LOS KINESIOLOGOS
@@ -362,8 +363,8 @@ Paciente *Consultorio::buscarPacientePorInd(size_t ind)
 
 /// METODOS PARA KINESIOLOGOS
 
-/* LOS DEJO COMENTADOS PORQUE EL ÚNICO QUE VAMOS A UTILIZAR ES POR DNI, PERO ESTOS SON LOS MÉTODOS
-SI QUISIÉSEMOS BUSCAR POR NOMBRE
+/* LOS DEJO COMENTADOS PORQUE VAMOS A UTILIZAR POR DNI, PERO ESTOS SON LOS METODOS
+SI QUISISEMOS BUSCAR POR NOMBRE
 Paciente *Consultorio::buscarPacientePorNombre(const string &nombre)
 {
     for (Paciente *p : pacientes)
@@ -410,7 +411,7 @@ Kinesiologo *Consultorio::buscarKinesiologoPorApellido(const string &apellido)
 }
 */
 
-// MÉTODOS DE ELIMINACIÓN de pacientes y kinesiologos de los vectores de Consultorio
+// METODOS DE ELIMINACION de pacientes y kinesiologos de los vectores de Consultorio
 
 // Paciente con pago pendiente
 vector<Paciente *> Consultorio::getPacientesConPagoPendiente() const
@@ -426,12 +427,12 @@ vector<Paciente *> Consultorio::getPacientesConPagoPendiente() const
     return deudores;
 }
 
-/// MÉTODOS DE ARCHIVOS BINARIOS
+/// METODOS DE ARCHIVOS BINARIOS
 
 // Metodo para guardar/cargar los pacientes en un archivo binario
 void Consultorio::guardarPacientes(const string &nombreArchivo)
 {
-    ofstream bin(nombreArchivo, ios::binary | ios::trunc); // la banderea trunc nos va a ayudar a que no se dupliquen los pacientes guardados en el vector
+    ofstream bin(nombreArchivo, ios::binary | ios::trunc); // la bandera trunc nos va a ayudar a que no se dupliquen los pacientes guardados en el vector
     if (!bin.is_open())
     {
         throw runtime_error("No se pudo abrir el archivo pacientes para escritura.");
@@ -461,9 +462,9 @@ void Consultorio::guardarPacientes(const string &nombreArchivo)
 
 void Consultorio::cargarPacientes(const string &nombreArchivo)
 {
-    ifstream bin(nombreArchivo, ios::binary); // <--- Usamos ifstream es más seguro
+    ifstream bin(nombreArchivo, ios::binary); 
     if (!bin.is_open())
-        return; // Si no existe, no es error critico, solo no carga nada
+        return; // Si no existe no carga nada
 
     // Primero limpiamos la memoria por las dudas
     for (auto p : pacientes)
@@ -473,7 +474,7 @@ void Consultorio::cargarPacientes(const string &nombreArchivo)
     RegistroPaciente RegPaciente;
     while (bin.read(reinterpret_cast<char *>(&RegPaciente), sizeof(RegistroPaciente)))
     {
-	// Implement� las modificaciones que me di� el profe Cesar
+	// Implementacion de las modificaciones que nos dio el profe Cesar
 	Paciente *p = new Paciente(
 		string(RegPaciente.nombre),
 		string(RegPaciente.apellido),
@@ -527,7 +528,7 @@ void Consultorio::cargarKinesiologos(const string &nombreArchivo)
         throw runtime_error("No se pudo abrir el archivo kinesiólogos para lectura.");
     }
 
-    // Primero limpio mi vector, y lo vuelvo a cargar
+    // Primero limpiamos el vector, y lo volvemos a cargar
     for (Kinesiologo *k : kinesiologos)
     {
         delete k;
@@ -537,7 +538,7 @@ void Consultorio::cargarKinesiologos(const string &nombreArchivo)
     RegistroKinesiologo RegKinesio;
     while (bin.read(reinterpret_cast<char *>(&RegKinesio), sizeof(RegistroKinesiologo)))
     {
-		// Implement� las modificaciones que me di� el profe Cesar
+		// Implementacion de las modificaciones que nos dio el profe Cesar
 		Kinesiologo *k = new Kinesiologo(
 			string(RegKinesio.nombre),
 			string(RegKinesio.apellido),
@@ -566,7 +567,7 @@ void Consultorio::guardarTurnos(const string &nombreArchivo)
     for (const auto &t : turnos)
     {
         RegistroTurno reg;
-		// Guardo los dnis del paciente y el kinesiologo
+		// Guardo los dni del paciente y el kinesiologo
 		reg.dniKinesiologo = t.dniKinesiologo;
 		strncpy(reg.dniPaciente, t.dniPaciente.c_str(), 15);
         reg.fecha = t.fecha;

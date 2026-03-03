@@ -60,7 +60,7 @@ void ReservarTurnoHija::OnAceptarReservaClick( wxCommandEvent& event )  {
 	fechaTurno.mes = mes;
 	fechaTurno.anio = anio;
 	
-	// Valido que el usuario haya llenado lo necesario(esta idea fue de Gemini)
+	// Valido que el usuario haya llenado lo necesario
 	if (dniPac.empty() || indiceElegido == wxNOT_FOUND || hora.empty()) {
 		wxMessageBox("Por favor, completá el DNI del paciente, elegí un Kinesiólogo y la hora del turno.", "Error", wxOK | wxICON_ERROR);
 		return;
