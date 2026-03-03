@@ -297,23 +297,13 @@ VerPacienteHija::VerPacienteHija( wxWindow* parent, wxWindowID id, const wxStrin
 	m_grillaPacientes = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 
 	// Grid
-	m_grillaPacientes->CreateGrid( 0, 10 );
+	m_grillaPacientes->CreateGrid( 0, 9 );
 	m_grillaPacientes->EnableEditing( true );
 	m_grillaPacientes->EnableGridLines( true );
 	m_grillaPacientes->EnableDragGridSize( false );
 	m_grillaPacientes->SetMargins( 0, 0 );
 
 	// Columns
-	m_grillaPacientes->SetColSize( 0, 114 );
-	m_grillaPacientes->SetColSize( 1, 144 );
-	m_grillaPacientes->SetColSize( 2, 80 );
-	m_grillaPacientes->SetColSize( 3, 80 );
-	m_grillaPacientes->SetColSize( 4, 80 );
-	m_grillaPacientes->SetColSize( 5, 106 );
-	m_grillaPacientes->SetColSize( 6, 80 );
-	m_grillaPacientes->SetColSize( 7, 135 );
-	m_grillaPacientes->SetColSize( 8, 125 );
-	m_grillaPacientes->SetColSize( 9, 77 );
 	m_grillaPacientes->EnableDragColMove( false );
 	m_grillaPacientes->EnableDragColSize( true );
 	m_grillaPacientes->SetColLabelValue( 0, wxT("Nombre") );
@@ -321,15 +311,13 @@ VerPacienteHija::VerPacienteHija( wxWindow* parent, wxWindowID id, const wxStrin
 	m_grillaPacientes->SetColLabelValue( 2, wxT("Tel") );
 	m_grillaPacientes->SetColLabelValue( 3, wxT("Dni") );
 	m_grillaPacientes->SetColLabelValue( 4, wxT("Inicio") );
-	m_grillaPacientes->SetColLabelValue( 5, wxT("Diag") );
-	m_grillaPacientes->SetColLabelValue( 6, wxT("Obra Social") );
-	m_grillaPacientes->SetColLabelValue( 7, wxT("Ses. Totales/Realizadas") );
-	m_grillaPacientes->SetColLabelValue( 8, wxT("Observaciones") );
-	m_grillaPacientes->SetColLabelValue( 9, wxT("Ses. Pagas") );
+	m_grillaPacientes->SetColLabelValue( 5, wxT("Obra Social") );
+	m_grillaPacientes->SetColLabelValue( 6, wxT("Ses. Totales/Realizadas") );
+	m_grillaPacientes->SetColLabelValue( 7, wxT("Observaciones") );
+	m_grillaPacientes->SetColLabelValue( 8, wxT("Ses. Pagas") );
+	m_grillaPacientes->SetColLabelValue( 9, wxEmptyString );
 	m_grillaPacientes->SetColLabelValue( 10, wxEmptyString );
 	m_grillaPacientes->SetColLabelValue( 11, wxEmptyString );
-	m_grillaPacientes->SetColLabelValue( 12, wxEmptyString );
-	m_grillaPacientes->SetColLabelValue( 13, wxEmptyString );
 	m_grillaPacientes->SetColLabelSize( wxGRID_AUTOSIZE );
 	m_grillaPacientes->SetColLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
 

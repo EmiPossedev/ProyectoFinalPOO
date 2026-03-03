@@ -14,14 +14,14 @@ HijaVerPacientes::HijaVerPacientes(wxWindow *parent, Consultorio *consultorio) :
 		m_grillaPacientes->SetCellValue(i,2, p->getTelefono());
 		m_grillaPacientes->SetCellValue(i,3, p->getDni());
 		m_grillaPacientes->SetCellValue(i,4, p->getFechaDeInicio().toString());
-		m_grillaPacientes->SetCellValue(i,5, p->getDiagnostico());
-		m_grillaPacientes->SetCellValue(i,6, p->getObraSocial());
-		m_grillaPacientes->SetCellValue(i,7, to_string(p->getCantidadSesionesRealizadas()) + "/" + to_string(p->getCantSesionesTotales()));
-		m_grillaPacientes->SetCellValue(i,8, p->getObservaciones());
+		m_grillaPacientes->SetCellValue(i,5, p->getObraSocial());
+		m_grillaPacientes->SetCellValue(i,6, to_string(p->getCantidadSesionesRealizadas()) + "/" + to_string(p->getCantSesionesTotales()));
+		m_grillaPacientes->SetCellValue(i,7, p->getObservaciones());
+		
 		string pagoHecho;
 		if (p->getSesionesPagas()){ pagoHecho = "Si"; } 
 		else { pagoHecho = "No";}
-		m_grillaPacientes->SetCellValue(i,9, pagoHecho);
+		m_grillaPacientes->SetCellValue(i,8, pagoHecho); 
 	}
 	
 	// Esto es para q se seleccione toda la fila, no solo una celda.
@@ -34,7 +34,7 @@ HijaVerPacientes::HijaVerPacientes(wxWindow *parent, Consultorio *consultorio) :
 
 void HijaVerPacientes::RefrescarGrillaPacientes(){
 	if (m_grillaPacientes->GetNumberRows() !=0){
-			m_grillaPacientes->DeleteRows(0,m_grillaPacientes->GetNumberRows());
+		m_grillaPacientes->DeleteRows(0,m_grillaPacientes->GetNumberRows());
 	}
 	for(size_t i=0 ; i<m_consultorio->getCantPacientes() ; i++) { 
 		Paciente *p = m_consultorio->buscarPacientePorInd(i);
@@ -44,20 +44,19 @@ void HijaVerPacientes::RefrescarGrillaPacientes(){
 		m_grillaPacientes->SetCellValue(i,2, p->getTelefono());
 		m_grillaPacientes->SetCellValue(i,3, p->getDni());
 		m_grillaPacientes->SetCellValue(i,4, p->getFechaDeInicio().toString());
-		m_grillaPacientes->SetCellValue(i,5, p->getDiagnostico());
-		m_grillaPacientes->SetCellValue(i,6, p->getObraSocial());
-		m_grillaPacientes->SetCellValue(i,7, to_string(p->getCantidadSesionesRealizadas()) + "/" + to_string(p->getCantSesionesTotales()));
-		m_grillaPacientes->SetCellValue(i,8, p->getObservaciones());
+		m_grillaPacientes->SetCellValue(i,5, p->getObraSocial());
+		m_grillaPacientes->SetCellValue(i,6, to_string(p->getCantidadSesionesRealizadas()) + "/" + to_string(p->getCantSesionesTotales()));
+		m_grillaPacientes->SetCellValue(i,7, p->getObservaciones());
+		
 		string pagoHecho;
 		if (p->getSesionesPagas()){ pagoHecho = "Si"; } 
-			else { pagoHecho = "No";}
-		m_grillaPacientes->SetCellValue(i,9, pagoHecho);
+		else { pagoHecho = "No";}
+		m_grillaPacientes->SetCellValue(i,8, pagoHecho);
 	}
 	m_grillaPacientes->EnableEditing(false);
 	m_grillaPacientes->AutoSizeColumns();
 	m_grillaPacientes->AutoSizeRows();
 }
-
 HijaVerPacientes::~HijaVerPacientes() {
 }
 
